@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inside DC — A Look at the Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0c0c0c; --bg-raised: #141414; --bg-card: #191919;
+    --white: #ffffff; --orange: #FF4921;
+    --border: #282828; --border-lt: #333333;
+    --muted: #888888; --dim: #bbbbbb;
+    --font: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  body { font-family: var(--font); background: var(--bg); color: var(--white); -webkit-font-smoothing: antialiased; }
+  body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 250px 250px; }
+  body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 9999; background: linear-gradient(90deg, transparent 0%, var(--orange) 30%, var(--orange) 70%, transparent 100%); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+  nav { position: sticky; top: 2px; z-index: 100; background: rgba(12,12,12,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); height: 68px; display: flex; align-items: center; }
+  nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .nav-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--white); }
+  .nav-cta { display: inline-block; padding: 10px 24px; background: var(--orange); color: var(--white); font-size: 13px; font-weight: 600; text-decoration: none; border: 2px solid var(--orange); border-radius: 300px; transition: background 0.15s, color 0.15s; }
+  .nav-cta:hover { background: transparent; color: var(--orange); }
+
+  .eyebrow { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); border: 1.5px solid var(--orange); padding: 6px 16px; border-radius: 300px; margin-bottom: 28px; }
+
+  /* HERO */
+  .hero { padding: 80px 0 64px; border-bottom: 1px solid var(--border); }
+  .hero h1 { font-size: clamp(36px, 4.5vw, 64px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
+  .hero p { font-size: 17px; color: var(--dim); max-width: 560px; line-height: 1.7; margin-bottom: 8px; }
+  .hero-note { font-size: 12px; color: #555; margin-top: 16px; }
+
+  /* BROWSER CHROME WRAPPER */
+  .browser { border: 1px solid var(--border-lt); border-radius: 12px; overflow: hidden; background: var(--bg-card); box-shadow: 0 32px 80px rgba(0,0,0,0.6); }
+  .browser-bar { background: #1e1e1e; padding: 12px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); }
+  .browser-dots { display: flex; gap: 6px; }
+  .browser-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .browser-dot.red { background: #ff5f57; }
+  .browser-dot.yellow { background: #febc2e; }
+  .browser-dot.green { background: #28c840; }
+  .browser-url { flex: 1; background: #2a2a2a; border-radius: 6px; padding: 6px 14px; font-size: 12px; color: var(--muted); letter-spacing: 0.01em; }
+
+  /* APP LAYOUT */
+  .app-layout { display: grid; grid-template-columns: 240px 1fr; min-height: 640px; }
+
+  /* SIDEBAR */
+  .sidebar { background: #111; border-right: 1px solid var(--border); padding: 20px 0; display: flex; flex-direction: column; }
+  .sidebar-section { padding: 0 16px; margin-bottom: 24px; }
+  .sidebar-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #444; margin-bottom: 8px; padding: 0 8px; }
+  .sidebar-item { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: 6px; cursor: pointer; transition: background 0.1s; font-size: 13px; color: var(--muted); }
+  .sidebar-item:hover { background: rgba(255,255,255,0.05); color: var(--dim); }
+  .sidebar-item.active { background: rgba(255,73,33,0.12); color: var(--white); }
+  .sidebar-item .icon { width: 16px; height: 16px; opacity: 0.5; flex-shrink: 0; }
+  .sidebar-item.active .icon { opacity: 1; }
+  .sidebar-badge { margin-left: auto; font-size: 10px; font-weight: 700; background: var(--orange); color: var(--white); padding: 2px 6px; border-radius: 300px; }
+  .sidebar-divider { height: 1px; background: var(--border); margin: 8px 16px 16px; }
+
+  /* MAIN FEED */
+  .app-main { display: flex; flex-direction: column; overflow: hidden; }
+  .app-topbar { padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg-card); }
+  .app-topbar-title { font-size: 15px; font-weight: 600; }
+  .app-topbar-meta { font-size: 12px; color: var(--muted); }
+  .app-feed { padding: 0; overflow-y: auto; max-height: 580px; }
+
+  /* THREAD */
+  .thread { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; gap: 14px; cursor: pointer; transition: background 0.1s; }
+  .thread:hover { background: rgba(255,255,255,0.02); }
+  .thread.unread { background: rgba(255,73,33,0.03); }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.6); }
+  .thread-body { flex: 1; min-width: 0; }
+  .thread-top { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+  .thread-author { font-size: 13px; font-weight: 600; color: var(--white); }
+  .thread-time { font-size: 11px; color: #444; margin-left: auto; flex-shrink: 0; }
+  .thread-title { font-size: 14px; font-weight: 600; color: var(--dim); margin-bottom: 4px; }
+  .thread-preview { font-size: 13px; color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 580px; }
+  .thread-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .thread-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 300px; border: 1px solid var(--border); color: #555; }
+  .thread-tag.orange { border-color: rgba(255,73,33,0.3); color: var(--orange); }
+  .thread-replies { font-size: 11px; color: #444; margin-top: 6px; }
+  .thread.unread .thread-title { color: var(--white); }
+  .thread.unread .thread-preview { color: var(--muted); }
+
+  /* MEMBER PROFILES STRIP */
+  .members-strip { padding: 24px; border-bottom: 1px solid var(--border); }
+  .members-strip-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .members-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 4px; }
+  .member-card { flex-shrink: 0; width: 140px; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 10px; padding: 16px 14px; text-align: center; }
+  .member-avatar { width: 48px; height: 48px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.5); }
+  .member-industry { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .member-location { font-size: 11px; color: #444; display: flex; align-items: center; justify-content: center; gap: 4px; }
+
+  /* CHANNELS SECTION */
+  .channels-section { padding: 24px; }
+  .channels-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .channels-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .channel-pill { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; font-size: 13px; color: var(--dim); transition: border-color 0.15s; cursor: pointer; }
+  .channel-pill:hover { border-color: var(--border-lt); color: var(--white); }
+  .channel-pill .ch-name { font-weight: 600; margin-bottom: 3px; }
+  .channel-pill .ch-count { font-size: 11px; color: #444; }
+
+  /* ANNOTATION CALLOUT */
+  .callout-box { background: rgba(255,73,33,0.06); border: 1px solid rgba(255,73,33,0.2); border-radius: 10px; padding: 20px 24px; margin: 24px 0; display: flex; gap: 16px; align-items: flex-start; }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout-text { font-size: 14px; color: var(--dim); line-height: 1.6; }
+  .callout-text strong { color: var(--white); }
+
+  /* SECTION BELOW BROWSER */
+  .section { border-top: 1px solid var(--border); padding: 80px 0; }
+  .section h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .section p { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.7; }
+
+  .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); margin-top: 48px; }
+  .cat-cell { padding: 24px 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .cat-cell:nth-child(3n) { border-right: none; }
+  .cat-name { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .cat-posts { font-size: 13px; color: var(--muted); }
+  .cat-bar { margin-top: 12px; height: 3px; background: rgba(255,255,255,0.06); border-radius: 300px; overflow: hidden; }
+  .cat-fill { height: 100%; background: var(--orange); border-radius: 300px; opacity: 0.6; }
+
+  footer { padding: 40px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+  .footer-links { display: flex; gap: 28px; }
+
+  /* BLURRED OVERLAY */
+  .blur-notice { position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(transparent, var(--bg-card)); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px; pointer-events: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="#" class="nav-logo">Dynamite Circle</a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Inside DC</a></li>
+      <li><a href="#">DC BLACK</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Apply to join</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" style="border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <span class="eyebrow">DC InsideOut</span>
+    <h1>This is what you're<br>actually joining.</h1>
+    <p>Not a pitch. A look at the real platform — the discussions, the channels, the people — with all the names removed. Judge it for yourself.</p>
+    <p class="hero-note">Member names and photos are anonymized. Discussion topics, categories, and activity counts are real.</p>
+  </div>
+</div>
+
+<!-- BROWSER MOCKUP -->
+<div style="padding: 64px 0; border-bottom: 1px solid var(--border); background: var(--bg-raised);">
+  <div class="container">
+
+    <div class="callout-box" style="margin-bottom: 40px; margin-top: 0;">
+      <div class="callout-icon">👁</div>
+      <div class="callout-text"><strong>What you're looking at:</strong> The DC platform is a private, members-only web app. This is a real snapshot of what's inside — actual discussion topics, real channel names, and real activity data. Member identities are hidden.</div>
+    </div>
+
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <div class="browser-dot red"></div>
+          <div class="browser-dot yellow"></div>
+          <div class="browser-dot green"></div>
+        </div>
+        <div class="browser-url">dynamitecircle.com/app · Members only</div>
+      </div>
+
+      <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+          <div class="sidebar-section">
+            <div class="sidebar-label">Main</div>
+            <div class="sidebar-item active">
+              <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v10H2V2zm0 12l3-2h9V2H2v12z" opacity=".5"/></svg>
+              Discussions
+              <span class="sidebar-badge">12</span>
+            </div>
+            <div class="sidebar-item">
+              <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6"/></svg>
+              Members
+            </div>
+            <div class="sidebar-item">
+              <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"/></svg>
+              Events
+            </div>
+            <div class="sidebar-item">
+              <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v2H3V3zm0 4h10v2H3V7zm0 4h7v2H3v-2z"/></svg>
+              Masterminds
+            </div>
+          </div>
+          <div class="sidebar-divider"></div>
+          <div class="sidebar-section">
+            <div class="sidebar-label">Channels</div>
+            <div class="sidebar-item">
+              <span style="font-size:11px; color:#444; font-weight:700;">#</span>
+              AI
+              <span class="sidebar-badge">47</span>
+            </div>
+            <div class="sidebar-item">
+              <span style="font-size:11px; color:#444; font-weight:700;">#</span>
+              SEO
+            </div>
+            <div class="sidebar-item">
+              <span style="font-size:11px; color:#444; font-weight:700;">#</span>
+              Agency Owners
+            </div>
+            <div class="sidebar-item">
+              <span style="font-size:11px; color:#444; font-weight:700;">#</span>
+              SaaS
+            </div>
+            <div class="sidebar-item">
+              <span style="font-size:11px; color:#444; font-weight:700;">#</span>
+              Investing
+            </div>
+            <div class="sidebar-item">
+              <span style="font-size:11px; color:#444; font-weight:700;">#</span>
+              Real Estate
+            </div>
+            <div class="sidebar-item" style="color:#333;">
+              <span style="font-size:11px; color:#333; font-weight:700;">#</span>
+              + 14 more channels
+            </div>
+          </div>
+          <div class="sidebar-divider"></div>
+          <div class="sidebar-section">
+            <div class="sidebar-label">Your City</div>
+            <div class="sidebar-item">
+              <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a5 5 0 100 10A5 5 0 008 1zm0 7a2 2 0 110-4 2 2 0 010 4z"/></svg>
+              Bangkok
+            </div>
+            <div class="sidebar-item">
+              <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a5 5 0 100 10A5 5 0 008 1zm0 7a2 2 0 110-4 2 2 0 010 4z"/></svg>
+              Chiang Mai
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="app-main">
+          <div class="app-topbar">
+            <div>
+              <div class="app-topbar-title">Discussions — Help me with my business</div>
+              <div class="app-topbar-meta">23,622 posts · Most active category</div>
+            </div>
+            <div style="font-size: 12px; color: var(--muted);">Sort: Recent ↓</div>
+          </div>
+
+          <div class="app-feed">
+
+            <!-- MEMBERS STRIP -->
+            <div class="members-strip">
+              <div class="members-strip-label">Online now — 38 members</div>
+              <div class="members-row">
+                <div class="member-card">
+                  <div class="member-avatar" style="background: #2a3a2a;">🇬🇧</div>
+                  <div class="member-industry">SaaS founder</div>
+                  <div class="member-location">🇬🇧 London</div>
+                </div>
+                <div class="member-card">
+                  <div class="member-avatar" style="background: #2a2a3a;">🇹🇭</div>
+                  <div class="member-industry">Agency owner</div>
+                  <div class="member-location">🇹🇭 Bangkok</div>
+                </div>
+                <div class="member-card">
+                  <div class="member-avatar" style="background: #3a2a2a;">🇵🇹</div>
+                  <div class="member-industry">Consulting</div>
+                  <div class="member-location">🇵🇹 Lisbon</div>
+                </div>
+                <div class="member-card">
+                  <div class="member-avatar" style="background: #2a3a3a;">🇦🇺</div>
+                  <div class="member-industry">E-commerce</div>
+                  <div class="member-location">🇦🇺 Sydney</div>
+                </div>
+                <div class="member-card">
+                  <div class="member-avatar" style="background: #3a3a2a;">🇲🇽</div>
+                  <div class="member-industry">Info products</div>
+                  <div class="member-location">🇲🇽 Playa del Carmen</div>
+                </div>
+                <div class="member-card">
+                  <div class="member-avatar" style="background: #2a2a2a;">🇯🇵</div>
+                  <div class="member-industry">Productized services</div>
+                  <div class="member-location">🇯🇵 Tokyo</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- THREADS -->
+            <div class="thread unread">
+              <div class="avatar" style="background: #1f2e1f;">🌿</div>
+              <div class="thread-body">
+                <div class="thread-top">
+                  <span class="thread-author">Member · Agency Owner · 🇬🇧</span>
+                  <span class="thread-time">2h ago</span>
+                </div>
+                <div class="thread-title">The secret to hiring true A-players?</div>
+                <div class="thread-preview">What's the single best resource you've used to hire A-players for a small business? I've tried scorecards, working interviews, references...</div>
+                <div class="thread-tags"><span class="thread-tag orange">Help me with my business</span><span class="thread-tag">Hiring</span></div>
+                <div class="thread-replies">↩ 23 replies</div>
+              </div>
+            </div>
+
+            <div class="thread unread">
+              <div class="avatar" style="background: #2a1f1f;">🔥</div>
+              <div class="thread-body">
+                <div class="thread-top">
+                  <span class="thread-author">Member · SaaS founder · 🇺🇸</span>
+                  <span class="thread-time">4h ago</span>
+                </div>
+                <div class="thread-title">AI-first mastermind forming — CST evenings, 3–5 builders</div>
+                <div class="thread-preview">Looking to put together a mastermind of 3-5 folks actively building AI products for business growth. Not just experimenting — actually shipping...</div>
+                <div class="thread-tags"><span class="thread-tag orange">Mastermind</span><span class="thread-tag">AI</span></div>
+                <div class="thread-replies">↩ 11 replies</div>
+              </div>
+            </div>
+
+            <div class="thread">
+              <div class="avatar" style="background: #1f1f2e;">💼</div>
+              <div class="thread-body">
+                <div class="thread-top">
+                  <span class="thread-author">Member · Consultant · 🇩🇪</span>
+                  <span class="thread-time">6h ago</span>
+                </div>
+                <div class="thread-title">Paying contractors with a declining dollar — how do you handle it?</div>
+                <div class="thread-preview">My contractor in South Africa says she gets paid ~20% less in rand now vs. 18 months ago. Do you absorb it, adjust the rate, pay in local currency?</div>
+                <div class="thread-tags"><span class="thread-tag orange">Help me with my business</span><span class="thread-tag">International Banking</span></div>
+                <div class="thread-replies">↩ 18 replies</div>
+              </div>
+            </div>
+
+            <div class="thread">
+              <div class="avatar" style="background: #2e2a1f;">⚡</div>
+              <div class="thread-body">
+                <div class="thread-top">
+                  <span class="thread-author">Member · E-commerce · 🇹🇭</span>
+                  <span class="thread-time">Yesterday</span>
+                </div>
+                <div class="thread-title">Huge spike in direct traffic from Google data centers — anyone else?</div>
+                <div class="thread-preview">Seeing 4x baseline direct traffic from Google data center IPs on Shopify. Started about 3 weeks ago. Not bots, but not customers either...</div>
+                <div class="thread-tags"><span class="thread-tag">SEO / SEM</span><span class="thread-tag">E-Commerce</span></div>
+                <div class="thread-replies">↩ 31 replies</div>
+              </div>
+            </div>
+
+            <div class="thread">
+              <div class="avatar" style="background: #1f2a2a;">🌎</div>
+              <div class="thread-body">
+                <div class="thread-top">
+                  <span class="thread-author">Member · Info products · 🇨🇦</span>
+                  <span class="thread-time">Yesterday</span>
+                </div>
+                <div class="thread-title">Setting up a company in Estonia — tips from people who've done it?</div>
+                <div class="thread-preview">I've read the e-Residency guides but want to hear from people who've actually done it. Tax angle, banking, the actual day-to-day friction...</div>
+                <div class="thread-tags"><span class="thread-tag">International Banking</span><span class="thread-tag">Legal</span></div>
+                <div class="thread-replies">↩ 14 replies</div>
+              </div>
+            </div>
+
+            <div class="thread">
+              <div class="avatar" style="background: #2a2a1f;">🏄</div>
+              <div class="thread-body">
+                <div class="thread-top">
+                  <span class="thread-author">Member · Agency owner · 🇦🇺</span>
+                  <span class="thread-time">2 days ago</span>
+                </div>
+                <div class="thread-title">Meta Ads Manager for a small account — anyone looking for a side project?</div>
+                <div class="thread-preview">Client currently running Google Ads, they want to start on Meta. Monthly spend low 4-figures. Looking for someone good, not someone cheap...</div>
+                <div class="thread-tags"><span class="thread-tag">Marketing</span><span class="thread-tag">Referral</span></div>
+                <div class="thread-replies">↩ 9 replies</div>
+              </div>
+            </div>
+
+            <div class="thread">
+              <div class="avatar" style="background: #1f1f1f;">🌿</div>
+              <div class="thread-body">
+                <div class="thread-top">
+                  <span class="thread-author">Member · SaaS · 🇵🇹</span>
+                  <span class="thread-time">2 days ago</span>
+                </div>
+                <div class="thread-title">Anyone doing business in climate / nature conservation?</div>
+                <div class="thread-preview">Finally building a business in climate. Looking for others in CO2 removal, deforestation, ocean restoration. How many of us are there in DC?</div>
+                <div class="thread-tags"><span class="thread-tag">General</span><span class="thread-tag">Climate</span></div>
+                <div class="thread-replies">↩ 7 replies</div>
+              </div>
+            </div>
+
+            <!-- CHANNELS -->
+            <div class="channels-section">
+              <div class="channels-label">Active channels</div>
+              <div class="channels-grid">
+                <div class="channel-pill"><div class="ch-name"># AI</div><div class="ch-count">5,905 posts</div></div>
+                <div class="channel-pill"><div class="ch-name"># Neurodivergents</div><div class="ch-count">1,003 posts</div></div>
+                <div class="channel-pill"><div class="ch-name"># SEO</div><div class="ch-count">256 posts</div></div>
+                <div class="channel-pill"><div class="ch-name"># Agency Owners</div><div class="ch-count">Active</div></div>
+                <div class="channel-pill"><div class="ch-name"># SaaS</div><div class="ch-count">Active</div></div>
+                <div class="channel-pill"><div class="ch-name"># Crypto & Web3</div><div class="ch-count">155 posts</div></div>
+                <div class="channel-pill"><div class="ch-name"># Guitar Chat</div><div class="ch-count">42 posts</div></div>
+                <div class="channel-pill"><div class="ch-name"># Rock Climbing</div><div class="ch-count">Active</div></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DISCUSSION CATEGORIES -->
+<div class="section">
+  <div class="container">
+    <span class="eyebrow">What people talk about</span>
+    <h2>Real conversations.<br>Not a LinkedIn feed.</h2>
+    <p>DC has 16 discussion categories with hundreds of thousands of posts. The two biggest: General/Lifestyle and Help me with my business. Real questions, real answers, from people who've been there.</p>
+
+    <div class="cat-grid">
+      <div class="cat-cell">
+        <div class="cat-name">General / Lifestyle</div>
+        <div class="cat-posts">51,232 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:100%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">Help me with my business</div>
+        <div class="cat-posts">23,622 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:46%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">Events</div>
+        <div class="cat-posts">12,970 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:25%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">Travel</div>
+        <div class="cat-posts">11,527 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:23%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">Tools & Technology</div>
+        <div class="cat-posts">10,685 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:21%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">Marketing</div>
+        <div class="cat-posts">9,876 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:19%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">International Banking & Finance</div>
+        <div class="cat-posts">7,749 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:15%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">SEO / SEM</div>
+        <div class="cat-posts">6,941 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:14%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">Business Development</div>
+        <div class="cat-posts">6,855 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:13%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">Physical & Mental Fitness</div>
+        <div class="cat-posts">5,896 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:12%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">Outsourcing / HR</div>
+        <div class="cat-posts">5,697 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:11%"></div></div>
+      </div>
+      <div class="cat-cell">
+        <div class="cat-name">Case Studies</div>
+        <div class="cat-posts">5,802 posts</div>
+        <div class="cat-bar"><div class="cat-fill" style="width:11%"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<div style="padding: 100px 0; text-align: center; position: relative; overflow: hidden;">
+  <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255,73,33,0.05) 0%, transparent 70%); pointer-events: none;"></div>
+  <div class="container" style="position: relative;">
+    <span class="eyebrow">Ready to get inside?</span>
+    <h2 style="font-size: clamp(28px, 4vw, 52px); font-weight: 700; letter-spacing: -0.02em; margin: 24px 0 16px;">This is what you'd be joining.</h2>
+    <p style="font-size: 16px; color: var(--muted); margin: 0 auto 44px; max-width: 480px;">$100K+ annual revenue to apply. If you're already doing $1M+, see DC BLACK instead.</p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="#" style="display:inline-block; padding:15px 36px; background:var(--orange); color:var(--white); font-size:15px; font-weight:600; text-decoration:none; border:2px solid var(--orange); border-radius:300px; font-family:var(--font);">Apply to DC →</a>
+      <a href="#" style="display:inline-block; padding:15px 36px; background:transparent; color:var(--white); font-size:15px; font-weight:600; text-decoration:none; border:2px solid var(--border-lt); border-radius:300px; font-family:var(--font);">DC BLACK ($1M+) →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Dynamite Circle</span>
+  <div class="footer-links">
+    <a href="#">About</a><a href="#">Events</a><a href="#">DC BLACK</a><a href="#">Apply</a>
+  </div>
+</footer>
+
+</body>
+</html>
