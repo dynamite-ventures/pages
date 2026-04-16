@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hive Minded — A Shared AI Brain for Your Team</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dc: {
+              orange:  '#FF4921',
+              'orange-lt': '#FF6B4A',
+              bg:      '#0B0C0E',
+              raised:  '#17181C',
+              card:    '#25262B',
+              border:  '#30333D',
+              'border-lt': '#3D3F47',
+              text:    '#F1F2F3',
+              muted:   '#9ca3af',
+              dim:     '#545761',
+            }
+          },
+          fontFamily: {
+            sans:   ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Inter', 'Helvetica', 'Arial', 'sans-serif'],
+            script: ['"Great Vibes"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #0B0C0E; color: #F1F2F3; }
+    ::selection { background: #FF492133; color: #F1F2F3; }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-dc-border bg-dc-bg/90 backdrop-blur-sm">
+    <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
+
+      <!-- DC logo + wordmark -->
+      <div class="flex items-center gap-3">
+        <svg width="36" height="36" viewBox="0 0 376 376" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><mask id="b" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="28" y="108" width="321" height="160"><rect x="28.044" y="108" width="320.495" height="160" fill="url(#c)"/></mask><g mask="url(#b)"><path fill-rule="evenodd" clip-rule="evenodd" d="M69.374 160.691C82.985 152.487 101.801 148.943 124.192 148.943c49.238 0 123.234 9.672 166.203 19.769 6.461 1.519 10.467 7.979 8.946 14.43-1.521 6.451-7.991 10.45-14.452 8.932C243.512 182.351 171.369 172.943 124.192 172.943c-20.488 0-34.2 3.354-42.395 8.294-7.377 4.447-10.64 10.289-10.64 18.49 0 6.628-5.381 12-12.018 12-6.638 0-12.019-5.372-12.019-12 0-16.788 7.824-30.338 22.254-39.036z" fill="#FF4921"/></g><path fill-rule="evenodd" clip-rule="evenodd" d="M189.639 87.6c6.596.744 11.339 6.686 10.593 13.271-7.88 69.614-23.194 107.49-40.81 127.979-8.991 10.458-18.488 16.269-27.487 19.325-8.855 3.006-16.619 3.118-21.411 3.118-13.226 0-28.405-4.33-40.54-12.439-12.209-8.161-22.864-21.329-22.864-39.126 0-6.628 5.381-12 12.019-12 6.637 0 12.018 5.372 12.018 12 0 7.193 4.157 13.807 12.198 19.181 8.118 5.426 18.631 8.384 27.169 8.384 4.195 0 8.697-.151 13.673-1.841 4.832-1.64 10.731-4.958 16.987-12.234 12.877-14.978 27.459-46.986 35.163-115.042.746-6.585 6.697-11.32 13.292-10.576zM235.505 188.295c-8.532 7.23-13.671 16.539-13.671 26.299 0 3.027 1.357 5.788 4.676 8.191 3.517 2.546 9.033 4.409 15.716 4.409 31.9 0 79.323-8.766 116.019-20.569 6.318-2.032 13.09 1.434 15.125 7.743 2.035 6.308-1.437 13.069-7.755 15.101-38.349 12.334-88.322 21.725-123.389 21.725-10.825 0-21.514-2.962-29.825-8.979-8.509-6.159-14.604-15.698-14.604-27.621 0-18.569 9.75-34.086 22.154-44.598 12.317-10.437 28.493-17.052 43.838-17.052 6.637 0 12.018 5.373 12.018 12 0 6.628-5.381 12-12.018 12-8.852 0-19.663 4.045-28.284 11.351z" fill="#FF4921"/><path fill-rule="evenodd" clip-rule="evenodd" d="M251.789 164.944c0-6.627 5.373-12 12-12 9.907 0 18.41 2.155 24.841 6.356 6.38 4.168 11.306 10.915 11.306 19.144 0 1.815-.366 3.902-.723 5.18-1.784 6.383-8.405 10.111-14.787 8.327-5.6-1.565-9.156-6.852-8.74-12.436a8.3 8.3 0 0 1-.319-.386c-1.506-.983-5.077-2.449-11.716-2.449-6.627 0-12.862-5.372-11.862-12.736zm24.541 15.123c-.003.001-.02-.019-.047-.06.035.039.049.06.047.06z" fill="#FF4921"/><path fill-rule="evenodd" clip-rule="evenodd" d="M196.93 24.227c-39.708-2.088-78.826 10.277-110.096 34.8C55.563 83.55 34.264 118.567 26.888 157.579c-7.376 39.013-.327 79.372 19.838 113.59 20.165 34.218 52.077 59.97 89.814 72.479 37.738 12.508 78.739 10.924 115.396-4.46 36.657-15.383 66.48-43.521 83.935-79.193 2.914-5.954 10.111-8.423 16.075-5.514 5.964 2.91 8.436 10.096 5.523 16.05-20.011 40.892-54.198 73.148-96.219 90.782-42.021 17.635-89.022 19.451-132.283 5.112C85.707 352.086 49.125 322.565 26.009 283.34 2.893 244.115-5.187 197.849 3.268 153.128 11.723 108.406 36.139 68.265 71.986 40.153 107.833 12.041 152.676-2.133 198.195.26c45.518 2.394 88.622 21.193 121.313 52.909 32.691 31.716 52.748 74.195 56.452 119.557.539 6.606-4.387 12.397-11.003 12.936-6.616.538-12.416-4.38-12.955-10.986-3.23-39.57-20.728-76.627-49.245-104.294-28.518-27.668-66.119-44.067-105.827-46.155z" fill="#FF4921"/></g><defs><linearGradient id="c" x1="304.994" y1="182.849" x2="65.315" y2="152.186" gradientUnits="userSpaceOnUse"><stop offset=".091" stop-color="#FF21DE"/><stop offset=".244" stop-color="#FF4921" stop-opacity=".5"/><stop offset=".283" stop-color="#FF4921" stop-opacity=".45"/><stop offset=".444" stop-color="#FF4921" stop-opacity=".5"/><stop offset=".95" stop-color="#FF4921"/></linearGradient><clipPath id="a"><rect width="376" height="376" fill="white"/></clipPath></defs></svg>
+        <span class="font-script text-2xl text-dc-orange leading-none" style="line-height:1">Hive Minded</span>
+      </div>
+
+      <a href="#survey" class="text-sm font-semibold bg-dc-orange text-white px-4 py-2 rounded hover:bg-dc-orange-lt transition-colors">
+        Take the survey →
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="min-h-screen flex flex-col justify-center pt-28 pb-20 px-6">
+    <div class="max-w-4xl mx-auto w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
+      <div><!-- left col -->
+
+      <!-- Large logo mark -->
+      <div class="flex items-center gap-5 mb-10">
+        <svg width="80" height="80" viewBox="0 0 376 376" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a2)"><mask id="b2" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="28" y="108" width="321" height="160"><rect x="28.044" y="108" width="320.495" height="160" fill="url(#c2)"/></mask><g mask="url(#b2)"><path fill-rule="evenodd" clip-rule="evenodd" d="M69.374 160.691C82.985 152.487 101.801 148.943 124.192 148.943c49.238 0 123.234 9.672 166.203 19.769 6.461 1.519 10.467 7.979 8.946 14.43-1.521 6.451-7.991 10.45-14.452 8.932C243.512 182.351 171.369 172.943 124.192 172.943c-20.488 0-34.2 3.354-42.395 8.294-7.377 4.447-10.64 10.289-10.64 18.49 0 6.628-5.381 12-12.018 12-6.638 0-12.019-5.372-12.019-12 0-16.788 7.824-30.338 22.254-39.036z" fill="#FF4921"/></g><path fill-rule="evenodd" clip-rule="evenodd" d="M189.639 87.6c6.596.744 11.339 6.686 10.593 13.271-7.88 69.614-23.194 107.49-40.81 127.979-8.991 10.458-18.488 16.269-27.487 19.325-8.855 3.006-16.619 3.118-21.411 3.118-13.226 0-28.405-4.33-40.54-12.439-12.209-8.161-22.864-21.329-22.864-39.126 0-6.628 5.381-12 12.019-12 6.637 0 12.018 5.372 12.018 12 0 7.193 4.157 13.807 12.198 19.181 8.118 5.426 18.631 8.384 27.169 8.384 4.195 0 8.697-.151 13.673-1.841 4.832-1.64 10.731-4.958 16.987-12.234 12.877-14.978 27.459-46.986 35.163-115.042.746-6.585 6.697-11.32 13.292-10.576zM235.505 188.295c-8.532 7.23-13.671 16.539-13.671 26.299 0 3.027 1.357 5.788 4.676 8.191 3.517 2.546 9.033 4.409 15.716 4.409 31.9 0 79.323-8.766 116.019-20.569 6.318-2.032 13.09 1.434 15.125 7.743 2.035 6.308-1.437 13.069-7.755 15.101-38.349 12.334-88.322 21.725-123.389 21.725-10.825 0-21.514-2.962-29.825-8.979-8.509-6.159-14.604-15.698-14.604-27.621 0-18.569 9.75-34.086 22.154-44.598 12.317-10.437 28.493-17.052 43.838-17.052 6.637 0 12.018 5.373 12.018 12 0 6.628-5.381 12-12.018 12-8.852 0-19.663 4.045-28.284 11.351z" fill="#FF4921"/><path fill-rule="evenodd" clip-rule="evenodd" d="M251.789 164.944c0-6.627 5.373-12 12-12 9.907 0 18.41 2.155 24.841 6.356 6.38 4.168 11.306 10.915 11.306 19.144 0 1.815-.366 3.902-.723 5.18-1.784 6.383-8.405 10.111-14.787 8.327-5.6-1.565-9.156-6.852-8.74-12.436a8.3 8.3 0 0 1-.319-.386c-1.506-.983-5.077-2.449-11.716-2.449-6.627 0-12.862-5.372-11.862-12.736zm24.541 15.123c-.003.001-.02-.019-.047-.06.035.039.049.06.047.06z" fill="#FF4921"/><path fill-rule="evenodd" clip-rule="evenodd" d="M196.93 24.227c-39.708-2.088-78.826 10.277-110.096 34.8C55.563 83.55 34.264 118.567 26.888 157.579c-7.376 39.013-.327 79.372 19.838 113.59 20.165 34.218 52.077 59.97 89.814 72.479 37.738 12.508 78.739 10.924 115.396-4.46 36.657-15.383 66.48-43.521 83.935-79.193 2.914-5.954 10.111-8.423 16.075-5.514 5.964 2.91 8.436 10.096 5.523 16.05-20.011 40.892-54.198 73.148-96.219 90.782-42.021 17.635-89.022 19.451-132.283 5.112C85.707 352.086 49.125 322.565 26.009 283.34 2.893 244.115-5.187 197.849 3.268 153.128 11.723 108.406 36.139 68.265 71.986 40.153 107.833 12.041 152.676-2.133 198.195.26c45.518 2.394 88.622 21.193 121.313 52.909 32.691 31.716 52.748 74.195 56.452 119.557.539 6.606-4.387 12.397-11.003 12.936-6.616.538-12.416-4.38-12.955-10.986-3.23-39.57-20.728-76.627-49.245-104.294-28.518-27.668-66.119-44.067-105.827-46.155z" fill="#FF4921"/></g><defs><linearGradient id="c2" x1="304.994" y1="182.849" x2="65.315" y2="152.186" gradientUnits="userSpaceOnUse"><stop offset=".091" stop-color="#FF21DE"/><stop offset=".244" stop-color="#FF4921" stop-opacity=".5"/><stop offset=".283" stop-color="#FF4921" stop-opacity=".45"/><stop offset=".444" stop-color="#FF4921" stop-opacity=".5"/><stop offset=".95" stop-color="#FF4921"/></linearGradient><clipPath id="a2"><rect width="376" height="376" fill="white"/></clipPath></defs></svg>
+        <div>
+          <p class="font-script text-5xl text-dc-orange leading-none">Hive Minded</p>
+          <p class="text-dc-dim text-xs tracking-widest uppercase mt-1">by Dynamite Circle</p>
+        </div>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-8 max-w-3xl">
+        The shared brain your whole team works inside.
+      </h1>
+      <p class="text-dc-muted text-lg sm:text-xl leading-relaxed max-w-2xl mb-10">
+        We built an AI layer for our own business — connected to our CRM, billing, support, and ops. Now everyone on the team thinks with the company's full history behind them. We're testing whether to install this inside 10 outside companies.
+      </p>
+      <a href="#survey" class="inline-block bg-dc-orange text-white font-bold px-8 py-4 rounded text-base hover:bg-dc-orange-lt transition-colors">
+        Take the 3-minute survey →
+      </a>
+      </div><!-- end left col -->
+
+      <!-- Right col: working session photo -->
+      <div class="hidden lg:flex relative rounded-2xl overflow-hidden" style="min-height:480px">
+        <img src="https://cdn.dynamitecircle.com/images/b46329b9000d1aebf1ab26ffbb32aa33.jpg"
+             alt="DCBKK Bangkok skyline at night"
+             class="absolute inset-0 w-full h-full object-cover object-center">
+        <div class="absolute inset-0" style="background:linear-gradient(to bottom, transparent 40%, #0B0C0E 100%)"></div>
+        <p class="absolute bottom-4 left-4 right-4 text-dc-dim text-xs tracking-widest uppercase">DCBKK 2025 · Bangkok</p>
+      </div>
+
+      </div><!-- end grid -->
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="max-w-4xl mx-auto px-6"><div class="border-t border-dc-border"></div></div>
+
+  <!-- ═══ PROBLEM ═══ -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-dc-orange text-xs font-bold tracking-widest uppercase mb-4">The Problem</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 max-w-xl leading-tight">
+        Your team is using AI.<br>Your company isn't.
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+        <div class="bg-dc-card border border-dc-border rounded-lg p-6">
+          <p class="text-dc-muted text-base leading-relaxed">Someone opens ChatGPT, gets an answer, closes the tab — the insight disappears forever.</p>
+        </div>
+        <div class="bg-dc-card border border-dc-border rounded-lg p-6">
+          <p class="text-dc-muted text-base leading-relaxed">A new hire spends 3 months piecing together context that walked out the door with the last person.</p>
+        </div>
+        <div class="bg-dc-card border border-dc-border rounded-lg p-6">
+          <p class="text-dc-muted text-base leading-relaxed">The account manager writes client updates without access to that client's 2-year history.</p>
+        </div>
+        <div class="bg-dc-card border border-dc-border rounded-lg p-6">
+          <p class="text-dc-muted text-base leading-relaxed">Leadership can't get a clear picture of the business without asking three different people.</p>
+        </div>
+      </div>
+      <p class="text-dc-dim text-base italic max-w-xl">Every individual gets a little more productive. Nothing compounds. The company doesn't get smarter.</p>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="max-w-4xl mx-auto px-6"><div class="border-t border-dc-border"></div></div>
+
+  <!-- ═══ THE SHIFT ═══ -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-dc-orange text-xs font-bold tracking-widest uppercase mb-4">The Shift</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 max-w-2xl leading-tight">
+        The companies pulling ahead aren't using AI more. They're using it together.
+      </h2>
+      <div class="space-y-0">
+        <div class="flex items-start gap-6 border-b border-dc-border py-7">
+          <span class="text-dc-orange font-mono text-xs mt-1 flex-shrink-0 w-6 pt-1">01</span>
+          <p class="text-dc-text text-lg leading-relaxed">New hires inherit the company's full institutional knowledge on day one.</p>
+        </div>
+        <div class="flex items-start gap-6 border-b border-dc-border py-7">
+          <span class="text-dc-orange font-mono text-xs mt-1 flex-shrink-0 w-6 pt-1">02</span>
+          <p class="text-dc-text text-lg leading-relaxed">Every customer interaction, revenue movement, and project outcome is queryable by anyone on the team.</p>
+        </div>
+        <div class="flex items-start gap-6 py-7">
+          <span class="text-dc-orange font-mono text-xs mt-1 flex-shrink-0 w-6 pt-1">03</span>
+          <p class="text-dc-text text-lg leading-relaxed">Every piece of work done by one person adds to what the whole company knows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMMUNITY PHOTO ═══ -->
+  <section class="py-6 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="relative rounded-2xl overflow-hidden" style="aspect-ratio:21/8">
+        <img src="https://cdn.dynamitecircle.com/images/da3a4788ffbc64e6ecbfc96973b3958b.jpg"
+             alt="DC members at a rooftop dinner, Bangkok skyline"
+             class="w-full h-full object-cover object-center">
+        <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(11,12,14,0.15) 0%, rgba(11,12,14,0.55) 100%)"></div>
+        <div class="absolute bottom-0 left-0 right-0 px-8 py-6">
+          <p class="text-white/50 text-xs tracking-widest uppercase">Dynamite Circle · 2,000+ founders · 80+ countries · 15 years</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="max-w-4xl mx-auto px-6"><div class="border-t border-dc-border"></div></div>
+
+  <!-- ═══ WHAT IT IS ═══ -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-dc-orange text-xs font-bold tracking-widest uppercase mb-4">Hive Minded</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 max-w-xl leading-tight">
+        A shared AI brain, installed inside your company.
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 mb-12">
+        <div>
+          <p class="text-dc-orange text-xs font-bold tracking-widest uppercase mb-6">What you get</p>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 text-dc-orange flex-shrink-0 leading-none text-sm">✦</span>
+              <span class="text-dc-muted leading-relaxed">A shared AI workspace your whole team uses as their primary work environment</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 text-dc-orange flex-shrink-0 leading-none text-sm">✦</span>
+              <span class="text-dc-muted leading-relaxed">Your company's complete data — customers, revenue, projects, history — accessible through natural language</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 text-dc-orange flex-shrink-0 leading-none text-sm">✦</span>
+              <span class="text-dc-muted leading-relaxed">Every piece of work saved back to the shared knowledge base</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 text-dc-orange flex-shrink-0 leading-none text-sm">✦</span>
+              <span class="text-dc-muted leading-relaxed">A team that compounds knowledge instead of hoarding it</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-dc-orange text-xs font-bold tracking-widest uppercase mb-6">What doesn't change</p>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 text-dc-dim flex-shrink-0 leading-none">→</span>
+              <span class="text-dc-muted leading-relaxed">Your tools — we connect to what you already use</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 text-dc-dim flex-shrink-0 leading-none">→</span>
+              <span class="text-dc-muted leading-relaxed">Your team — this amplifies them, it doesn't replace them</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 text-dc-dim flex-shrink-0 leading-none">→</span>
+              <span class="text-dc-muted leading-relaxed">Your org chart — same people, dramatically more capable</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-dc-raised border border-dc-border rounded-lg px-8 py-6 flex flex-col sm:flex-row sm:items-center gap-4">
+        <p class="text-dc-text text-base leading-relaxed flex-1">
+          We're building this for <strong class="text-white">10 founding teams</strong>. <strong class="text-white">$10,000/year.</strong> Requires a founder who's personally committed to the transition.
+        </p>
+        <a href="#survey" class="flex-shrink-0 bg-dc-orange text-white font-bold px-6 py-3 rounded text-sm hover:bg-dc-orange-lt transition-colors whitespace-nowrap">
+          Apply now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="max-w-4xl mx-auto px-6"><div class="border-t border-dc-border"></div></div>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-dc-orange text-xs font-bold tracking-widest uppercase mb-4">How It Works</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 max-w-xl leading-tight">
+        Built on your infrastructure.<br>Not ours.
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-dc-border rounded-xl overflow-hidden">
+
+        <div class="bg-dc-card p-8">
+          <p class="text-dc-orange font-mono text-xs mb-4">01</p>
+          <h3 class="text-white font-semibold text-lg mb-3">Your data stays yours</h3>
+          <p class="text-dc-muted text-sm leading-relaxed">You connect your own CRM, billing, support, and ops tools. Your data is private — our team never has access to it. The Hive runs inside your company, not ours.</p>
+        </div>
+
+        <div class="bg-dc-card p-8">
+          <p class="text-dc-orange font-mono text-xs mb-4">02</p>
+          <h3 class="text-white font-semibold text-lg mb-3">Your whole team, inside</h3>
+          <p class="text-dc-muted text-sm leading-relaxed">Every team member gets access to the shared workspace. Not just the technical ones. Everyone works from the same intelligence layer — with role-based permissions if you need them.</p>
+        </div>
+
+        <div class="bg-dc-card p-8">
+          <p class="text-dc-orange font-mono text-xs mb-4">03</p>
+          <h3 class="text-white font-semibold text-lg mb-3">Stored on your GitHub</h3>
+          <p class="text-dc-muted text-sm leading-relaxed">Your company's institutional knowledge — every skill, workflow, and data connection — lives in your own private GitHub repository. You own it. You control it. It goes with you.</p>
+        </div>
+
+        <div class="bg-dc-card p-8">
+          <p class="text-dc-orange font-mono text-xs mb-4">04</p>
+          <h3 class="text-white font-semibold text-lg mb-3">AI provider of your choice</h3>
+          <p class="text-dc-muted text-sm leading-relaxed">Your Hive works with Claude, GPT, Gemini — whichever provider offers the best rates or capabilities at any given time. When providers change their pricing or deprecate models, your Hive is unaffected.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-8 bg-dc-raised border border-dc-border rounded-lg px-8 py-5">
+        <p class="text-dc-muted text-sm leading-relaxed">
+          <span class="text-white font-semibold">Hive Minded is a layer on top of Claude Code</span> — the same infrastructure we built for Dynamite Ventures, installed inside your company. The AI changes. Your Hive doesn't.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="max-w-4xl mx-auto px-6"><div class="border-t border-dc-border"></div></div>
+
+  <!-- ═══ IS THIS FOR YOU ═══ -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 leading-tight">
+        Designed for:
+      </h2>
+      <div class="space-y-3 mb-10">
+        <div class="flex items-start gap-4 bg-dc-card border border-dc-border rounded-lg px-6 py-5">
+          <span class="text-dc-orange text-base flex-shrink-0 mt-0.5 font-bold">✓</span>
+          <span class="text-dc-text text-base leading-relaxed">Your team is 5–50 people</span>
+        </div>
+        <div class="flex items-start gap-4 bg-dc-card border border-dc-border rounded-lg px-6 py-5">
+          <span class="text-dc-orange text-base flex-shrink-0 mt-0.5 font-bold">✓</span>
+          <span class="text-dc-text text-base leading-relaxed">You run a service business: agency, community, consultancy, coaching, or recruiting</span>
+        </div>
+        <div class="flex items-start gap-4 bg-dc-card border border-dc-border rounded-lg px-6 py-5">
+          <span class="text-dc-orange text-base flex-shrink-0 mt-0.5 font-bold">✓</span>
+          <span class="text-dc-text text-base leading-relaxed">You have CRM, billing, and support tools — but they don't talk to each other intelligently</span>
+        </div>
+        <div class="flex items-start gap-4 bg-dc-card border border-dc-border rounded-lg px-6 py-5">
+          <span class="text-dc-orange text-base flex-shrink-0 mt-0.5 font-bold">✓</span>
+          <span class="text-dc-text text-base leading-relaxed">Your team is already curious about AI, but there's no shared system</span>
+        </div>
+        <div class="flex items-start gap-4 bg-dc-card border border-dc-border rounded-lg px-6 py-5">
+          <span class="text-dc-orange text-base flex-shrink-0 mt-0.5 font-bold">✓</span>
+          <span class="text-dc-text text-base leading-relaxed">You've personally seen AI deliver real results — and you're frustrated it hasn't translated to the whole team</span>
+        </div>
+      </div>
+
+      <p class="text-dc-dim text-sm mb-8 mt-10">If most of those are true, the survey is the right next step.</p>
+      <a href="#survey" class="inline-block bg-dc-orange text-white font-bold px-8 py-4 rounded text-base hover:bg-dc-orange-lt transition-colors">
+        Take the 3-minute survey →
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ DIVIDER ═══ -->
+  <div class="max-w-4xl mx-auto px-6"><div class="border-t border-dc-border"></div></div>
+
+  <!-- ═══ SURVEY ═══ -->
+  <section id="survey" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-dc-orange text-xs font-bold tracking-widest uppercase mb-4">The Survey</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4 max-w-xl leading-tight">
+        Tell us about your team.
+      </h2>
+      <p class="text-dc-muted text-lg mb-12 max-w-xl leading-relaxed">
+        3 minutes. We'll use this to understand if you're a fit — and keep you posted either way.
+      </p>
+      <div class="bg-dc-raised border border-dc-border rounded-xl overflow-hidden">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSf8kwkremyjoyxwa22nzFYX7zY7dRH1t8nLzq6AOW1uegh71Q/viewform?embedded=true"
+          width="100%"
+          height="950"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          style="display:block;"
+        >Loading…</iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="border-t border-dc-border py-10 px-6">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <svg width="24" height="24" viewBox="0 0 376 376" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a3)"><mask id="b3" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="28" y="108" width="321" height="160"><rect x="28.044" y="108" width="320.495" height="160" fill="url(#c3)"/></mask><g mask="url(#b3)"><path fill-rule="evenodd" clip-rule="evenodd" d="M69.374 160.691C82.985 152.487 101.801 148.943 124.192 148.943c49.238 0 123.234 9.672 166.203 19.769 6.461 1.519 10.467 7.979 8.946 14.43-1.521 6.451-7.991 10.45-14.452 8.932C243.512 182.351 171.369 172.943 124.192 172.943c-20.488 0-34.2 3.354-42.395 8.294-7.377 4.447-10.64 10.289-10.64 18.49 0 6.628-5.381 12-12.018 12-6.638 0-12.019-5.372-12.019-12 0-16.788 7.824-30.338 22.254-39.036z" fill="#545761"/></g><path fill-rule="evenodd" clip-rule="evenodd" d="M189.639 87.6c6.596.744 11.339 6.686 10.593 13.271-7.88 69.614-23.194 107.49-40.81 127.979-8.991 10.458-18.488 16.269-27.487 19.325-8.855 3.006-16.619 3.118-21.411 3.118-13.226 0-28.405-4.33-40.54-12.439-12.209-8.161-22.864-21.329-22.864-39.126 0-6.628 5.381-12 12.019-12 6.637 0 12.018 5.372 12.018 12 0 7.193 4.157 13.807 12.198 19.181 8.118 5.426 18.631 8.384 27.169 8.384 4.195 0 8.697-.151 13.673-1.841 4.832-1.64 10.731-4.958 16.987-12.234 12.877-14.978 27.459-46.986 35.163-115.042.746-6.585 6.697-11.32 13.292-10.576zM235.505 188.295c-8.532 7.23-13.671 16.539-13.671 26.299 0 3.027 1.357 5.788 4.676 8.191 3.517 2.546 9.033 4.409 15.716 4.409 31.9 0 79.323-8.766 116.019-20.569 6.318-2.032 13.09 1.434 15.125 7.743 2.035 6.308-1.437 13.069-7.755 15.101-38.349 12.334-88.322 21.725-123.389 21.725-10.825 0-21.514-2.962-29.825-8.979-8.509-6.159-14.604-15.698-14.604-27.621 0-18.569 9.75-34.086 22.154-44.598 12.317-10.437 28.493-17.052 43.838-17.052 6.637 0 12.018 5.373 12.018 12 0 6.628-5.381 12-12.018 12-8.852 0-19.663 4.045-28.284 11.351z" fill="#545761"/><path fill-rule="evenodd" clip-rule="evenodd" d="M251.789 164.944c0-6.627 5.373-12 12-12 9.907 0 18.41 2.155 24.841 6.356 6.38 4.168 11.306 10.915 11.306 19.144 0 1.815-.366 3.902-.723 5.18-1.784 6.383-8.405 10.111-14.787 8.327-5.6-1.565-9.156-6.852-8.74-12.436a8.3 8.3 0 0 1-.319-.386c-1.506-.983-5.077-2.449-11.716-2.449-6.627 0-12.862-5.372-11.862-12.736zm24.541 15.123c-.003.001-.02-.019-.047-.06.035.039.049.06.047.06z" fill="#545761"/><path fill-rule="evenodd" clip-rule="evenodd" d="M196.93 24.227c-39.708-2.088-78.826 10.277-110.096 34.8C55.563 83.55 34.264 118.567 26.888 157.579c-7.376 39.013-.327 79.372 19.838 113.59 20.165 34.218 52.077 59.97 89.814 72.479 37.738 12.508 78.739 10.924 115.396-4.46 36.657-15.383 66.48-43.521 83.935-79.193 2.914-5.954 10.111-8.423 16.075-5.514 5.964 2.91 8.436 10.096 5.523 16.05-20.011 40.892-54.198 73.148-96.219 90.782-42.021 17.635-89.022 19.451-132.283 5.112C85.707 352.086 49.125 322.565 26.009 283.34 2.893 244.115-5.187 197.849 3.268 153.128 11.723 108.406 36.139 68.265 71.986 40.153 107.833 12.041 152.676-2.133 198.195.26c45.518 2.394 88.622 21.193 121.313 52.909 32.691 31.716 52.748 74.195 56.452 119.557.539 6.606-4.387 12.397-11.003 12.936-6.616.538-12.416-4.38-12.955-10.986-3.23-39.57-20.728-76.627-49.245-104.294-28.518-27.668-66.119-44.067-105.827-46.155z" fill="#545761"/></g><defs><linearGradient id="c3" x1="304.994" y1="182.849" x2="65.315" y2="152.186" gradientUnits="userSpaceOnUse"><stop offset=".091" stop-color="#545761"/><stop offset=".95" stop-color="#545761"/></linearGradient><clipPath id="a3"><rect width="376" height="376" fill="white"/></clipPath></defs></svg>
+        <span class="font-script text-lg text-dc-dim">Hive Minded</span>
+      </div>
+      <p class="text-dc-dim text-sm leading-relaxed">
+        A product of Dynamite Ventures — the team behind Dynamite Circle, Tropical MBA, and the Hive workspace.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
