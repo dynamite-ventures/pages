@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamite Circle — Connecting Founders Around the World Since 2011</title>
+  <meta name="description" content="Connect with 1000+ global founders running profitable, location-independent businesses. Curated community, international events in Bangkok and Mexico, local meetups in 40+ cities.">
+  <link rel="icon" type="image/png" href="https://cdn.dynamitecircle.com/images/3c1792282794992bd6f68c0f60d21778.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dc: {
+              dark: '#303646',
+              accent: '#FF4422',
+              orange: '#FF4921',
+              yellow: '#FBF5B7',
+              green: '#10AF50',
+              muted: '#9396A4',
+              secondary: '#6B6E7A',
+              body: '#525461',
+              'dark-muted': '#A5A9B8',
+              'dark-light': '#B7BAC4',
+              'card-dark': '#161616',
+              'card-warm': '#1a1008',
+            },
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          maxWidth: {
+            content: '1200px',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .slide-track { display: flex; transition: transform 0.6s ease-in-out; }
+    .slide { width: 100%; flex: 0 0 100%; padding: 0 10px; box-sizing: border-box; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr" data-scrolled="false" class="group/hdr fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent data-[scrolled=true]:bg-white data-[scrolled=true]:shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+  <div class="max-w-content mx-auto flex items-center justify-between py-5">
+    <a href="/">
+      <img src="https://cdn.dynamitecircle.com/images/a78de16078b208c7295b9f1fc47c3163.webp" alt="Dynamite Circle" class="h-10 group-data-[scrolled=true]/hdr:hidden">
+      <img src="https://cdn.dynamitecircle.com/images/6e9de2dbefa3eb4d459bf4221208d0b7.png" alt="Dynamite Circle" class="h-10 hidden group-data-[scrolled=true]/hdr:block">
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-[13px] font-medium tracking-wide">
+      <a href="https://www.dynamitecircle.com/dc-black/" class="text-white/80 hover:text-white transition group-data-[scrolled=true]/hdr:text-black">DC BLACK</a>
+      <a href="https://www.dynamitecircle.com/events/dcbkk-2026/" class="text-white/80 hover:text-white transition group-data-[scrolled=true]/hdr:text-black">DCBKK</a>
+      <a href="https://www.dynamitecircle.com/events/" class="text-white/80 hover:text-white transition group-data-[scrolled=true]/hdr:text-black">Events</a>
+      <div class="relative group">
+        <button class="text-white/80 hover:text-white transition flex items-center gap-1 group-data-[scrolled=true]/hdr:text-black">About <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></button>
+        <div class="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl py-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+          <a href="/the-story" class="block px-5 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">The Story</a>
+          <a href="/testimonials" class="block px-5 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">Testimonials</a>
+          <a href="/code-of-conduct" class="block px-5 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">Code of Conduct</a>
+          <a href="/blog" class="block px-5 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-50">News &amp; Blog</a>
+        </div>
+      </div>
+      <a href="https://dc.dynamitecircle.com" class="text-white/80 hover:text-white transition group-data-[scrolled=true]/hdr:text-black">Login</a>
+      <a href="https://dc.dynamitecircle.com/account/apply?utm_medium=dc-navbar&utm_source=dc-site&utm_campaign=dc-site" class="border border-white/80 text-white px-5 py-2 rounded-full text-[13px] font-semibold tracking-wider hover:bg-white hover:text-black transition group-data-[scrolled=true]/hdr:border-black group-data-[scrolled=true]/hdr:text-black group-data-[scrolled=true]/hdr:hover:bg-black group-data-[scrolled=true]/hdr:hover:text-white">Apply</a>
+    </nav>
+    <button class="lg:hidden text-white transition group-data-[scrolled=true]/hdr:text-black" onclick="document.getElementById('mob-nav').classList.toggle('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div id="mob-nav" class="hidden lg:hidden bg-dc-dark px-[6vw] py-6 space-y-3 text-white text-sm">
+    <a href="https://www.dynamitecircle.com/dc-black/" class="block py-2">DC BLACK</a>
+    <a href="https://www.dynamitecircle.com/events/dcbkk-2026/" class="block py-2">DCBKK</a>
+    <a href="https://www.dynamitecircle.com/events/" class="block py-2">Events</a>
+    <a href="/the-story" class="block py-2">The Story</a>
+    <a href="https://dc.dynamitecircle.com" class="block py-2">Login</a>
+    <a href="https://dc.dynamitecircle.com/account/apply" class="inline-block border border-white px-5 py-2 mt-2 rounded-full font-semibold">Apply</a>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="relative flex items-center overflow-hidden bg-dc-dark h-screen">
+  <div class="absolute inset-0 opacity-[0.47]">
+    <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://cdn.dynamitecircle.com/images/889a6c13253ddfc0d3aae45522308b40.jpg">
+      <source src="https://cdn.dynamitecircle.com/video/dc-hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="relative z-10 w-full max-w-content mx-auto pt-[10vh] pb-[8vh]">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+      <div class="lg:w-3/5">
+        <h1 class="text-white text-[clamp(2.5rem,6vw,6rem)] font-semibold leading-[1.1] mb-8">Connecting founders around the world since 2011</h1>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="https://dc.dynamitecircle.com/account/apply?utm_medium=lp-top&utm_source=dcc-page&utm_campaign=dcc-page&lt=dcc" class="bg-dc-accent text-white px-7 py-3 text-sm font-semibold rounded-full hover:opacity-90 transition">Apply</a>
+          <a href="https://www.dynamitecircle.com/dc-black/" class="bg-black text-white px-7 py-3 text-sm font-bold rounded-full border-2 border-[#444] hover:border-white transition">Doing $1M+? See DC BLACK →</a>
+        </div>
+      </div>
+      <div class="lg:w-2/5">
+        <p class="text-white font-bold text-base leading-relaxed">Connect with 1000+ global founders running profitable, location-independent businesses and enjoying unique lifestyles</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CHOOSE YOUR ADVENTURE -->
+<section class="bg-[#f4f4f4] py-16 px-6">
+  <div class="max-w-content mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-[32px] font-bold text-gray-900 mb-2">Choose your adventure.</h2>
+      <p class="text-base text-gray-500">One community. Many ways to get value.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- DC -->
+      <div class="bg-white border border-gray-200 rounded-xl p-10">
+        <div class="inline-block text-[11px] font-semibold tracking-[0.12em] uppercase text-gray-400 border border-gray-300 px-3 py-1 rounded-full mb-5">For founders building toward $1M</div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-1.5">Dynamite Circle</h3>
+        <div class="text-[13px] font-semibold text-dc-orange mb-4 pb-4 border-b border-gray-100">$100K+ annual revenue to apply</div>
+        <p class="text-sm text-gray-600 leading-relaxed mb-6">A global peer group of founders who've built real, profitable businesses — agencies, SaaS, consulting, productized services. Forums, masterminds, events in Bangkok and Mexico, and local meetups in 40+ cities.</p>
+        <a href="https://dc.dynamitecircle.com/account/apply?utm_medium=dc-homepage-split&utm_source=dc-site&utm_campaign=dc-site" class="inline-block bg-dc-orange text-white px-7 py-3 rounded-md text-sm font-semibold hover:opacity-90 transition">Apply now →</a>
+      </div>
+      <!-- DC BLACK -->
+      <div class="bg-[#0a0a0a] border-t-[3px] border-t-dc-orange rounded-xl p-10">
+        <div class="inline-block text-[11px] font-semibold tracking-[0.12em] uppercase text-dc-orange border border-dc-orange/35 px-3 py-1 rounded-full mb-5">For founders $1M+</div>
+        <h3 class="text-2xl font-bold text-white mb-1.5">DC BLACK</h3>
+        <div class="text-[13px] font-semibold text-dc-orange mb-4 pb-4 border-b border-white/[0.08]">$1M+ annual revenue to apply</div>
+        <p class="text-sm text-gray-500 leading-relaxed mb-6">All the benefits that come with your DC membership + If you're always the biggest business in the room, we've solved for that. Average revenue in DC Black is 4M+. A smaller group that focuses on operating at scale or post exit.</p>
+        <a href="https://www.dynamitecircle.com/dc-black/" class="inline-block border-[1.5px] border-dc-orange text-dc-orange px-7 py-3 rounded-md text-sm font-semibold hover:bg-dc-orange hover:text-white transition">Learn about DC BLACK →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHO'S IN THE ROOM -->
+<section class="bg-[#0f0f0f] py-20 px-6">
+  <div class="max-w-content mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div>
+      <div class="inline-block text-[11px] font-semibold tracking-[0.12em] uppercase text-dc-orange border border-dc-orange/40 px-3.5 py-1 rounded-full mb-6">Who's in the room</div>
+      <h2 class="text-[38px] font-bold text-white leading-[1.2] mb-5">The room you've been looking for.</h2>
+      <p class="text-base text-gray-500 leading-relaxed">DC members run all kinds of businesses — but that's not what brings them together. What does: a genuine interest in building, a willingness to talk honestly about how hard it is, and the rare pleasure of being around people who actually get it.</p>
+    </div>
+    <div>
+      <p class="text-xs font-semibold tracking-[0.08em] uppercase text-gray-600 mb-5">Industries represented</p>
+      <div class="flex flex-col gap-3">
+        <div><div class="flex justify-between mb-1"><span class="text-sm text-gray-300">SaaS &amp; Tech</span><span class="text-sm font-semibold text-white">18%</span></div><div class="bg-[#1e1e1e] rounded-sm h-1.5"><div class="bg-dc-orange rounded-sm h-full w-[18%]"></div></div></div>
+        <div><div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Marketing Agency</span><span class="text-sm font-semibold text-white">17%</span></div><div class="bg-[#1e1e1e] rounded-sm h-1.5"><div class="bg-dc-orange rounded-sm h-full w-[17%]"></div></div></div>
+        <div><div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Professional Services</span><span class="text-sm font-semibold text-white">14%</span></div><div class="bg-[#1e1e1e] rounded-sm h-1.5"><div class="bg-dc-orange rounded-sm h-full w-[14%]"></div></div></div>
+        <div><div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Courses &amp; Info Products</span><span class="text-sm font-semibold text-white">11%</span></div><div class="bg-[#1e1e1e] rounded-sm h-1.5"><div class="bg-dc-orange rounded-sm h-full w-[11%]"></div></div></div>
+        <div><div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Productized Services</span><span class="text-sm font-semibold text-white">10%</span></div><div class="bg-[#1e1e1e] rounded-sm h-1.5"><div class="bg-dc-orange rounded-sm h-full w-[10%]"></div></div></div>
+        <div><div class="flex justify-between mb-1"><span class="text-sm text-gray-300">Ecommerce</span><span class="text-sm font-semibold text-white">10%</span></div><div class="bg-[#1e1e1e] rounded-sm h-1.5"><div class="bg-dc-orange rounded-sm h-full w-[10%]"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIAL SLIDESHOW -->
+<section class="bg-dc-dark relative overflow-hidden pt-[4vmax] pb-[9vmax]">
+  <div class="relative max-w-content mx-auto px-[4vw]">
+    <div class="relative overflow-hidden">
+      <div class="slide-track" id="slide-track">
+        <!-- Slide 1 -->
+        <div class="slide">
+          <div class="relative rounded-2xl overflow-hidden h-[55vh] min-h-[350px]">
+            <img src="https://cdn.dynamitecircle.com/images/4402f8245dddac9a49ef835c3578f60e.png" alt="Karla Singson" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-[5%] pb-[6%]">
+              <h2 class="text-white text-lg font-medium leading-relaxed mb-4 max-w-[500px]">I love being in the DC, it's a great community of growth-focused individuals that help me level up in life and in business...</h2>
+              <p class="text-white text-sm"><strong>Karla Singson</strong><br>Founder of Proximity Outsourcing</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide">
+          <div class="relative rounded-2xl overflow-hidden h-[55vh] min-h-[350px]">
+            <img src="https://cdn.dynamitecircle.com/images/070507f083de3da0af1294e7d68f7078.png" alt="Vinh Ho" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-[5%] pb-[6%]">
+              <h2 class="text-white text-lg font-medium leading-relaxed mb-4 max-w-[500px]">I participated in DCBKK 2019 and have been a member ever since then. What makes this entrepreneurship community different is: Members are very open and willing to help...</h2>
+              <p class="text-white text-sm"><strong>Vinh Ho</strong><br>Founder of Focus Asia-Pacific</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide">
+          <div class="relative rounded-2xl overflow-hidden h-[55vh] min-h-[350px]">
+            <img src="https://cdn.dynamitecircle.com/images/665ae2efeb0577e900ae115847a9a55d.png" alt="Alan Gould" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-[5%] pb-[6%]">
+              <h2 class="text-white text-lg font-medium leading-relaxed mb-4 max-w-[500px]">DC is amazing because it's a community of people actively and openly working on growing themselves, in order to also grow their business — it's exactly what I was looking for...</h2>
+              <p class="text-white text-sm"><strong>Alan Gould</strong><br>Founder of Lumify</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="absolute top-1/2 -translate-y-1/2 left-[5vw] z-10 w-11 h-11 rounded-full bg-dc-accent text-white flex items-center justify-center cursor-pointer border-none hover:opacity-80 transition" id="slide-prev"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg></button>
+      <button class="absolute top-1/2 -translate-y-1/2 right-[5vw] z-10 w-11 h-11 rounded-full bg-dc-accent text-white flex items-center justify-center cursor-pointer border-none hover:opacity-80 transition" id="slide-next"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+    <div class="flex gap-2 mt-8 max-w-md mx-auto px-6">
+      <div class="h-0.5 bg-white/[0.12] flex-1 overflow-hidden"><div class="h-full bg-white/50 w-0 transition-[width] duration-[5000ms] linear" id="bar-0"></div></div>
+      <div class="h-0.5 bg-white/[0.12] flex-1 overflow-hidden"><div class="h-full bg-white/50 w-0 transition-[width] duration-[5000ms] linear" id="bar-1"></div></div>
+      <div class="h-0.5 bg-white/[0.12] flex-1 overflow-hidden"><div class="h-full bg-white/50 w-0 transition-[width] duration-[5000ms] linear" id="bar-2"></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- "WE BELIEVE" -->
+<section class="bg-white py-[6vmax] px-[4vw]">
+  <div class="max-w-content mx-auto text-center">
+    <h2 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-black mb-6">We believe that a solid business is built on connections.</h2>
+    <p class="text-base text-dc-body text-center max-w-[720px] mx-auto mb-8 leading-relaxed">Dynamite Circle gives you a space to form these kinds of connections with other business owners around the world on the same journey as you. Show up as your authentic self with a willingness to give and share. In return, you'll get support through the challenges of business and life, fun experiences in new places, and genuine friendships.</p>
+    <a href="https://dc.dynamitecircle.com/account/apply?utm_medium=lp-mid&utm_source=dcc-page&utm_campaign=dcc-page" class="inline-block bg-dc-accent text-white px-8 py-3.5 text-base font-medium rounded-full mb-12 hover:opacity-90 transition">Make Global Connections</a>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <img src="https://cdn.dynamitecircle.com/images/f3009d9408281c2bb1db525885c4f967.jpg" alt="DC Forum" class="rounded-2xl w-full h-[200px] object-cover">
+      <img src="https://cdn.dynamitecircle.com/images/51e664b34f4818afa817cadca6f9a938.jpg" alt="DC Mastermind" class="rounded-2xl w-full h-[200px] object-cover">
+      <img src="https://cdn.dynamitecircle.com/images/da17e8e5bffcbaa829b6557119aee5f2.png" alt="DC App" class="rounded-2xl w-full h-[200px] object-cover">
+      <img src="https://cdn.dynamitecircle.com/images/6c879cae5a48aae20176eb25904fe632.webp" alt="DC Map" class="rounded-2xl w-full h-[200px] object-cover">
+    </div>
+  </div>
+</section>
+
+
+<!-- MISSION QUOTE -->
+<section class="bg-white pt-[2vmax] pb-[6vmax] px-[4vw]">
+  <div class="max-w-content mx-auto text-center">
+    <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-dc-body leading-relaxed italic">
+      Our definition of success is the <strong class="text-black not-italic">freedom</strong> to run your business however and wherever you want, <strong class="text-black not-italic">having fun</strong> doing it, and <strong class="text-black not-italic">meeting cool people</strong> along the way.
+    </p>
+  </div>
+</section>
+
+
+<!-- PILLAR 01 — Curated Community -->
+<section class="bg-white overflow-hidden py-[4vmax]">
+  <div class="max-w-content mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
+    <div class="px-[4vw]">
+      <p class="text-dc-muted text-sm mb-2">01</p>
+      <h3 class="text-[clamp(1.5rem,2.5vw,2rem)] font-bold text-black mb-4">Curated Community</h3>
+      <p class="text-base text-dc-secondary leading-relaxed mb-6">We carefully select DC members (AKA 'DCers') to ensure a community of growth-focused, high-character founders with unique businesses and interests. With a $100k/year minimum revenue and many members earning 7-8 figures, the DC is the perfect environment for you to form valuable connections, gain business insights you won't find anywhere else, and cultivate lifelong friendships.</p>
+      <a href="https://dc.dynamitecircle.com/account/apply?utm_medium=lp-mid&utm_source=dcc-page&utm_campaign=dcc-page" class="inline-block bg-dc-accent text-white px-8 py-3.5 text-base font-medium rounded-full hover:opacity-90 transition">See If You Qualify</a>
+    </div>
+    <div>
+      <img src="https://cdn.dynamitecircle.com/images/c0006085bfcab36aea3ed6dcf7185a5f.jpg" alt="DC curated community" class="w-full h-[480px] object-cover rounded-l-[500px]">
+    </div>
+  </div>
+</section>
+
+
+<!-- PILLAR 02 — International Events -->
+<section class="bg-white overflow-hidden py-[4vmax]">
+  <div class="max-w-content mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
+    <div>
+      <img src="https://cdn.dynamitecircle.com/images/e22d33ecfbc8c677130e153a9b6d296e.jpg" alt="DC international events" class="w-full h-[480px] object-cover rounded-r-[500px]">
+    </div>
+    <div class="px-[4vw]">
+      <p class="text-dc-muted text-sm mb-2">02</p>
+      <h3 class="text-[clamp(1.5rem,2.5vw,2rem)] font-bold text-black mb-4">International Events</h3>
+      <p class="text-base text-dc-secondary leading-relaxed mb-6">One room. Hundreds of entrepreneurs. Getting together for keynote presentations, action-driven workshops, local cuisine, and sightseeing in an exciting new city. Scratch your travel itch, connect face-to-face with friends, and experience business breakthroughs at our major multi-day DC conference twice a year in Mexico and Bangkok.</p>
+      <a href="https://dc.dynamitecircle.com/account/apply?utm_medium=lp-mid&utm_source=dcc-page&utm_campaign=dcc-page" class="inline-block bg-dc-accent text-white px-8 py-3.5 text-base font-medium rounded-full hover:opacity-90 transition">Travel with Other Business Owners</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- PILLAR 03 — Local Meetups -->
+<section class="bg-white overflow-hidden py-[4vmax]">
+  <div class="max-w-content mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
+    <div class="px-[4vw]">
+      <p class="text-dc-muted text-sm mb-2">03</p>
+      <h3 class="text-[clamp(1.5rem,2.5vw,2rem)] font-bold text-black mb-4">Local Meet-ups</h3>
+      <p class="text-base text-dc-secondary leading-relaxed mb-6">Combat isolation and build your core support group through member-led 'Juntos,' meet-ups in your area, and DC Adventures. Bond over dinner and drinks, or a shared interest like hiking or mini golf. These smaller catch-ups help to nurture more intimate conversations and opportunities for accountability.</p>
+      <a href="https://dc.dynamitecircle.com/account/apply?utm_medium=lp-mid&utm_source=dcc-page&utm_campaign=dcc-page" class="inline-block bg-dc-accent text-white px-8 py-3.5 text-base font-medium rounded-full hover:opacity-90 transition">Find Accountability Partners</a>
+    </div>
+    <div>
+      <img src="https://cdn.dynamitecircle.com/images/cecd1ae1f0a66b23c946520212debc87.jpg" alt="DC local meetups" class="w-full h-[480px] object-cover rounded-l-[500px]">
+    </div>
+  </div>
+</section>
+
+
+<!-- EVENTS — DCBKK / DCMEX -->
+<section class="bg-dc-dark py-[6vmax] px-[4vw]">
+  <div class="max-w-content mx-auto">
+    <h2 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-white text-center mb-12">Grow your business while making life-long friendships.</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Bangkok -->
+      <div class="relative overflow-hidden rounded-[32px] h-[500px]">
+        <img src="https://cdn.dynamitecircle.com/images/889a6c13253ddfc0d3aae45522308b40.jpg" alt="DCBKK" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"></div>
+        <div class="relative z-10 h-full flex flex-col p-8">
+          <img src="https://cdn.dynamitecircle.com/images/219a86e45b1a7948ffbef92ec1905355.webp" alt="DCBKK" class="h-12 w-auto object-contain self-start mb-4">
+          <h3 class="text-white text-lg font-medium mb-auto">Meet us every winter in Bangkok</h3>
+          <p class="text-white/80 italic text-base mt-auto">"...the best business conference or event I've ever been to in 25 years of business."</p>
+        </div>
+      </div>
+      <!-- Mexico -->
+      <div class="relative overflow-hidden bg-dc-dark rounded-[32px] h-[500px]">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-dc-dark/40 to-dc-dark"></div>
+        <div class="relative z-10 h-full flex flex-col p-8">
+          <img src="https://cdn.dynamitecircle.com/images/eb0f67a335c03e819bec42ae0967e732.webp" alt="DCMEX" class="h-12 w-auto object-contain self-start mb-4">
+          <h3 class="text-white text-lg font-medium mb-auto">Enjoy summer with us in Mexico</h3>
+          <p class="text-white/80 italic text-base mt-auto">"This exceeded expectations! Was so glad I went and am eager to go to future events."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WORLD MAP + STATS -->
+<section class="bg-dc-dark py-[4vmax] px-[4vw]">
+  <div class="max-w-content mx-auto">
+    <img src="https://cdn.dynamitecircle.com/images/6c879cae5a48aae20176eb25904fe632.webp" alt="DC members worldwide" class="w-full rounded-2xl mb-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div><div class="text-[2.5rem] font-bold text-dc-yellow">1,400+</div><div class="text-sm text-dc-dark-muted">members worldwide</div></div>
+      <div><div class="text-[2.5rem] font-bold text-dc-yellow">200+</div><div class="text-sm text-dc-dark-muted">cities</div></div>
+      <div><div class="text-[2.5rem] font-bold text-dc-yellow">50+</div><div class="text-sm text-dc-dark-muted">countries</div></div>
+      <div><div class="text-[2.5rem] font-bold text-dc-yellow">13</div><div class="text-sm text-dc-dark-muted">events annually</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- JUNTOS INTRO -->
+<section class="bg-dc-dark py-[4vmax] px-[4vw]">
+  <div class="max-w-content mx-auto text-center">
+    <h2 class="text-[clamp(1.3rem,2.5vw,1.8rem)] leading-relaxed font-normal">
+      <span class="text-dc-secondary">Build your </span><span class="text-white">core support </span><span class="text-dc-secondary">group through member-led Juntos and meet-ups </span><span class="text-white">in your area</span><span class="text-dc-secondary">.</span>
+    </h2>
+  </div>
+</section>
+
+
+<!-- JUNTO CITY STRIP -->
+<section class="bg-[#3a3c47] py-10 px-6">
+  <div class="max-w-content mx-auto">
+    <div class="text-[11px] font-bold tracking-[0.16em] uppercase text-[#9a9caa] mb-5">Monthly Juntos - Member meetups</div>
+    <div class="flex flex-wrap gap-2">
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇹🇭 Bangkok</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇪🇸 Barcelona</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇵🇹 Lisbon</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇯🇵 Tokyo</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇬🇧 London</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇳🇱 Amsterdam</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇸🇬 Singapore</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇦🇺 Sydney</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇲🇽 Mexico City</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇺🇸 New York</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇨🇦 Vancouver</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇺🇸 Austin</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇺🇸 San Diego</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇧🇷 São Paulo</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇵🇭 Manila</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇦🇺 Gold Coast</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇭🇰 Hong Kong</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇨🇦 Montreal</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇲🇽 Playa del Carmen</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇦🇷 Buenos Aires</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">🇺🇸 Portland</span>
+      <span class="text-xs text-[#b0b2bc] bg-black/25 border border-white/10 rounded-full px-3.5 py-1.5">+ more</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- GLOBAL EVENTS GRID -->
+<section class="py-20 px-6 border-b border-[#222] bg-cover bg-center bg-no-repeat" style="background-image:linear-gradient(rgba(8,8,8,0.45),rgba(8,8,8,0.45)),url('https://cdn.dynamitecircle.com/images/thumbs/0b58c70d650d7f6f45db86e65c13ca97_1640x1640.webp');">
+  <div class="max-w-content mx-auto">
+    <div class="text-[11px] font-semibold tracking-[0.18em] uppercase text-dc-orange mb-3">Where we gather</div>
+    <h2 class="text-[clamp(22px,2.8vw,36px)] font-bold text-white tracking-tight mb-3">Our events.</h2>
+    <p class="text-[15px] text-gray-500 max-w-xl leading-relaxed mb-12">DC members meet in person all over the world — from our flagship 300-person conference in Bangkok to intimate 35-person gatherings in Barcelona and Taipei. Here's what's on for 2026.</p>
+
+    <!-- Row 1 — Flagships -->
+    <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 mb-4">
+      <div class="bg-dc-card-warm border border-dc-orange/50 rounded-xl p-7 flex flex-col gap-2.5">
+        <div class="text-[10px] font-bold tracking-[0.16em] uppercase text-dc-orange">Flagship Conference</div>
+        <div class="text-[17px] font-bold text-white">DCBKK 2026</div>
+        <div class="text-[13px] text-gray-600">🇹🇭 Bangkok, Thailand</div>
+        <div class="text-[13px] text-gray-500 leading-relaxed mt-1">The annual centerpiece. 300+ members across 4 days — workshops, masterminds, business deep-dives, and the connections that carry you for years.</div>
+        <div class="text-xs font-semibold text-gray-600 mt-auto pt-2.5 border-t border-[#222]">Oct 22 – 25, 2026</div>
+      </div>
+      <div class="bg-dc-card-warm border border-dc-orange/50 rounded-xl p-7 flex flex-col gap-2.5">
+        <div class="text-[10px] font-bold tracking-[0.16em] uppercase text-dc-orange">Flagship Conference</div>
+        <div class="text-[17px] font-bold text-white">DCMEX 2026</div>
+        <div class="text-[13px] text-gray-600">🇲🇽 Mexico City</div>
+        <div class="text-xs font-semibold text-gray-600 mt-auto pt-2.5 border-t border-[#222]">May 5 – 8, 2026</div>
+      </div>
+    </div>
+
+    <!-- Row 2 — Regional -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+      <div class="bg-dc-card-dark border border-[#2a2a2a] rounded-xl p-7 flex flex-col gap-2.5">
+        <div class="text-[10px] font-bold tracking-[0.16em] uppercase text-dc-orange">DC BLACK · Premium</div>
+        <div class="text-[17px] font-bold text-white">DC BLACK Barcelona</div>
+        <div class="text-[13px] text-gray-600">🇪🇸 Barcelona, Spain</div>
+        <div class="text-xs text-gray-600 leading-relaxed">Intimate 25-person gathering. DC BLACK members only.</div>
+        <div class="text-xs font-semibold text-gray-600 mt-auto pt-2.5 border-t border-[#222]">Jul 28 – 30, 2026</div>
+      </div>
+      <div class="bg-dc-card-warm border border-dc-orange/50 rounded-xl p-7 flex flex-col gap-2.5">
+        <div class="text-[10px] font-bold tracking-[0.16em] uppercase text-dc-orange">DCx Event</div>
+        <div class="text-[17px] font-bold text-white">DCX Gold Coast</div>
+        <div class="text-[13px] text-gray-600">🇦🇺 Gold Coast, Australia</div>
+        <div class="text-xs font-semibold text-gray-600 mt-auto pt-2.5 border-t border-[#222]">Apr 10 – 12, 2026</div>
+      </div>
+      <div class="bg-dc-card-dark border border-[#2a2a2a] rounded-xl p-7 flex flex-col gap-2.5">
+        <div class="text-[10px] font-bold tracking-[0.16em] uppercase text-dc-orange">DC BLACK · Premium</div>
+        <div class="text-[17px] font-bold text-white">DC BLACK NYC</div>
+        <div class="text-[13px] text-gray-600">🇺🇸 New York City</div>
+        <div class="text-xs text-gray-600 leading-relaxed">Intimate gathering. DC BLACK members only.</div>
+        <div class="text-xs font-semibold text-gray-600 mt-auto pt-2.5 border-t border-[#222]">Dec 8 – 10, 2026</div>
+      </div>
+    </div>
+
+    <!-- Row 3 — Sold out -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-dc-card-dark border border-[#2a2a2a] rounded-xl p-7 flex flex-col gap-2.5 opacity-50">
+        <div class="text-[10px] font-bold tracking-[0.16em] uppercase text-dc-orange">DC BLACK · Premium</div>
+        <div class="text-[17px] font-bold text-white">DC BLACK Lisbon</div>
+        <div class="text-[13px] text-gray-600">🇵🇹 Lisbon, Portugal</div>
+        <div class="text-xs font-semibold text-gray-600 mt-auto pt-2.5 border-t border-[#222]">Feb 24 – 26, 2026 · Sold out</div>
+      </div>
+      <div class="bg-dc-card-dark border border-[#2a2a2a] rounded-xl p-7 flex flex-col gap-2.5 opacity-50">
+        <div class="text-[10px] font-bold tracking-[0.16em] uppercase text-dc-orange">DC BLACK · Premium</div>
+        <div class="text-[17px] font-bold text-white">DC BLACK Taipei</div>
+        <div class="text-[13px] text-gray-600">🇹🇼 Taipei, Taiwan</div>
+        <div class="text-xs font-semibold text-gray-600 mt-auto pt-2.5 border-t border-[#222]">Mar 3 – 5, 2026 · Sold out</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MARQUEE -->
+<section class="bg-dc-yellow py-[2%] overflow-hidden">
+  <div class="flex whitespace-nowrap">
+    <div class="[animation:marquee_20s_linear_infinite] flex items-center gap-[0.2em] text-[4rem] font-bold text-black">
+      <span>Global insights</span><span class="mx-1">*</span>
+      <span>Global citizens</span><span class="mx-1">*</span>
+      <span>Global connections</span><span class="mx-1">*</span>
+      <span>Global insights</span><span class="mx-1">*</span>
+      <span>Global citizens</span><span class="mx-1">*</span>
+      <span>Global connections</span><span class="mx-1">*</span>
+      <span>Global insights</span><span class="mx-1">*</span>
+      <span>Global citizens</span><span class="mx-1">*</span>
+      <span>Global connections</span><span class="mx-1">*</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- FEATURES — 3 columns -->
+<section class="bg-white py-[3.3vmax] px-[4vw]">
+  <div class="max-w-content mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div>
+      <img src="https://cdn.dynamitecircle.com/images/f3009d9408281c2bb1db525885c4f967.jpg" alt="Online forum" class="w-full h-[200px] object-cover rounded-lg mb-4">
+      <h3 class="text-[1.6rem] font-bold text-black mb-2">Online business forum</h3>
+      <p class="text-base text-dc-secondary leading-relaxed">The DC's private online forum is where members connect daily — sharing wins, asking questions, and getting advice from founders who've been there.</p>
+    </div>
+    <div>
+      <img src="https://cdn.dynamitecircle.com/images/51e664b34f4818afa817cadca6f9a938.jpg" alt="Mastermind" class="w-full h-[200px] object-cover rounded-lg mb-4">
+      <h3 class="text-[1.6rem] font-bold text-black mb-2">Mastermind placement</h3>
+      <p class="text-base text-dc-secondary leading-relaxed">Small peer groups of 4-8 founders, matched by revenue stage and goals. Monthly accountability and deep-dive problem solving.</p>
+    </div>
+    <div>
+      <img src="https://cdn.dynamitecircle.com/images/eea93297fe424f00ae57abb8f373c82f.png" alt="AI database" class="w-full h-[200px] object-cover rounded-lg mb-4">
+      <h3 class="text-[1.6rem] font-bold text-black mb-2">AI-powered database</h3>
+      <p class="text-base text-dc-secondary leading-relaxed">Search 1,000+ founder profiles by industry, skills, location, and interests. Find the exact person who can help — or who needs your help.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- BOTTOM CTA -->
+<section class="relative overflow-hidden py-[6vmax] px-[4vw]">
+  <div class="absolute inset-0 opacity-[0.15]"><img src="https://cdn.dynamitecircle.com/images/446d6ff9383b0eca2ca263e695cb2f8f.png" alt="" class="w-full h-full object-cover"></div>
+  <div class="relative z-10 max-w-content mx-auto text-center">
+    <h2 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-black mb-4">Double your connections, elevate your business &amp; lifestyle</h2>
+    <div class="flex flex-wrap justify-center gap-2 mb-8">
+      <span class="text-sm text-dc-dark-light border border-gray-300 px-4 py-1.5 rounded-full">Global citizens</span>
+      <span class="text-sm text-dc-dark-light border border-gray-300 px-4 py-1.5 rounded-full">Vetted online entrepreneurs</span>
+      <span class="text-sm text-dc-dark-light border border-gray-300 px-4 py-1.5 rounded-full">Generosity above personal gain</span>
+    </div>
+    <a href="https://dc.dynamitecircle.com/account/apply?utm_medium=lp-bottom&utm_source=dcc-page&utm_campaign=dcc-page" class="inline-block bg-dc-accent text-white px-8 py-3.5 text-base font-medium rounded-full hover:opacity-90 transition">Apply Now</a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="relative overflow-hidden bg-dc-dark py-[4vmax] px-[4vw]">
+  <div class="absolute inset-0"><img src="https://cdn.dynamitecircle.com/images/2d3c31af6504d3e8ba4f36e35a34b61c.png" alt="" class="w-full h-full object-cover object-[0%_100%] opacity-[0.15]"></div>
+  <div class="relative z-10 max-w-content mx-auto">
+
+    <!-- Top row: logo left, Members Login right -->
+    <div class="flex justify-between items-center mb-12">
+      <img src="https://cdn.dynamitecircle.com/images/a78de16078b208c7295b9f1fc47c3163.webp" alt="Dynamite Circle" class="h-12">
+      <a href="https://dc.dynamitecircle.com" class="inline-block border border-dc-accent text-dc-accent px-9 py-3.5 text-sm font-semibold no-underline rounded-full hover:bg-dc-accent hover:text-white transition">Members Login</a>
+    </div>
+
+    <!-- Main row: tagline + 4 link columns -->
+    <div class="grid grid-cols-2 md:grid-cols-[1.2fr_1fr_1fr_1fr_1fr] gap-6 mb-12">
+      <div>
+        <h4 class="text-white text-lg font-extrabold leading-snug">It started because<br>we wanted to meet<br>entrepreneurs<br>like us.</h4>
+      </div>
+      <div>
+        <h5 class="text-white text-[11px] font-semibold tracking-[0.1em] uppercase mb-5">Main Pages</h5>
+        <ul class="list-none p-0 m-0 flex flex-col gap-3 text-sm">
+          <li><a href="/dc-black" class="text-dc-dark-muted no-underline hover:text-white transition">DC BLACK</a></li>
+          <li><a href="/news-and-blog" class="text-dc-dark-muted no-underline hover:text-white transition">News &amp; Blog</a></li>
+          <li><a href="/app" class="text-dc-dark-muted no-underline hover:text-white transition">DC Mobile App</a></li>
+          <li><a href="/the-story" class="text-dc-dark-muted no-underline hover:text-white transition">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white text-[11px] font-semibold tracking-[0.1em] uppercase mb-5">Community</h5>
+        <ul class="list-none p-0 m-0 flex flex-col gap-3 text-sm">
+          <li><a href="https://www.dynamitecircle.com/events/" class="text-dc-dark-muted no-underline hover:text-white transition">Upcoming Events</a></li>
+          <li><a href="/dcbkk" class="text-dc-dark-muted no-underline hover:text-white transition">DCBKK</a></li>
+          <li><a href="/requirements" class="text-dc-dark-muted no-underline hover:text-white transition">Requirements</a></li>
+          <li><a href="https://dc.dynamitecircle.com/account/apply" class="text-dc-dark-muted no-underline hover:text-white transition">Join DC</a></li>
+          <li><a href="https://www.dynamitecircle.com/events/" class="text-dc-dark-muted no-underline hover:text-white transition">All Events</a></li>
+          <li><a href="https://www.dynamitecircle.com/chapters/" class="text-dc-dark-muted no-underline hover:text-white transition">All Chapters</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white text-[11px] font-semibold tracking-[0.1em] uppercase mb-5">Dynamite brands</h5>
+        <ul class="list-none p-0 m-0 flex flex-col gap-3 text-sm">
+          <li><a href="/" class="text-dc-dark-muted no-underline hover:text-white transition">Dynamite Circle</a></li>
+          <li><a href="/dc-black" class="text-dc-dark-muted no-underline hover:text-white transition">DC Black</a></li>
+          <li><a href="https://tropicalmba.com" class="text-dc-dark-muted no-underline hover:text-white transition">Tropical MBA</a></li>
+          <li><a href="https://dynamitejobs.com" class="text-dc-dark-muted no-underline hover:text-white transition">Dynamite Jobs</a></li>
+          <li><a href="https://remotefirstrecruiting.com" class="text-dc-dark-muted no-underline hover:text-white transition">Remote First Recruiting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white text-[11px] font-semibold tracking-[0.1em] uppercase mb-5">Other &amp; Legal</h5>
+        <ul class="list-none p-0 m-0 flex flex-col gap-3 text-sm">
+          <li><a href="/community-code-of-conduct" class="text-dc-dark-muted no-underline hover:text-white transition">Community Code of Conduct</a></li>
+          <li><a href="/privacy-policy" class="text-dc-dark-muted no-underline hover:text-white transition">Privacy Policy</a></li>
+          <li><a href="/terms-of-service" class="text-dc-dark-muted no-underline hover:text-white transition">Terms of Service</a></li>
+          <li><a href="/branding" class="text-dc-dark-muted no-underline hover:text-white transition">Branding</a></li>
+          <li><a href="/contact" class="text-dc-dark-muted no-underline hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-right">
+      <p class="text-dc-dark-muted text-xs">© Dynamite Ventures, Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- JS -->
+<script>
+  // Testimonial slideshow
+  (function() {
+    var track = document.getElementById('slide-track');
+    var slides = track.querySelectorAll('.slide');
+    var bars = [document.getElementById('bar-0'), document.getElementById('bar-1'), document.getElementById('bar-2')];
+    var current = 0, total = slides.length, dur = 5000;
+
+    function goTo(i) {
+      current = ((i % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      bars.forEach(function(b) { b.classList.remove('active'); b.style.width = '0'; });
+      void bars[current].offsetWidth;
+      bars[current].style.width = '100%';
+    }
+
+    document.getElementById('slide-prev').onclick = function() { goTo(current - 1); clearInterval(t); t = setInterval(function() { goTo(current + 1); }, dur); };
+    document.getElementById('slide-next').onclick = function() { goTo(current + 1); clearInterval(t); t = setInterval(function() { goTo(current + 1); }, dur); };
+    var t = setInterval(function() { goTo(current + 1); }, dur);
+    goTo(0);
+  })();
+
+  // Header scroll
+  (function() {
+    var h = document.getElementById('hdr');
+    window.addEventListener('scroll', function() {
+      h.dataset.scrolled = window.scrollY > 100 ? 'true' : 'false';
+    });
+  })();
+</script>
+
+</body>
+</html>
