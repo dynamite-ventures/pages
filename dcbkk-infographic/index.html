@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DCBKK — The Flagship Event of the Dynamite Circle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dc-orange': {
+              DEFAULT: '#FF4921',
+              50: '#FFF1EE', 100: '#FFE0D9', 200: '#FFC0B3',
+              300: '#FF9C87', 400: '#FF7355', 500: '#FF5C38',
+              600: '#FF4921', 700: '#D93000', 800: '#B02600', 900: '#8C1E00',
+            },
+            'dc-grey': {
+              DEFAULT: '#3D3F47',
+              50: '#FAFAFA', 100: '#F1F2F3', 200: '#DEDFE2',
+              300: '#ADAFB8', 400: '#777A88', 500: '#545761',
+              600: '#3D3F47', 700: '#30333D', 800: '#25262B',
+              900: '#17181C', 950: '#0B0C0E',
+            },
+            'dc-gold': {
+              DEFAULT: '#EDB34A',
+              300: '#F5D99A', 400: '#F3CA72', 500: '#F0BC5A',
+              600: '#EDB34A', 700: '#D99A30', 800: '#B87E20',
+            },
+            'dc-mint': { DEFAULT: '#80B088', 400: '#A3C4A9', 600: '#80B088', 800: '#5A8A61' },
+            dc: {
+              bg: '#0e0e0e', raised: '#141414', card: '#1a1a1a',
+              border: '#2a2a2a', 'border-lt': '#353535',
+              muted: '#888888', dim: '#bbbbbb',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .stat-glow { box-shadow: 0 0 40px rgba(255,73,33,0.15), 0 0 80px rgba(255,73,33,0.05); }
+    .divider-line { background: linear-gradient(90deg, transparent, #FF4921, transparent); }
+    .hero-gradient { background: linear-gradient(160deg, #0e0e0e 0%, #1a0a05 50%, #0e0e0e 100%); }
+    .topic-card { transition: transform 0.15s ease; }
+    .topic-card:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body class="bg-dc-bg font-sans text-white antialiased min-h-screen">
+
+  <!-- ░░ HERO ░░ -->
+  <section class="hero-gradient relative overflow-hidden">
+
+    <!-- Background rings -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[900px] h-[900px] rounded-full border border-dc-orange/5"></div>
+    </div>
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[600px] h-[600px] rounded-full border border-dc-orange/8"></div>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
+
+      <!-- Label pill -->
+      <div class="inline-flex items-center gap-2 bg-dc-orange/10 border border-dc-orange/30 rounded-full px-4 py-1.5 mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-dc-orange animate-pulse"></span>
+        <span class="text-dc-orange text-xs font-semibold uppercase tracking-widest">Dynamite Circle · Bangkok</span>
+      </div>
+
+      <!-- Main headline -->
+      <h1 class="text-7xl sm:text-8xl font-black tracking-tight leading-none mb-4">
+        <span class="text-white">DC</span><span class="text-dc-orange">BKK</span>
+      </h1>
+      <p class="text-dc-grey-300 text-xl sm:text-2xl font-light tracking-wide mb-2">
+        The flagship annual gathering of the world's best
+      </p>
+      <p class="text-dc-grey-400 text-lg font-light mb-12">
+        location-independent entrepreneurs
+      </p>
+
+      <!-- 3 hero stats -->
+      <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+        <div class="stat-glow bg-dc-card border border-dc-border-lt rounded-2xl px-4 py-6">
+          <div class="text-5xl font-black text-dc-orange leading-none">25</div>
+          <div class="text-dc-grey-300 text-sm font-medium mt-2 uppercase tracking-wider">Sessions</div>
+        </div>
+        <div class="stat-glow bg-dc-card border border-dc-border-lt rounded-2xl px-4 py-6">
+          <div class="text-5xl font-black text-dc-orange leading-none">50<span class="text-3xl">+</span></div>
+          <div class="text-dc-grey-300 text-sm font-medium mt-2 uppercase tracking-wider">Meetups</div>
+        </div>
+        <div class="stat-glow bg-dc-card border border-dc-border-lt rounded-2xl px-4 py-6">
+          <div class="text-4xl font-black text-dc-orange leading-none">∞</div>
+          <div class="text-dc-grey-300 text-sm font-medium mt-2 uppercase tracking-wider">Connections</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-px divider-line w-full"></div>
+
+  <!-- ░░ WHAT HAPPENS ░░ -->
+  <section class="bg-dc-bg py-16">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <div class="text-center mb-12">
+        <p class="text-dc-orange text-xs font-bold uppercase tracking-widest mb-3">What happens at DCBKK</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Four days. One unforgettable week.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <!-- Sessions -->
+        <div class="bg-dc-card border border-dc-border rounded-2xl p-6 flex gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-dc-orange/10 border border-dc-orange/20 flex items-center justify-center text-2xl">🎤</div>
+          <div>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-3xl font-black text-white">25</span>
+              <span class="text-dc-grey-400 text-sm font-medium uppercase tracking-wider">Curated Sessions</span>
+            </div>
+            <p class="text-dc-grey-300 text-sm leading-relaxed">
+              Hand-picked speakers from inside the DC community — practitioners sharing what's actually working in their businesses right now.
+            </p>
+          </div>
+        </div>
+
+        <!-- Meetups -->
+        <div class="bg-dc-card border border-dc-border rounded-2xl p-6 flex gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-dc-orange/10 border border-dc-orange/20 flex items-center justify-center text-2xl">🤝</div>
+          <div>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-3xl font-black text-white">50<span class="text-xl">+</span></span>
+              <span class="text-dc-grey-400 text-sm font-medium uppercase tracking-wider">Organized Meetups</span>
+            </div>
+            <p class="text-dc-grey-300 text-sm leading-relaxed">
+              Dinners, skill shares, industry groups, city explorations — the informal side is where deals get made and friendships form.
+            </p>
+          </div>
+        </div>
+
+        <!-- Parties -->
+        <div class="bg-dc-card border border-dc-border rounded-2xl p-6 flex gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-dc-orange/10 border border-dc-orange/20 flex items-center justify-center text-2xl">🎉</div>
+          <div>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-3xl font-black text-white">Epic</span>
+              <span class="text-dc-grey-400 text-sm font-medium uppercase tracking-wider">Parties</span>
+            </div>
+            <p class="text-dc-grey-300 text-sm leading-relaxed">
+              DCBKK knows how to celebrate. World-class venues, incredible production, and the best community in the world to share it with.
+            </p>
+          </div>
+        </div>
+
+        <!-- Around the event -->
+        <div class="bg-dc-card border border-dc-border rounded-2xl p-6 flex gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-dc-orange/10 border border-dc-orange/20 flex items-center justify-center text-2xl">🌏</div>
+          <div>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-3xl font-black text-white">Weeks</span>
+              <span class="text-dc-grey-400 text-sm font-medium uppercase tracking-wider">Of Activity</span>
+            </div>
+            <p class="text-dc-grey-300 text-sm leading-relaxed">
+              Countless meetups before and after the official schedule. Bangkok becomes a hub — DCers arrive early and stay late.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-px divider-line w-full"></div>
+
+  <!-- ░░ TOPIC TRACKS ░░ -->
+  <section class="bg-dc-raised py-16">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <div class="text-center mb-12">
+        <p class="text-dc-orange text-xs font-bold uppercase tracking-widest mb-3">What you'll learn</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Three tracks that move the needle</h2>
+        <p class="text-dc-grey-400 mt-3 text-base max-w-xl mx-auto">Every session is selected because it's immediately applicable to running a real online business.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+
+        <!-- Business Growth -->
+        <div class="topic-card bg-dc-card border border-dc-border rounded-2xl overflow-hidden">
+          <div class="h-1.5 bg-dc-orange"></div>
+          <div class="p-6">
+            <div class="text-4xl mb-4">📈</div>
+            <h3 class="text-xl font-bold text-white mb-3">Business Growth</h3>
+            <p class="text-dc-grey-400 text-sm leading-relaxed mb-5">
+              Revenue scaling, hiring, systems, exits, and lessons from founders who've built to seven and eight figures.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span class="text-dc-orange font-bold">→</span> Scaling revenue &amp; teams</li>
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span class="text-dc-orange font-bold">→</span> Acquisitions &amp; exits</li>
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span class="text-dc-orange font-bold">→</span> SOP &amp; systems building</li>
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span class="text-dc-orange font-bold">→</span> Hiring &amp; leading remotely</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Personal Growth -->
+        <div class="topic-card bg-dc-card border border-dc-border rounded-2xl overflow-hidden">
+          <div class="h-1.5" style="background:#80B088"></div>
+          <div class="p-6">
+            <div class="text-4xl mb-4">🧠</div>
+            <h3 class="text-xl font-bold text-white mb-3">Personal Growth</h3>
+            <p class="text-dc-grey-400 text-sm leading-relaxed mb-5">
+              The founder mindset, peak performance, decision-making, and designing a life as intentional as your business.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span style="color:#80B088" class="font-bold">→</span> Decision-making frameworks</li>
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span style="color:#80B088" class="font-bold">→</span> Energy &amp; peak performance</li>
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span style="color:#80B088" class="font-bold">→</span> Relationships &amp; life design</li>
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span style="color:#80B088" class="font-bold">→</span> Identity &amp; founder resilience</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- AI Implementations -->
+        <div class="topic-card bg-dc-card border border-dc-border rounded-2xl overflow-hidden">
+          <div class="h-1.5 bg-dc-gold"></div>
+          <div class="p-6">
+            <div class="text-4xl mb-4">⚡</div>
+            <h3 class="text-xl font-bold text-white mb-3">AI Implementations</h3>
+            <p class="text-dc-grey-400 text-sm leading-relaxed mb-5">
+              Practical AI workflows you can deploy in your business this week — not hype, real use cases from real operators.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span class="text-dc-gold font-bold">→</span> AI-powered operations</li>
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span class="text-dc-gold font-bold">→</span> Automations &amp; agents</li>
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span class="text-dc-gold font-bold">→</span> Vibe coding for founders</li>
+              <li class="flex items-center gap-2 text-dc-grey-300 text-sm"><span class="text-dc-gold font-bold">→</span> AI marketing &amp; content</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-px divider-line w-full"></div>
+
+  <!-- ░░ COMMUNITY EDGE ░░ -->
+  <section class="bg-dc-bg py-16">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 items-center">
+
+        <div>
+          <p class="text-dc-orange text-xs font-bold uppercase tracking-widest mb-3">Why it's different</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5 leading-tight">
+            A <span class="text-dc-orange">community</span> that happens to have a conference — not the other way around.
+          </h2>
+          <p class="text-dc-grey-300 leading-relaxed mb-4">
+            DCBKK draws from 1,500+ active members who've been building location-independent businesses since 2011. The speakers are your peers, not polished keynote professionals.
+          </p>
+          <p class="text-dc-grey-300 leading-relaxed">
+            The people in the hallways are already running the businesses you want to build. The conversations at midnight are often worth more than any session on stage.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-dc-card border border-dc-border rounded-xl p-5 text-center">
+            <div class="text-3xl font-black text-white">2011</div>
+            <div class="text-dc-grey-400 text-xs uppercase tracking-wider mt-1">Founded</div>
+          </div>
+          <div class="bg-dc-card border border-dc-border rounded-xl p-5 text-center">
+            <div class="text-3xl font-black text-white">1,500<span class="text-xl">+</span></div>
+            <div class="text-dc-grey-400 text-xs uppercase tracking-wider mt-1">Active Members</div>
+          </div>
+          <div class="bg-dc-card border border-dc-border rounded-xl p-5 text-center">
+            <div class="text-3xl font-black text-white">50<span class="text-xl">+</span></div>
+            <div class="text-dc-grey-400 text-xs uppercase tracking-wider mt-1">Countries</div>
+          </div>
+          <div class="bg-dc-card border border-dc-border rounded-xl p-5 text-center">
+            <div class="text-3xl font-black text-white">10<span class="text-xl">+</span></div>
+            <div class="text-dc-grey-400 text-xs uppercase tracking-wider mt-1">Years of DCBKK</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-px divider-line w-full"></div>
+
+  <!-- ░░ QUOTES ░░ -->
+  <section class="bg-dc-raised py-16">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <div class="text-center mb-10">
+        <p class="text-dc-orange text-xs font-bold uppercase tracking-widest">From the community</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+
+        <div class="bg-dc-card border border-dc-border rounded-2xl p-6 relative">
+          <div class="absolute -top-2 left-5 text-dc-orange text-5xl font-serif opacity-30 leading-none">"</div>
+          <p class="text-dc-grey-300 text-sm leading-relaxed mt-5 italic">
+            "DCBKK is the one week of the year I come home with a full notebook, three new business ideas, and a dozen new close friends."
+          </p>
+          <div class="mt-4 pt-4 border-t border-dc-border">
+            <div class="text-white text-xs font-semibold">DC Member</div>
+            <div class="text-dc-grey-500 text-xs">eCommerce founder</div>
+          </div>
+        </div>
+
+        <div class="bg-dc-card border border-dc-border rounded-2xl p-6 relative">
+          <div class="absolute -top-2 left-5 text-dc-orange text-5xl font-serif opacity-30 leading-none">"</div>
+          <p class="text-dc-grey-300 text-sm leading-relaxed mt-5 italic">
+            "The ROI isn't just the sessions — it's who you meet at dinner the night before. That's where the real magic happens."
+          </p>
+          <div class="mt-4 pt-4 border-t border-dc-border">
+            <div class="text-white text-xs font-semibold">DC Member</div>
+            <div class="text-dc-grey-500 text-xs">Agency owner</div>
+          </div>
+        </div>
+
+        <div class="bg-dc-card border border-dc-border rounded-2xl p-6 relative">
+          <div class="absolute -top-2 left-5 text-dc-orange text-5xl font-serif opacity-30 leading-none">"</div>
+          <p class="text-dc-grey-300 text-sm leading-relaxed mt-5 italic">
+            "I've been to a lot of conferences. DCBKK is the only one I clear my schedule for, every single year."
+          </p>
+          <div class="mt-4 pt-4 border-t border-dc-border">
+            <div class="text-white text-xs font-semibold">DC Member</div>
+            <div class="text-dc-grey-500 text-xs">SaaS founder</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-px divider-line w-full"></div>
+
+  <!-- ░░ CTA ░░ -->
+  <section class="bg-dc-bg py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+
+      <div class="inline-flex items-center gap-2 bg-dc-orange/10 border border-dc-orange/30 rounded-full px-4 py-1.5 mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-dc-orange animate-pulse"></span>
+        <span class="text-dc-orange text-xs font-semibold uppercase tracking-widest">Bangkok · 2026</span>
+      </div>
+
+      <h2 class="text-4xl sm:text-5xl font-black text-white mb-5 leading-tight">
+        Ready to be in the room<br/>
+        <span class="text-dc-orange">where it happens?</span>
+      </h2>
+
+      <p class="text-dc-grey-300 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+        DCBKK is a members-only event. The first step is joining the Dynamite Circle community.
+      </p>
+
+      <a href="https://dynamitecircle.com" class="inline-flex items-center gap-3 bg-dc-orange hover:bg-dc-orange-700 text-white font-bold text-lg px-10 py-4 rounded-xl shadow-lg shadow-dc-orange/20 transition-colors">
+        Learn More About DC
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+
+      <p class="text-dc-grey-500 text-xs mt-6">Members-only · Application required · Spots limited</p>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dc-grey-900 border-t border-dc-border py-6">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-dc-orange font-black text-lg">DC</span>
+        <span class="text-dc-grey-500 text-xs">|</span>
+        <span class="text-dc-grey-400 text-xs uppercase tracking-widest">Dynamite Circle</span>
+      </div>
+      <p class="text-dc-grey-500 text-xs">© 2026 Dynamite Ventures · dynamitecircle.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>
