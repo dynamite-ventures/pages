@@ -46,15 +46,17 @@
   <style>
     .stat-glow { box-shadow: 0 0 40px rgba(255,73,33,0.15), 0 0 80px rgba(255,73,33,0.05); }
     .divider-line { background: linear-gradient(90deg, transparent, #FF4921, transparent); }
-    .hero-gradient { background: linear-gradient(160deg, #0e0e0e 0%, #1a0a05 50%, #0e0e0e 100%); }
-    .topic-card { transition: transform 0.15s ease; }
+.topic-card { transition: transform 0.15s ease; }
     .topic-card:hover { transform: translateY(-2px); }
   </style>
 </head>
 <body class="bg-dc-bg font-sans text-white antialiased min-h-screen">
 
   <!-- ░░ HERO ░░ -->
-  <section class="hero-gradient relative overflow-hidden">
+  <section class="relative overflow-hidden" style="background-image: url('https://images.pexels.com/photos/30516945/pexels-photo-30516945.jpeg'); background-size: cover; background-position: center 60%;">
+
+    <!-- Dark overlay -->
+    <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(10,4,2,0.88) 0%, rgba(20,6,2,0.80) 50%, rgba(10,4,2,0.88) 100%);"></div>
 
     <!-- Background rings -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
