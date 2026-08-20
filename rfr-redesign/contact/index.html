@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start Hiring — Remote First Recruiting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rfr: {
+              red: '#D0021B', 'red-dark': '#A80116',
+              black: '#111111', 'gray-dark': '#333333',
+              gray: '#666666', 'gray-mid': '#999999',
+              'gray-light': '#F7F7F7', border: '#E8E8E8',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    [contenteditable] { outline: none; }
+    [contenteditable="true"]:focus { box-shadow: 0 0 0 2px #D0021B; border-radius: 2px; }
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+  </style>
+</head>
+<body class="font-sans bg-white text-rfr-black antialiased">
+
+<nav class="border-b border-rfr-border bg-white sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+    <a href="../" class="font-semibold text-sm tracking-tight text-rfr-black">Remote First Recruiting</a>
+    <div class="hidden md:flex items-center gap-0.5 text-sm">
+      <div class="relative" id="dd-about">
+        <button onclick="toggleDD('about')" class="px-3 py-2 text-rfr-gray hover:text-rfr-black flex items-center gap-1 rounded transition-colors">About <svg class="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+        <div id="dd-about-menu" class="hidden absolute top-full left-0 bg-white border border-rfr-border rounded-xl shadow-lg py-1.5 w-52 z-50">
+          <a href="../about/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Our Story</a>
+          <a href="../case-studies/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Case Studies</a>
+          <a href="../services/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Services</a>
+          <a href="../hire-in-latin-america/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire in Latin America</a>
+        </div>
+      </div>
+      <div class="relative" id="dd-hires">
+        <button onclick="toggleDD('hires')" class="px-3 py-2 text-rfr-gray hover:text-rfr-black flex items-center gap-1 rounded transition-colors">Popular Hires <svg class="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+        <div id="dd-hires-menu" class="hidden absolute top-full left-0 bg-white border border-rfr-border rounded-xl shadow-lg py-1.5 w-56 z-50">
+          <a href="../hire-csms/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire a CSM</a>
+          <a href="../hire-sdr-in-latin-america/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire an SDR</a>
+          <a href="../operational-hires/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Operational Hires</a>
+          <a href="../sales-hires/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Sales Hires</a>
+          <a href="../digital-marketing/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Digital Marketing</a>
+          <a href="../technical-hires/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Technical Hires</a>
+          <a href="../contract-staffing/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Contract Staffing</a>
+          <div class="border-t border-rfr-border my-1"></div>
+          <a href="../hire-in-europe/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire in Europe</a>
+          <a href="../hire-in-north-america/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire in North America</a>
+        </div>
+      </div>
+      <div class="relative" id="dd-resources">
+        <button onclick="toggleDD('resources')" class="px-3 py-2 text-rfr-gray hover:text-rfr-black flex items-center gap-1 rounded transition-colors">Resources <svg class="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+        <div id="dd-resources-menu" class="hidden absolute top-full left-0 bg-white border border-rfr-border rounded-xl shadow-lg py-1.5 w-48 z-50">
+          <a href="../templates/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Templates &amp; SOPs</a>
+          <a href="../blog/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Blog</a>
+          <a href="../6-smart-hires/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">6 Smart Hires</a>
+        </div>
+      </div>
+      <a href="../contact/" class="ml-3 bg-rfr-red text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors">Start Hiring</a>
+    </div>
+    <button class="md:hidden text-rfr-gray" onclick="toggleMobile()" aria-label="Menu">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-rfr-border bg-white px-6 pb-5">
+    <div class="flex flex-col gap-1 text-sm text-rfr-gray pt-3">
+      <div class="font-medium text-rfr-gray-mid text-xs uppercase tracking-wider py-2">About</div>
+      <a href="../about/" class="py-1.5 hover:text-rfr-black">Our Story</a>
+      <a href="../case-studies/" class="py-1.5 hover:text-rfr-black">Case Studies</a>
+      <a href="../services/" class="py-1.5 hover:text-rfr-black">Services</a>
+      <a href="../hire-in-latin-america/" class="py-1.5 hover:text-rfr-black">Hire in Latin America</a>
+      <div class="font-medium text-rfr-gray-mid text-xs uppercase tracking-wider py-2 mt-2">Popular Hires</div>
+      <a href="../hire-csms/" class="py-1.5 hover:text-rfr-black">Hire a CSM</a>
+      <a href="../hire-sdr-in-latin-america/" class="py-1.5 hover:text-rfr-black">Hire an SDR</a>
+      <a href="../operational-hires/" class="py-1.5 hover:text-rfr-black">Operational Hires</a>
+      <a href="../sales-hires/" class="py-1.5 hover:text-rfr-black">Sales Hires</a>
+      <a href="../digital-marketing/" class="py-1.5 hover:text-rfr-black">Digital Marketing</a>
+      <a href="../technical-hires/" class="py-1.5 hover:text-rfr-black">Technical Hires</a>
+      <a href="../contract-staffing/" class="py-1.5 hover:text-rfr-black">Contract Staffing</a>
+      <a href="../hire-in-europe/" class="py-1.5 hover:text-rfr-black">Hire in Europe</a>
+      <a href="../hire-in-north-america/" class="py-1.5 hover:text-rfr-black">Hire in North America</a>
+      <div class="font-medium text-rfr-gray-mid text-xs uppercase tracking-wider py-2 mt-2">Resources</div>
+      <a href="../templates/" class="py-1.5 hover:text-rfr-black">Templates &amp; SOPs</a>
+      <a href="../blog/" class="py-1.5 hover:text-rfr-black">Blog</a>
+      <a href="../6-smart-hires/" class="py-1.5 hover:text-rfr-black">6 Smart Hires</a>
+      <a href="../contact/" class="mt-3 bg-rfr-red text-white px-4 py-2 rounded-full font-medium inline-block w-fit">Start Hiring</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="py-24 px-6">
+  <div class="max-w-2xl mx-auto text-center">
+    <span class="inline-block text-rfr-red text-xs font-medium uppercase tracking-widest mb-5">Get Started</span>
+    <h1 class="text-4xl md:text-5xl font-semibold text-rfr-black leading-tight mb-5">Let's Talk</h1>
+    <p class="text-base text-rfr-gray leading-relaxed mb-10">Meet with our Head of Recruiting, Greg Valentine. He has over 15 years of recruiting experience and has helped over 400 founders build their teams.</p>
+    <a href="#" class="inline-block bg-rfr-black text-white text-base font-medium px-8 py-4 rounded-full hover:opacity-80 transition-opacity">Book Your 15-Minute Call</a>
+  </div>
+</section>
+
+<!-- What to Expect -->
+<section class="border-t border-rfr-border bg-rfr-gray-light py-20 px-6">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-xl font-semibold text-rfr-black mb-4">What to Expect</h2>
+    <p class="text-rfr-gray text-sm leading-relaxed mb-6">A casual conversation where Greg learns about your company's unique needs and culture. In 15 minutes, you'll:</p>
+    <ul class="space-y-3 mb-8">
+      <li class="flex items-start gap-3 text-sm text-rfr-gray-dark">
+        <span class="w-1.5 h-1.5 rounded-full bg-rfr-gray-mid flex-shrink-0 mt-1.5"></span>
+        <span>Understand our services and how we've helped other founders</span>
+      </li>
+      <li class="flex items-start gap-3 text-sm text-rfr-gray-dark">
+        <span class="w-1.5 h-1.5 rounded-full bg-rfr-gray-mid flex-shrink-0 mt-1.5"></span>
+        <span>Ask questions about your hiring needs, market trends, and competitive salaries</span>
+      </li>
+      <li class="flex items-start gap-3 text-sm text-rfr-gray-dark">
+        <span class="w-1.5 h-1.5 rounded-full bg-rfr-gray-mid flex-shrink-0 mt-1.5"></span>
+        <span>Determine if partnering is right for your team</span>
+      </li>
+    </ul>
+    <p class="text-sm text-rfr-gray" style="font-style: italic;">This is not a sales call — no scripts, no pressure.</p>
+  </div>
+</section>
+
+<!-- Contact Info -->
+<section class="py-16 px-6">
+  <div class="max-w-2xl mx-auto">
+    <div class="border border-rfr-border rounded-xl p-8">
+      <h3 class="text-sm font-semibold text-rfr-black mb-5">Other Ways to Reach Us</h3>
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-rfr-gray-light flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-rfr-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-rfr-gray mb-0.5">Email</div>
+            <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#101;&#97;&#109;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;" class="text-sm text-rfr-black hover:text-rfr-red transition-colors">&#116;&#101;&#97;&#109;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;</a>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-rfr-gray-light flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-rfr-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-rfr-gray mb-0.5">WhatsApp</div>
+            <span class="text-sm text-rfr-black">Also available on WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="border-t border-rfr-border bg-rfr-gray-light py-20 px-6">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-xl font-semibold text-rfr-black mb-2 text-center">Founders Trust Us</h2>
+    <p class="text-sm text-rfr-gray text-center mb-12">Here's what they say after working with us.</p>
+    <div class="grid md:grid-cols-3 gap-5">
+
+      <div class="bg-white border border-rfr-border rounded-xl p-6">
+        <p class="text-rfr-gray-dark text-sm leading-relaxed mb-5">"Having them as a resource early in the company journey is invaluable because of their expertise in this niche."</p>
+        <div>
+          <div class="text-sm font-medium text-rfr-black">Jonathan Weinberg</div>
+          <div class="text-xs text-rfr-gray mt-0.5">Builder Prime</div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-rfr-border rounded-xl p-6">
+        <p class="text-rfr-gray-dark text-sm leading-relaxed mb-5">"We've been working with the RFR team for years. They understand our product, culture, and team makeup."</p>
+        <div>
+          <div class="text-sm font-medium text-rfr-black">Jordan Gal</div>
+          <div class="text-xs text-rfr-gray mt-0.5">Rally</div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-rfr-border rounded-xl p-6">
+        <p class="text-rfr-gray-dark text-sm leading-relaxed mb-5">"It's a no-brainer. Leave it to the experts and they deliver!"</p>
+        <div>
+          <div class="text-sm font-medium text-rfr-black">Lisa Tran</div>
+          <div class="text-xs text-rfr-gray mt-0.5">KioskBuddy</div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-rfr-border rounded-xl p-6">
+        <p class="text-rfr-gray-dark text-sm leading-relaxed mb-5">"Could not be happier. Really impressed and we will absolutely be coming back."</p>
+        <div>
+          <div class="text-sm font-medium text-rfr-black">Ryan Carrigan</div>
+          <div class="text-xs text-rfr-gray mt-0.5">moveBuddha</div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-rfr-border rounded-xl p-6">
+        <p class="text-rfr-gray-dark text-sm leading-relaxed mb-5">"RFR continues efficiently delivering top-tier candidates, reinforcing our confidence in this enduring partnership."</p>
+        <div>
+          <div class="text-sm font-medium text-rfr-black">Josh Goldberg</div>
+          <div class="text-xs text-rfr-gray mt-0.5">Giant Propeller</div>
+        </div>
+      </div>
+
+      <!-- Final CTA card -->
+      <div class="bg-rfr-black rounded-xl p-6 flex flex-col justify-between">
+        <p class="text-white text-sm leading-relaxed mb-5 opacity-80">Join hundreds of founders who've built great remote teams.</p>
+        <a href="#" class="inline-block bg-white text-rfr-black text-sm font-medium px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity w-fit">Book Your Call</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-rfr-border bg-rfr-gray-light py-12 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-10 mb-10">
+      <div class="md:col-span-2">
+        <a href="../" class="font-semibold text-rfr-black mb-3 block">Remote First Recruiting</a>
+        <p class="text-rfr-gray text-sm leading-relaxed max-w-xs">Specialized recruiting for remote-first companies. Fully distributed since 2012.</p>
+      </div>
+      <div>
+        <h4 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Company</h4>
+        <ul class="space-y-2.5 text-sm text-rfr-gray">
+          <li><a href="../about/" class="hover:text-rfr-black transition-colors">Our Story</a></li>
+          <li><a href="../case-studies/" class="hover:text-rfr-black transition-colors">Case Studies</a></li>
+          <li><a href="../services/" class="hover:text-rfr-black transition-colors">Services</a></li>
+          <li><a href="../blog/" class="hover:text-rfr-black transition-colors">Blog</a></li>
+          <li><a href="../templates/" class="hover:text-rfr-black transition-colors">Templates &amp; SOPs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Contact</h4>
+        <ul class="space-y-2.5 text-sm text-rfr-gray">
+          <li><a href="../contact/" class="hover:text-rfr-black transition-colors">Start Hiring</a></li>
+          <li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#101;&#97;&#109;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;" class="hover:text-rfr-black transition-colors">&#116;&#101;&#97;&#109;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-rfr-border pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-rfr-gray-mid">
+      <span>&copy; 2025 Remote First Recruiting. All rights reserved.</span>
+      <a href="../privacy-policy/" class="hover:text-rfr-black transition-colors">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var activeDD = null;
+  function toggleDD(n) {
+    ['about','hires','resources'].forEach(function(k) {
+      if (k !== n) { var m = document.getElementById('dd-'+k+'-menu'); if(m) m.classList.add('hidden'); }
+    });
+    var menu = document.getElementById('dd-'+n+'-menu');
+    menu.classList.toggle('hidden');
+    activeDD = menu.classList.contains('hidden') ? null : n;
+  }
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('[id^="dd-"]')) {
+      ['about','hires','resources'].forEach(function(k) {
+        var m = document.getElementById('dd-'+k+'-menu'); if(m) m.classList.add('hidden');
+      });
+      activeDD = null;
+    }
+  });
+  function toggleMobile() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+</script>
+</body>
+</html>

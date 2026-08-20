@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6 Smart Hires — Remote First Recruiting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rfr: { red: '#D0021B', 'red-dark': '#A80116', black: '#111111', 'gray-dark': '#333333', gray: '#666666', 'gray-mid': '#999999', 'gray-light': '#F7F7F7', border: '#E8E8E8' }
+          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    [contenteditable] { outline: none; }
+    [contenteditable="true"]:focus { box-shadow: 0 0 0 2px #D0021B; border-radius: 2px; }
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+  </style>
+</head>
+<body class="font-sans text-rfr-black bg-white">
+
+<nav class="border-b border-rfr-border bg-white sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+    <a href="../" class="font-semibold text-sm tracking-tight text-rfr-black">Remote First Recruiting</a>
+    <div class="hidden md:flex items-center gap-0.5 text-sm">
+      <div class="relative" id="dd-about">
+        <button onclick="toggleDD('about')" class="px-3 py-2 text-rfr-gray hover:text-rfr-black flex items-center gap-1 rounded transition-colors">About <svg class="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+        <div id="dd-about-menu" class="hidden absolute top-full left-0 bg-white border border-rfr-border rounded-xl shadow-lg py-1.5 w-52 z-50">
+          <a href="../about/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Our Story</a>
+          <a href="../case-studies/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Case Studies</a>
+          <a href="../services/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Services</a>
+          <a href="../hire-in-latin-america/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire in Latin America</a>
+        </div>
+      </div>
+      <div class="relative" id="dd-hires">
+        <button onclick="toggleDD('hires')" class="px-3 py-2 text-rfr-gray hover:text-rfr-black flex items-center gap-1 rounded transition-colors">Popular Hires <svg class="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+        <div id="dd-hires-menu" class="hidden absolute top-full left-0 bg-white border border-rfr-border rounded-xl shadow-lg py-1.5 w-56 z-50">
+          <a href="../hire-csms/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire a CSM</a>
+          <a href="../hire-sdr-in-latin-america/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire an SDR</a>
+          <a href="../operational-hires/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Operational Hires</a>
+          <a href="../sales-hires/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Sales Hires</a>
+          <a href="../digital-marketing/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Digital Marketing</a>
+          <a href="../technical-hires/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Technical Hires</a>
+          <a href="../contract-staffing/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Contract Staffing</a>
+          <div class="border-t border-rfr-border my-1"></div>
+          <a href="../hire-in-europe/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire in Europe</a>
+          <a href="../hire-in-north-america/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Hire in North America</a>
+        </div>
+      </div>
+      <div class="relative" id="dd-resources">
+        <button onclick="toggleDD('resources')" class="px-3 py-2 text-rfr-gray hover:text-rfr-black flex items-center gap-1 rounded transition-colors">Resources <svg class="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+        <div id="dd-resources-menu" class="hidden absolute top-full left-0 bg-white border border-rfr-border rounded-xl shadow-lg py-1.5 w-48 z-50">
+          <a href="../templates/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Templates &amp; SOPs</a>
+          <a href="../blog/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">Blog</a>
+          <a href="../6-smart-hires/" class="block px-4 py-2 text-sm text-rfr-gray hover:text-rfr-black hover:bg-rfr-gray-light">6 Smart Hires</a>
+        </div>
+      </div>
+      <a href="../contact/" class="ml-3 bg-rfr-red text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors">Start Hiring</a>
+    </div>
+    <button class="md:hidden text-rfr-gray" onclick="toggleMobile()" aria-label="Menu">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-rfr-border bg-white px-6 pb-5">
+    <div class="flex flex-col gap-1 text-sm text-rfr-gray pt-3">
+      <div class="font-medium text-rfr-gray-mid text-xs uppercase tracking-wider py-2">About</div>
+      <a href="../about/" class="py-1.5 hover:text-rfr-black">Our Story</a>
+      <a href="../case-studies/" class="py-1.5 hover:text-rfr-black">Case Studies</a>
+      <a href="../services/" class="py-1.5 hover:text-rfr-black">Services</a>
+      <a href="../hire-in-latin-america/" class="py-1.5 hover:text-rfr-black">Hire in Latin America</a>
+      <div class="font-medium text-rfr-gray-mid text-xs uppercase tracking-wider py-2 mt-2">Popular Hires</div>
+      <a href="../hire-csms/" class="py-1.5 hover:text-rfr-black">Hire a CSM</a>
+      <a href="../hire-sdr-in-latin-america/" class="py-1.5 hover:text-rfr-black">Hire an SDR</a>
+      <a href="../operational-hires/" class="py-1.5 hover:text-rfr-black">Operational Hires</a>
+      <a href="../sales-hires/" class="py-1.5 hover:text-rfr-black">Sales Hires</a>
+      <a href="../digital-marketing/" class="py-1.5 hover:text-rfr-black">Digital Marketing</a>
+      <a href="../technical-hires/" class="py-1.5 hover:text-rfr-black">Technical Hires</a>
+      <a href="../contract-staffing/" class="py-1.5 hover:text-rfr-black">Contract Staffing</a>
+      <a href="../hire-in-europe/" class="py-1.5 hover:text-rfr-black">Hire in Europe</a>
+      <a href="../hire-in-north-america/" class="py-1.5 hover:text-rfr-black">Hire in North America</a>
+      <div class="font-medium text-rfr-gray-mid text-xs uppercase tracking-wider py-2 mt-2">Resources</div>
+      <a href="../templates/" class="py-1.5 hover:text-rfr-black">Templates &amp; SOPs</a>
+      <a href="../blog/" class="py-1.5 hover:text-rfr-black">Blog</a>
+      <a href="../6-smart-hires/" class="py-1.5 hover:text-rfr-black">6 Smart Hires</a>
+      <a href="../contact/" class="mt-3 bg-rfr-red text-white px-4 py-2 rounded-full font-medium inline-block w-fit">Start Hiring</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="py-20 px-6 border-b border-rfr-border">
+  <div class="max-w-3xl mx-auto text-center">
+    <span class="text-rfr-red text-xs font-medium uppercase tracking-widest">Hiring Guide</span>
+    <h1 class="mt-4 text-4xl md:text-5xl font-semibold text-rfr-black leading-tight">6 Smart Hires You Need on Your Team</h1>
+    <p class="mt-5 text-lg text-rfr-gray leading-relaxed max-w-xl mx-auto">To optimize your time and scale your company.</p>
+  </div>
+</section>
+
+<!-- The 6 Hires -->
+<section class="px-6 py-4">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Hire 01 -->
+    <div class="border-t border-rfr-border py-14">
+      <div class="flex items-baseline gap-4 mb-6">
+        <span class="text-3xl font-semibold text-rfr-red" style="font-variant-numeric: tabular-nums;">01</span>
+        <div>
+          <h2 class="text-xl font-semibold text-rfr-black">Operations / Project Manager</h2>
+          <p class="text-rfr-gray-mid text-sm mt-1">5+ years remote / SaaS / Ops experience</p>
+        </div>
+      </div>
+      <div class="md:grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Responsibilities</h3>
+          <ul class="space-y-2">
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Streamline processes and create SOPs</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Hire, onboard, and train staff</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Establish KPIs and measure performance</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Manage day-to-day operations</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Resolve issues proactively</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Serve as strategic business partner</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Starting Salaries</h3>
+          <div class="border border-rfr-border rounded-xl overflow-hidden">
+            <div class="grid grid-cols-2 bg-rfr-gray-light px-4 py-2.5 border-b border-rfr-border">
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Region</span>
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Salary</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3 border-b border-rfr-border">
+              <span class="text-sm text-rfr-gray">Asia</span>
+              <span class="text-sm font-medium text-rfr-black">$24k+</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3 border-b border-rfr-border bg-rfr-gray-light" style="background-color: #fafafa;">
+              <span class="text-sm text-rfr-gray">Latin America</span>
+              <span class="text-sm font-medium text-rfr-black">$40k+</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3 border-b border-rfr-border">
+              <span class="text-sm text-rfr-gray">Europe</span>
+              <span class="text-sm font-medium text-rfr-black">$42k+</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3" style="background-color: #fafafa;">
+              <span class="text-sm text-rfr-gray">United States</span>
+              <span class="text-sm font-medium text-rfr-black">$70k+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hire 02 -->
+    <div class="border-t border-rfr-border py-14">
+      <div class="flex items-baseline gap-4 mb-6">
+        <span class="text-3xl font-semibold text-rfr-red">02</span>
+        <div>
+          <h2 class="text-xl font-semibold text-rfr-black">Customer Success Manager</h2>
+          <p class="text-rfr-gray-mid text-sm mt-1">3+ years remote / SaaS / CSM experience</p>
+        </div>
+      </div>
+      <div class="md:grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Responsibilities</h3>
+          <ul class="space-y-2">
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Create processes and CSM playbook</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Manage team and KPIs</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Handle customer support across email, chat, and Zoom</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Lead product demos</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Provide proactive troubleshooting</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Starting Salaries</h3>
+          <div class="border border-rfr-border rounded-xl overflow-hidden">
+            <div class="grid grid-cols-2 bg-rfr-gray-light px-4 py-2.5 border-b border-rfr-border">
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Region</span>
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Salary</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3 border-b border-rfr-border">
+              <span class="text-sm text-rfr-gray">Latin America</span>
+              <span class="text-sm font-medium text-rfr-black">$24k+</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3 border-b border-rfr-border" style="background-color: #fafafa;">
+              <span class="text-sm text-rfr-gray">Europe</span>
+              <span class="text-sm font-medium text-rfr-black">$50k+</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3">
+              <span class="text-sm text-rfr-gray">United States</span>
+              <span class="text-sm font-medium text-rfr-black">$70k+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hire 03 -->
+    <div class="border-t border-rfr-border py-14">
+      <div class="flex items-baseline gap-4 mb-6">
+        <span class="text-3xl font-semibold text-rfr-red">03</span>
+        <div>
+          <h2 class="text-xl font-semibold text-rfr-black">Digital Marketing Manager</h2>
+          <p class="text-rfr-gray-mid text-sm mt-1">5+ years remote / SaaS / marketing experience</p>
+        </div>
+      </div>
+      <div class="md:grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Responsibilities</h3>
+          <ul class="space-y-2">
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Develop strategy and execute campaigns</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Lead full-funnel marketing efforts</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Manage SEO, email, social, and paid ads</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Build and grow the marketing team</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Handle automation and CRM</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Starting Salaries</h3>
+          <div class="border border-rfr-border rounded-xl overflow-hidden">
+            <div class="grid grid-cols-2 bg-rfr-gray-light px-4 py-2.5 border-b border-rfr-border">
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Region</span>
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Salary</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3 border-b border-rfr-border">
+              <span class="text-sm text-rfr-gray">Latin America</span>
+              <span class="text-sm font-medium text-rfr-black">$35k+</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3 border-b border-rfr-border" style="background-color: #fafafa;">
+              <span class="text-sm text-rfr-gray">Europe</span>
+              <span class="text-sm font-medium text-rfr-black">$65k+</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3">
+              <span class="text-sm text-rfr-gray">United States</span>
+              <span class="text-sm font-medium text-rfr-black">$80k+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hire 04 -->
+    <div class="border-t border-rfr-border py-14">
+      <div class="flex items-baseline gap-4 mb-6">
+        <span class="text-3xl font-semibold text-rfr-red">04</span>
+        <div>
+          <h2 class="text-xl font-semibold text-rfr-black">Sales Development Representative</h2>
+          <p class="text-rfr-gray-mid text-sm mt-1">2+ years remote / SaaS / SDR experience</p>
+        </div>
+      </div>
+      <div class="md:grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Responsibilities</h3>
+          <ul class="space-y-2">
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Prospect and build sales pipeline</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Develop sales scripts and messaging</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Qualify leads and support demos</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Optimize prospecting tools and workflows</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Starting Salaries</h3>
+          <div class="border border-rfr-border rounded-xl overflow-hidden">
+            <div class="grid grid-cols-3 bg-rfr-gray-light px-4 py-2.5 border-b border-rfr-border">
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Region</span>
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Base</span>
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">OTE</span>
+            </div>
+            <div class="grid grid-cols-3 px-4 py-3 border-b border-rfr-border">
+              <span class="text-sm text-rfr-gray">Latin America</span>
+              <span class="text-sm font-medium text-rfr-black">$25k+</span>
+              <span class="text-sm text-rfr-gray-mid">$40k+</span>
+            </div>
+            <div class="grid grid-cols-3 px-4 py-3 border-b border-rfr-border" style="background-color: #fafafa;">
+              <span class="text-sm text-rfr-gray">Europe</span>
+              <span class="text-sm font-medium text-rfr-black">$50k+</span>
+              <span class="text-sm text-rfr-gray-mid">$75k+</span>
+            </div>
+            <div class="grid grid-cols-3 px-4 py-3">
+              <span class="text-sm text-rfr-gray">United States</span>
+              <span class="text-sm font-medium text-rfr-black">$50k+</span>
+              <span class="text-sm text-rfr-gray-mid">$70k+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hire 05 -->
+    <div class="border-t border-rfr-border py-14">
+      <div class="flex items-baseline gap-4 mb-6">
+        <span class="text-3xl font-semibold text-rfr-red">05</span>
+        <div>
+          <h2 class="text-xl font-semibold text-rfr-black">Account Executive</h2>
+          <p class="text-rfr-gray-mid text-sm mt-1">3+ years remote SaaS / AE experience</p>
+        </div>
+      </div>
+      <div class="md:grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Responsibilities</h3>
+          <ul class="space-y-2">
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Manage full-cycle sales process</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Handle SMB, midsize, and enterprise accounts</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Build AE playbook and CRM systems</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Manage renewals and negotiations</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Starting Salaries</h3>
+          <div class="border border-rfr-border rounded-xl overflow-hidden">
+            <div class="grid grid-cols-3 bg-rfr-gray-light px-4 py-2.5 border-b border-rfr-border">
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Region</span>
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Base</span>
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">OTE</span>
+            </div>
+            <div class="grid grid-cols-3 px-4 py-3 border-b border-rfr-border">
+              <span class="text-sm text-rfr-gray">Latin America</span>
+              <span class="text-sm font-medium text-rfr-black">$40k+</span>
+              <span class="text-sm text-rfr-gray-mid">$60k+</span>
+            </div>
+            <div class="grid grid-cols-3 px-4 py-3 border-b border-rfr-border" style="background-color: #fafafa;">
+              <span class="text-sm text-rfr-gray">Europe</span>
+              <span class="text-sm font-medium text-rfr-black">$60k+</span>
+              <span class="text-sm text-rfr-gray-mid">$100k+</span>
+            </div>
+            <div class="grid grid-cols-3 px-4 py-3">
+              <span class="text-sm text-rfr-gray">United States</span>
+              <span class="text-sm font-medium text-rfr-black">$60k+</span>
+              <span class="text-sm text-rfr-gray-mid">$80k+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hire 06 -->
+    <div class="border-t border-rfr-border py-14">
+      <div class="flex items-baseline gap-4 mb-6">
+        <span class="text-3xl font-semibold text-rfr-red">06</span>
+        <div>
+          <h2 class="text-xl font-semibold text-rfr-black">Mid-Level Full Stack Developer</h2>
+          <p class="text-rfr-gray-mid text-sm mt-1">3+ years remote / SaaS / full-stack experience</p>
+        </div>
+      </div>
+      <div class="md:grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Responsibilities</h3>
+          <ul class="space-y-2">
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Build complex user-facing features</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Address technical debt and legacy code</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Improve application scalability</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Design and develop APIs</span></li>
+            <li class="flex gap-2 text-sm text-rfr-gray"><span class="text-rfr-red mt-0.5">&#8212;</span><span>Work with relational and non-relational databases</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Starting Salaries</h3>
+          <div class="border border-rfr-border rounded-xl overflow-hidden">
+            <div class="grid grid-cols-2 bg-rfr-gray-light px-4 py-2.5 border-b border-rfr-border">
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Region</span>
+              <span class="text-xs font-medium text-rfr-gray-mid uppercase tracking-wider">Salary</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3 border-b border-rfr-border">
+              <span class="text-sm text-rfr-gray">Latin America</span>
+              <span class="text-sm font-medium text-rfr-black">$50k+</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3 border-b border-rfr-border" style="background-color: #fafafa;">
+              <span class="text-sm text-rfr-gray">Europe</span>
+              <span class="text-sm font-medium text-rfr-black">$65k+</span>
+            </div>
+            <div class="grid grid-cols-2 px-4 py-3">
+              <span class="text-sm text-rfr-gray">United States</span>
+              <span class="text-sm font-medium text-rfr-black">$120k+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 px-6 bg-rfr-gray-light border-t border-rfr-border">
+  <div class="max-w-xl mx-auto text-center">
+    <h2 class="text-xl font-semibold text-rfr-black mb-3">Ready to Make Your Next Hire?</h2>
+    <p class="text-rfr-gray text-sm mb-7">We'll help you find the right person, fast.</p>
+    <a href="../contact/" class="inline-block bg-rfr-red text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors">Start Hiring</a>
+  </div>
+</section>
+
+<footer class="border-t border-rfr-border bg-rfr-gray-light py-12 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-10 mb-10">
+      <div class="md:col-span-2">
+        <a href="../" class="font-semibold text-rfr-black mb-3 block">Remote First Recruiting</a>
+        <p class="text-rfr-gray text-sm leading-relaxed max-w-xs">Specialized recruiting for remote-first companies. Fully distributed since 2012.</p>
+      </div>
+      <div>
+        <h4 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Company</h4>
+        <ul class="space-y-2.5 text-sm text-rfr-gray">
+          <li><a href="../about/" class="hover:text-rfr-black transition-colors">Our Story</a></li>
+          <li><a href="../case-studies/" class="hover:text-rfr-black transition-colors">Case Studies</a></li>
+          <li><a href="../services/" class="hover:text-rfr-black transition-colors">Services</a></li>
+          <li><a href="../blog/" class="hover:text-rfr-black transition-colors">Blog</a></li>
+          <li><a href="../templates/" class="hover:text-rfr-black transition-colors">Templates &amp; SOPs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4">Contact</h4>
+        <ul class="space-y-2.5 text-sm text-rfr-gray">
+          <li><a href="../contact/" class="hover:text-rfr-black transition-colors">Start Hiring</a></li>
+          <li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#101;&#97;&#109;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;" class="hover:text-rfr-black transition-colors">&#116;&#101;&#97;&#109;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-rfr-border pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-rfr-gray-mid">
+      <span>&copy; 2025 Remote First Recruiting. All rights reserved.</span>
+      <a href="../privacy-policy/" class="hover:text-rfr-black transition-colors">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var activeDD = null;
+  function toggleDD(n) {
+    ['about','hires','resources'].forEach(function(k) {
+      if (k !== n) { var m = document.getElementById('dd-'+k+'-menu'); if(m) m.classList.add('hidden'); }
+    });
+    var menu = document.getElementById('dd-'+n+'-menu');
+    menu.classList.toggle('hidden');
+    activeDD = menu.classList.contains('hidden') ? null : n;
+  }
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('[id^="dd-"]')) {
+      ['about','hires','resources'].forEach(function(k) {
+        var m = document.getElementById('dd-'+k+'-menu'); if(m) m.classList.add('hidden');
+      });
+      activeDD = null;
+    }
+  });
+  function toggleMobile() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+</script>
+</body>
+</html>
