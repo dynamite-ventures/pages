@@ -58,19 +58,52 @@
 <!-- Nav -->
 <nav class="border-b border-rfr-border bg-white sticky top-0 z-40">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#" class="font-semibold text-base tracking-tight text-rfr-black">
-      Remote First Recruiting
-    </a>
-    <div class="hidden md:flex items-center gap-7 text-sm text-rfr-gray">
-      <a href="#how-it-works" class="hover:text-rfr-black transition-colors" data-editable>How It Works</a>
-      <a href="#roles" class="hover:text-rfr-black transition-colors" data-editable>Roles</a>
-      <a href="#testimonials" class="hover:text-rfr-black transition-colors" data-editable>Results</a>
-      <a href="#pricing" class="hover:text-rfr-black transition-colors" data-editable>Pricing</a>
-      <a href="#contact"
-        class="bg-rfr-red text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors"
-        data-editable>
-        Get Started
-      </a>
+    <a href="." class="font-semibold text-base tracking-tight text-rfr-black">Remote First Recruiting</a>
+    <div class="hidden md:flex items-center gap-6 text-sm text-rfr-gray">
+      <!-- About dropdown -->
+      <div id="dd-about" class="relative">
+        <button onclick="toggleDD('about')" class="flex items-center gap-1 hover:text-rfr-black transition-colors">
+          About
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="dd-about-menu" class="hidden absolute left-0 top-full mt-2 w-48 bg-white border border-rfr-border rounded-lg shadow-lg py-2 z-50">
+          <a href="about/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Our Story</a>
+          <a href="case-studies/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Case Studies</a>
+          <a href="services/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Services &amp; Pricing</a>
+        </div>
+      </div>
+      <!-- Popular Hires dropdown -->
+      <div id="dd-hires" class="relative">
+        <button onclick="toggleDD('hires')" class="flex items-center gap-1 hover:text-rfr-black transition-colors">
+          Popular Hires
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="dd-hires-menu" class="hidden absolute left-0 top-full mt-2 w-56 bg-white border border-rfr-border rounded-lg shadow-lg py-2 z-50">
+          <a href="hire-csms/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Hire CSMs</a>
+          <a href="hire-sdr-in-latin-america/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Hire SDRs in LATAM</a>
+          <a href="hire-in-latin-america/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Hire in Latin America</a>
+          <a href="hire-in-europe/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Hire in Europe</a>
+          <a href="hire-in-north-america/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Hire in North America</a>
+          <a href="operational-hires/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Operational Hires</a>
+          <a href="sales-hires/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Sales Hires</a>
+          <a href="digital-marketing/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Digital Marketing</a>
+          <a href="technical-hires/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Technical Hires</a>
+          <a href="contract-staffing/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Contract Staffing</a>
+        </div>
+      </div>
+      <!-- Resources dropdown -->
+      <div id="dd-resources" class="relative">
+        <button onclick="toggleDD('resources')" class="flex items-center gap-1 hover:text-rfr-black transition-colors">
+          Resources
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="dd-resources-menu" class="hidden absolute left-0 top-full mt-2 w-52 bg-white border border-rfr-border rounded-lg shadow-lg py-2 z-50">
+          <a href="blog/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Blog</a>
+          <a href="templates/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Templates &amp; SOPs</a>
+          <a href="6-smart-hires/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">6 Smart Hires</a>
+        </div>
+      </div>
+      <a href="contact/" class="bg-rfr-red text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors">Get Started</a>
     </div>
     <button class="md:hidden text-rfr-gray" onclick="toggleMobile()" aria-label="Menu">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,13 +111,28 @@
       </svg>
     </button>
   </div>
-  <div id="mobile-menu" class="md:hidden border-t border-rfr-border bg-white px-6 pb-5">
-    <div class="flex flex-col gap-4 text-sm text-rfr-gray pt-4">
-      <a href="#how-it-works" onclick="closeMobile()" data-editable>How It Works</a>
-      <a href="#roles" onclick="closeMobile()" data-editable>Roles</a>
-      <a href="#testimonials" onclick="closeMobile()" data-editable>Results</a>
-      <a href="#pricing" onclick="closeMobile()" data-editable>Pricing</a>
-      <a href="#contact" class="bg-rfr-red text-white px-4 py-2 rounded-full text-sm font-medium inline-block w-fit" onclick="closeMobile()" data-editable>Get Started</a>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-rfr-border bg-white px-6 pb-5">
+    <div class="flex flex-col gap-1 text-sm text-rfr-gray pt-4">
+      <p class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mt-3 mb-1">About</p>
+      <a href="about/" class="py-1.5 hover:text-rfr-black transition-colors">Our Story</a>
+      <a href="case-studies/" class="py-1.5 hover:text-rfr-black transition-colors">Case Studies</a>
+      <a href="services/" class="py-1.5 hover:text-rfr-black transition-colors">Services &amp; Pricing</a>
+      <p class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mt-3 mb-1">Popular Hires</p>
+      <a href="hire-csms/" class="py-1.5 hover:text-rfr-black transition-colors">Hire CSMs</a>
+      <a href="hire-sdr-in-latin-america/" class="py-1.5 hover:text-rfr-black transition-colors">Hire SDRs in LATAM</a>
+      <a href="hire-in-latin-america/" class="py-1.5 hover:text-rfr-black transition-colors">Hire in Latin America</a>
+      <a href="hire-in-europe/" class="py-1.5 hover:text-rfr-black transition-colors">Hire in Europe</a>
+      <a href="hire-in-north-america/" class="py-1.5 hover:text-rfr-black transition-colors">Hire in North America</a>
+      <a href="operational-hires/" class="py-1.5 hover:text-rfr-black transition-colors">Operational Hires</a>
+      <a href="sales-hires/" class="py-1.5 hover:text-rfr-black transition-colors">Sales Hires</a>
+      <a href="digital-marketing/" class="py-1.5 hover:text-rfr-black transition-colors">Digital Marketing</a>
+      <a href="technical-hires/" class="py-1.5 hover:text-rfr-black transition-colors">Technical Hires</a>
+      <a href="contract-staffing/" class="py-1.5 hover:text-rfr-black transition-colors">Contract Staffing</a>
+      <p class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mt-3 mb-1">Resources</p>
+      <a href="blog/" class="py-1.5 hover:text-rfr-black transition-colors">Blog</a>
+      <a href="templates/" class="py-1.5 hover:text-rfr-black transition-colors">Templates &amp; SOPs</a>
+      <a href="6-smart-hires/" class="py-1.5 hover:text-rfr-black transition-colors">6 Smart Hires</a>
+      <a href="contact/" class="mt-3 bg-rfr-red text-white px-4 py-2 rounded-full text-sm font-medium inline-block w-fit">Get Started</a>
     </div>
   </div>
 </nav>
@@ -484,11 +532,29 @@
   document.addEventListener('DOMContentLoaded', restoreEdits);
 
   function toggleMobile() {
-    document.getElementById('mobile-menu').classList.toggle('open');
+    document.getElementById('mobile-menu').classList.toggle('hidden');
   }
 
+  var activeDD = null;
+  function toggleDD(n) {
+    ['about','hires','resources'].forEach(function(k) {
+      if (k !== n) { var m = document.getElementById('dd-'+k+'-menu'); if(m) m.classList.add('hidden'); }
+    });
+    var menu = document.getElementById('dd-'+n+'-menu');
+    menu.classList.toggle('hidden');
+    activeDD = menu.classList.contains('hidden') ? null : n;
+  }
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('[id^="dd-"]')) {
+      ['about','hires','resources'].forEach(function(k) {
+        var m = document.getElementById('dd-'+k+'-menu'); if(m) m.classList.add('hidden');
+      });
+      activeDD = null;
+    }
+  });
+
   function closeMobile() {
-    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('mobile-menu').classList.add('hidden');
   }
 </script>
 </body>
