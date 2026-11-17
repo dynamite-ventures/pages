@@ -45,6 +45,22 @@
 </head>
 <body class="font-sans bg-white text-rfr-black antialiased" style="font-weight:400;">
 
+<!-- Edit Toolbar -->
+<div class="fixed top-4 right-4 z-50 flex gap-2">
+  <button id="btn-edit"
+    class="bg-rfr-black text-white text-xs font-medium px-3.5 py-1.5 rounded-full shadow-sm hover:bg-rfr-gray-dark transition-colors"
+    onclick="enableEditing()"
+    title="Click any text on the page, then edit it in place">
+    Edit Copy
+  </button>
+  <button id="btn-save"
+    class="bg-rfr-red text-white text-xs font-medium px-3.5 py-1.5 rounded-full shadow-sm hover:bg-rfr-red-dark transition-colors hidden"
+    onclick="saveAndDownload()"
+    title="Downloads this page as a file — send it to whoever publishes next">
+    Save &amp; Download
+  </button>
+</div>
+
 <!-- Nav -->
 <nav class="border-b border-rfr-border bg-white sticky top-0 z-40">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -427,6 +443,54 @@
 </footer>
 
 <script>
+  var editing = false;
+
+  function editables() {
+    return document.querySelectorAll('[data-editable]');
+  }
+
+  function enableEditing() {
+    editing = true;
+    editables().forEach(function(el) {
+      el.contentEditable = 'true';
+      el.spellcheck = true;
+    });
+    document.getElementById('btn-edit').classList.add('hidden');
+    document.getElementById('btn-save').classList.remove('hidden');
+  }
+
+  function disableEditing() {
+    editing = false;
+    editables().forEach(function(el) {
+      el.contentEditable = 'false';
+      el.spellcheck = false;
+    });
+    document.getElementById('btn-edit').classList.remove('hidden');
+    document.getElementById('btn-save').classList.add('hidden');
+  }
+
+  // Saving here has no server to write to, so "save" means: produce a real
+  // file with your edits baked in and hand it off. Whoever has it next either
+  // drops it in as the new index.html and publishes, or sends it on to you.
+  function saveAndDownload() {
+    disableEditing();
+    var clone = document.documentElement.cloneNode(true);
+    clone.querySelectorAll('[data-editable]').forEach(function(el) {
+      el.removeAttribute('contenteditable');
+      el.removeAttribute('spellcheck');
+    });
+    var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+    var blob = new Blob([html], { type: 'text/html' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'rfr-redesign-edited.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
   function toggleMobile() {
     document.getElementById('mobile-menu').classList.toggle('hidden');
   }
