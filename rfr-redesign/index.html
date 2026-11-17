@@ -45,20 +45,6 @@
 </head>
 <body class="font-sans bg-white text-rfr-black antialiased" style="font-weight:400;">
 
-<!-- Edit Toolbar -->
-<div class="fixed top-4 right-4 z-50 flex gap-2">
-  <button id="btn-edit"
-    class="bg-rfr-black text-white text-xs font-medium px-3.5 py-1.5 rounded-full shadow-sm hover:bg-rfr-gray-dark transition-colors"
-    onclick="enableEditing()">
-    Edit Copy
-  </button>
-  <button id="btn-save"
-    class="bg-rfr-red text-white text-xs font-medium px-3.5 py-1.5 rounded-full shadow-sm hover:bg-rfr-red-dark transition-colors hidden"
-    onclick="disableEditing()">
-    Save
-  </button>
-</div>
-
 <!-- Nav -->
 <nav class="border-b border-rfr-border bg-white sticky top-0 z-40">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -441,63 +427,6 @@
 </footer>
 
 <script>
-  var editing = false;
-
-  function editables() {
-    return document.querySelectorAll('[data-editable]');
-  }
-
-  function enableEditing() {
-    editing = true;
-    editables().forEach(function(el) {
-      el.contentEditable = 'true';
-      el.spellcheck = true;
-    });
-    document.getElementById('btn-edit').classList.add('hidden');
-    document.getElementById('btn-save').classList.remove('hidden');
-    document.addEventListener('input', onInput);
-  }
-
-  function disableEditing() {
-    editing = false;
-    editables().forEach(function(el) {
-      el.contentEditable = 'false';
-      el.spellcheck = false;
-    });
-    document.getElementById('btn-edit').classList.remove('hidden');
-    document.getElementById('btn-save').classList.add('hidden');
-    document.removeEventListener('input', onInput);
-  }
-
-  function onInput(e) {
-    if (e.target.dataset.editable === undefined) return;
-    try {
-      var section = e.target.closest('section,nav,footer,header');
-      var key = 'rfr_' + (e.target.id || (section ? section.id || section.tagName : 'x') + '_' + Array.from(section ? section.querySelectorAll('[data-editable]') : []).indexOf(e.target));
-      localStorage.setItem(key, e.target.innerHTML);
-    } catch(err) {}
-  }
-
-  function restoreEdits() {
-    editables().forEach(function(el) {
-      try {
-        var section = el.closest('section,nav,footer,header');
-        var key = 'rfr_' + (el.id || (section ? section.id || section.tagName : 'x') + '_' + Array.from(section ? section.querySelectorAll('[data-editable]') : []).indexOf(el));
-        var saved = localStorage.getItem(key);
-        if (saved) el.innerHTML = saved;
-      } catch(err) {}
-    });
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
-      e.preventDefault();
-      if (editing) disableEditing(); else enableEditing();
-    }
-  });
-
-  document.addEventListener('DOMContentLoaded', restoreEdits);
-
   function toggleMobile() {
     document.getElementById('mobile-menu').classList.toggle('hidden');
   }
