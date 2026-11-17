@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Remote First Recruiting — Hire Remote-Ready Talent</title>
+  <title>Remote First Recruiting — Hire your next team member in 21 days or less</title>
+  <meta name="description" content="Hire your next remote team member in 21 days or less. Sourcing, screening and shortlisting for bootstrapped founders." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,18 +15,21 @@
         extend: {
           colors: {
             rfr: {
-              red: '#D0021B',
-              'red-dark': '#A80116',
-              black: '#111111',
-              'gray-dark': '#333333',
-              gray: '#666666',
-              'gray-mid': '#999999',
-              'gray-light': '#F7F7F7',
-              border: '#E8E8E8',
+              red: '#FF4921',
+              'red-dark': '#C03A17',
+              black: '#30333D',
+              'gray-dark': '#464A57',
+              gray: '#5C6068',
+              'gray-mid': '#9BA1AD',
+              'gray-light': '#F1F1F1',
+              border: '#E3E3E6',
+              gold: '#F8DA77',
+              teal: '#6AD8C6',
             }
           },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            sans: ['Poppins', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
           }
         }
       }
@@ -34,7 +38,7 @@
   <style>
     html { scroll-behavior: smooth; }
     [contenteditable] { outline: none; }
-    [contenteditable="true"]:focus { box-shadow: 0 0 0 2px #D0021B; border-radius: 2px; }
+    [contenteditable="true"]:focus { box-shadow: 0 0 0 2px #FF4921; border-radius: 2px; }
     #mobile-menu { display: none; }
     #mobile-menu.open { display: block; }
   </style>
@@ -58,7 +62,10 @@
 <!-- Nav -->
 <nav class="border-b border-rfr-border bg-white sticky top-0 z-40">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="." class="font-semibold text-base tracking-tight text-rfr-black">Remote First Recruiting</a>
+    <a href="." class="font-semibold text-base tracking-tight text-rfr-black flex items-center gap-2">
+      <span class="w-[10px] h-[10px] rounded-full bg-rfr-red inline-block"></span>
+      Remote First Recruiting
+    </a>
     <div class="hidden md:flex items-center gap-6 text-sm text-rfr-gray">
       <!-- About dropdown -->
       <div id="dd-about" class="relative">
@@ -103,7 +110,7 @@
           <a href="6-smart-hires/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">6 Smart Hires</a>
         </div>
       </div>
-      <a href="contact/" class="bg-rfr-red text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors">Get Started</a>
+      <a href="contact/" class="bg-rfr-red text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors">Start hiring</a>
     </div>
     <button class="md:hidden text-rfr-gray" onclick="toggleMobile()" aria-label="Menu">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,260 +139,228 @@
       <a href="blog/" class="py-1.5 hover:text-rfr-black transition-colors">Blog</a>
       <a href="templates/" class="py-1.5 hover:text-rfr-black transition-colors">Templates &amp; SOPs</a>
       <a href="6-smart-hires/" class="py-1.5 hover:text-rfr-black transition-colors">6 Smart Hires</a>
-      <a href="contact/" class="mt-3 bg-rfr-red text-white px-4 py-2 rounded-full text-sm font-medium inline-block w-fit">Get Started</a>
+      <a href="contact/" class="mt-3 bg-rfr-red text-white px-4 py-2 rounded-full text-sm font-medium inline-block w-fit">Start hiring</a>
     </div>
   </div>
 </nav>
 
 <!-- Hero -->
-<section class="py-24 md:py-36 px-6 bg-white">
+<section id="top" class="py-24 md:py-32 px-6 bg-white">
   <div class="max-w-4xl mx-auto">
-    <div class="inline-flex items-center gap-2 text-rfr-red text-xs font-medium tracking-widest uppercase mb-8">
-      <span class="w-4 h-px bg-rfr-red inline-block"></span>
-      <span data-editable>Specialists in Remote-First Hiring</span>
+    <div class="inline-flex items-center gap-2 text-rfr-red text-xs font-mono font-semibold tracking-widest uppercase mb-8 bg-[rgba(255,73,33,0.1)] border border-[rgba(255,73,33,0.34)] px-3.5 py-1.5 rounded-full" data-editable>
+      <b>21-day</b>&nbsp;average time to hire
     </div>
-    <h1 class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-rfr-black mb-7" data-editable>
-      Hire talent built<br/>for remote work.
+    <h1 class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-rfr-black mb-7 max-w-[15ch]" data-editable>
+      Hire your next team member in 21 days or less.
     </h1>
     <p class="text-lg text-rfr-gray max-w-2xl leading-relaxed mb-10" data-editable>
-      We recruit self-directed, async-native professionals for remote-first companies. No office-dwellers pretending to go remote.
+      We find, screen and shortlist remote talent for bootstrapped founders — so you interview three or four people worth your time instead of four hundred who aren't.
     </p>
     <div class="flex flex-col sm:flex-row gap-3">
       <a href="#contact"
-        class="bg-rfr-black text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-rfr-gray-dark transition-colors inline-block"
+        class="bg-rfr-red text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors inline-block"
         data-editable>
-        Start your search
+        Start hiring
       </a>
       <a href="#how-it-works"
-        class="border border-rfr-border text-rfr-gray-dark px-6 py-3 rounded-full text-sm font-medium hover:border-rfr-gray-dark transition-colors inline-block"
+        class="border border-rfr-border text-rfr-black px-6 py-3 rounded-full text-sm font-medium hover:border-rfr-black transition-colors inline-block"
         data-editable>
         See how it works
       </a>
     </div>
-  </div>
-</section>
 
-<!-- Social Proof Bar -->
-<section class="border-y border-rfr-border py-10 px-6">
-  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
-    <div>
-      <div class="text-2xl font-semibold text-rfr-black mb-1" data-editable>500+</div>
-      <div class="text-xs text-rfr-gray-mid uppercase tracking-wide" data-editable>Placements</div>
-    </div>
-    <div>
-      <div class="text-2xl font-semibold text-rfr-black mb-1" data-editable>12 yrs</div>
-      <div class="text-xs text-rfr-gray-mid uppercase tracking-wide" data-editable>Remote-only</div>
-    </div>
-    <div>
-      <div class="text-2xl font-semibold text-rfr-black mb-1" data-editable>40+</div>
-      <div class="text-xs text-rfr-gray-mid uppercase tracking-wide" data-editable>Countries</div>
-    </div>
-    <div>
-      <div class="text-2xl font-semibold text-rfr-black mb-1" data-editable>94%</div>
-      <div class="text-xs text-rfr-gray-mid uppercase tracking-wide" data-editable>Client retention</div>
-    </div>
-    <div>
-      <div class="text-2xl font-semibold text-rfr-black mb-1" data-editable>3 weeks</div>
-      <div class="text-xs text-rfr-gray-mid uppercase tracking-wide" data-editable>Avg. time to hire</div>
+    <div class="mt-16 border-t border-b border-rfr-border grid grid-cols-1 md:grid-cols-3">
+      <div class="py-6 pr-5">
+        <div class="text-3xl md:text-4xl font-bold leading-none tracking-tight text-rfr-red" data-editable>1,000+</div>
+        <div class="font-mono text-[10.5px] tracking-widest uppercase text-rfr-gray-mid mt-2.5" data-editable>Placements made</div>
+      </div>
+      <div class="py-6 md:pl-6 border-t md:border-t-0 md:border-l border-rfr-border">
+        <div class="text-3xl md:text-4xl font-bold leading-none tracking-tight text-rfr-red" data-editable>150k+</div>
+        <div class="font-mono text-[10.5px] tracking-widest uppercase text-rfr-gray-mid mt-2.5" data-editable>Candidates in pipeline</div>
+      </div>
+      <div class="py-6 md:pl-6 border-t md:border-t-0 md:border-l border-rfr-border">
+        <div class="text-3xl md:text-4xl font-bold leading-none tracking-tight text-rfr-red" data-editable>20+</div>
+        <div class="font-mono text-[10.5px] tracking-widest uppercase text-rfr-gray-mid mt-2.5" data-editable>Years recruiting</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Problem / Intro -->
-<section class="py-20 px-6 bg-white">
+<!-- Funnel -->
+<section class="py-20 px-6 bg-rfr-black text-white">
   <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-medium tracking-widest uppercase text-rfr-gray-mid mb-6" data-editable>The problem</p>
-    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black leading-tight mb-6 max-w-2xl" data-editable>
-      Most recruiters don't understand what remote-ready actually means.
-    </h2>
-    <div class="grid md:grid-cols-2 gap-8 text-rfr-gray leading-relaxed">
-      <p data-editable>
-        They send resumes from candidates who have never worked async, can't manage their own schedule, or fold under the autonomy of distributed teams. The result is a hire that looks great on paper and struggles in practice.
-      </p>
-      <p data-editable>
-        Remote First Recruiting has operated 100% remotely since 2012. We know what remote-ready looks like — because we live it. We test for the things traditional recruiters ignore.
-      </p>
+    <p class="font-mono text-[11px] font-semibold tracking-widest uppercase text-rfr-gold mb-4" data-editable>What a search actually looks like</p>
+    <h2 class="text-3xl md:text-4xl font-semibold max-w-[20ch] leading-tight tracking-tight mb-5" data-editable>Four hundred applications in, three or four people out.</h2>
+    <p class="text-[#BFC3CC] max-w-[62ch] text-base leading-relaxed mb-11" data-editable>A well-posted remote role will bury you. That volume is the product — it means you reached the market — but only if someone else reads it. That's the job we do.</p>
+
+    <div class="grid gap-3.5">
+      <div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-1.5 md:gap-4 items-center">
+        <div class="font-mono text-[11px] tracking-widest uppercase text-[#BFC3CC] text-left md:text-right">Applications</div>
+        <div class="relative h-[46px] flex items-center">
+          <div class="h-full w-full rounded bg-rfr-gray-dark text-[#DDE0E6] flex items-center pl-3.5 font-mono text-[13px] font-semibold whitespace-nowrap" data-editable>350–500 over 30 days</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-1.5 md:gap-4 items-center">
+        <div class="font-mono text-[11px] tracking-widest uppercase text-[#BFC3CC] text-left md:text-right">Pass first screen</div>
+        <div class="relative h-[46px] flex items-center">
+          <div class="h-full w-[26%] rounded bg-rfr-teal text-[#19332E] flex items-center pl-3.5 font-mono text-[13px] font-semibold whitespace-nowrap" data-editable>~100</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-1.5 md:gap-4 items-center">
+        <div class="font-mono text-[11px] tracking-widest uppercase text-[#BFC3CC] text-left md:text-right">Live interviews</div>
+        <div class="relative h-[46px] flex items-center">
+          <div class="h-full w-[9%] rounded bg-rfr-gold text-[#4A3A0D] flex items-center pl-3.5 font-mono text-[13px] font-semibold whitespace-nowrap" data-editable>~35</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-1.5 md:gap-4 items-center">
+        <div class="font-mono text-[11px] tracking-widest uppercase text-[#BFC3CC] text-left md:text-right">You meet</div>
+        <div class="relative h-[46px] flex items-center">
+          <div class="h-full w-[3.2%] min-w-[12px] rounded bg-rfr-red"></div>
+          <span class="font-mono text-[13px] font-semibold text-white ml-3 whitespace-nowrap" data-editable>3–4 finalists</span>
+        </div>
+      </div>
     </div>
+    <p class="mt-6 font-mono text-xs text-[#9BA1AD] md:pl-[168px]" data-editable>Typical 30-day search. Every finalist has been interviewed by a human before you see them.</p>
   </div>
 </section>
 
 <!-- How It Works -->
 <section id="how-it-works" class="py-20 px-6 bg-rfr-gray-light">
   <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-medium tracking-widest uppercase text-rfr-gray-mid mb-4" data-editable>The process</p>
-    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-14" data-editable>Three steps to your next hire</h2>
-    <div class="space-y-0">
-      <!-- Step 1 -->
-      <div class="flex gap-8 py-10 border-t border-rfr-border">
-        <div class="text-rfr-red text-sm font-medium w-6 shrink-0 pt-0.5">01</div>
-        <div>
-          <h3 class="font-semibold text-rfr-black mb-2" data-editable>Discovery call</h3>
-          <p class="text-rfr-gray leading-relaxed max-w-xl" data-editable>
-            We learn your team culture, timezone preferences, tech stack, and what remote-ready means for your company. A real conversation, not a generic intake form.
-          </p>
-        </div>
+    <p class="text-xs font-mono font-medium tracking-widest uppercase text-rfr-red mb-4" data-editable>How it works</p>
+    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-14" data-editable>Three steps, one point of contact.</h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      <div class="bg-white border border-rfr-border rounded-xl px-6 py-7">
+        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>01 — KICKOFF</span>
+        <h3 class="font-semibold text-rfr-black mb-2" data-editable>We learn the seat</h3>
+        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>A dedicated hiring manager works out what the role really needs, what your team is like to work in, and which trade-offs you'd actually accept. Written up before anything goes live.</p>
       </div>
-      <!-- Step 2 -->
-      <div class="flex gap-8 py-10 border-t border-rfr-border">
-        <div class="text-rfr-red text-sm font-medium w-6 shrink-0 pt-0.5">02</div>
-        <div>
-          <h3 class="font-semibold text-rfr-black mb-2" data-editable>Sourcing &amp; vetting</h3>
-          <p class="text-rfr-gray leading-relaxed max-w-xl" data-editable>
-            We tap our global network and run every candidate through our remote-readiness framework — testing for async communication, self-management, and autonomy, not just technical skills.
-          </p>
-        </div>
+      <div class="bg-white border border-rfr-border rounded-xl px-6 py-7">
+        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>02 — SOURCE &amp; SCREEN</span>
+        <h3 class="font-semibold text-rfr-black mb-2" data-editable>We do the reading</h3>
+        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>The role goes out to our pipeline and the boards that work for it. We screen every applicant and interview the serious ones, scoring against the brief rather than the résumé.</p>
       </div>
-      <!-- Step 3 -->
-      <div class="flex gap-8 py-10 border-t border-b border-rfr-border">
-        <div class="text-rfr-red text-sm font-medium w-6 shrink-0 pt-0.5">03</div>
-        <div>
-          <h3 class="font-semibold text-rfr-black mb-2" data-editable>Shortlist &amp; hire</h3>
-          <p class="text-rfr-gray leading-relaxed max-w-xl" data-editable>
-            You receive 3–5 pre-vetted, pre-interviewed candidates. No volume dumps. We stay involved through offer and onboarding so nothing slips.
-          </p>
-        </div>
+      <div class="bg-white border border-rfr-border rounded-xl px-6 py-7">
+        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>03 — SHORTLIST</span>
+        <h3 class="font-semibold text-rfr-black mb-2" data-editable>You meet finalists</h3>
+        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Three or four candidates with written notes on each — strengths, concerns, compensation, availability. Most searches close inside 21 days, and the hire is guaranteed.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Roles We Fill -->
-<section id="roles" class="py-20 px-6 bg-white">
+<!-- Where Founders Hire -->
+<section id="where" class="py-20 px-6 bg-white">
   <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-medium tracking-widest uppercase text-rfr-gray-mid mb-4" data-editable>Specializations</p>
-    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-12" data-editable>Roles we fill</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rfr-border">
-      <div class="bg-white p-7">
-        <h3 class="font-medium text-rfr-black mb-1.5" data-editable>Software Engineering</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Full-stack, backend, frontend, mobile — async-first contributors</p>
+    <p class="text-xs font-mono font-medium tracking-widest uppercase text-rfr-red mb-4" data-editable>Where founders hire</p>
+    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-5" data-editable>Hire for the overlap, not the postcode.</h2>
+    <p class="text-rfr-gray max-w-[62ch] text-base leading-relaxed mb-11" data-editable>The question is never "remote or not" — it's how many hours a day this person needs to be awake at the same time you are. We staff three regions and pick by overlap.</p>
+    <div class="grid gap-4 md:grid-cols-3">
+      <a href="hire-in-latin-america/" class="block bg-white border border-rfr-border rounded-xl px-6 py-7 hover:border-rfr-red transition-colors">
+        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>LATIN AMERICA</span>
+        <div class="font-mono text-[12.5px] text-rfr-black font-semibold mb-1" data-editable>UTC−3 to UTC−6</div>
+        <p class="text-rfr-gray text-sm leading-relaxed mb-2" data-editable>Full working-day overlap with US time zones. The default for sales, support and operations seats that need to be live when your customers are.</p>
+        <div class="font-mono text-[11.5px] text-rfr-gray-mid" data-editable>Salaries from $1,500/month</div>
+      </a>
+      <a href="hire-in-europe/" class="block bg-white border border-rfr-border rounded-xl px-6 py-7 hover:border-rfr-red transition-colors">
+        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>EUROPE</span>
+        <div class="font-mono text-[12.5px] text-rfr-black font-semibold mb-1" data-editable>UTC+0 to UTC+3</div>
+        <p class="text-rfr-gray text-sm leading-relaxed mb-2" data-editable>Morning overlap with the US East Coast, full overlap with UK and EU customers. Strong for account management, marketing and engineering.</p>
+        <div class="font-mono text-[11.5px] text-rfr-gray-mid" data-editable>EU, UK and Eastern Europe</div>
+      </a>
+      <a href="hire-in-north-america/" class="block bg-white border border-rfr-border rounded-xl px-6 py-7 hover:border-rfr-red transition-colors">
+        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>NORTH AMERICA</span>
+        <div class="font-mono text-[12.5px] text-rfr-black font-semibold mb-1" data-editable>UTC−4 to UTC−8</div>
+        <p class="text-rfr-gray text-sm leading-relaxed mb-2" data-editable>Same-day, same-hours. Where the seat needs deep domain knowledge of the US market or customer-facing seniority.</p>
+        <div class="font-mono text-[11.5px] text-rfr-gray-mid" data-editable>US and Canada</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Roles We Fill -->
+<section id="roles" class="py-20 px-6 bg-rfr-gray-light">
+  <div class="max-w-4xl mx-auto">
+    <p class="text-xs font-mono font-medium tracking-widest uppercase text-rfr-red mb-4" data-editable>Roles we fill</p>
+    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-9" data-editable>The seats that decide whether the next year works.</h2>
+    <div class="flex flex-wrap gap-2.5 mb-10">
+      <a href="hire-csms/" class="border border-rfr-border rounded-full px-4.5 py-2.5 text-sm bg-white font-medium hover:border-rfr-red transition-colors" data-editable>Customer Success Managers</a>
+      <a href="hire-sdr-in-latin-america/" class="border border-rfr-border rounded-full px-4.5 py-2.5 text-sm bg-white font-medium hover:border-rfr-red transition-colors" data-editable>SDRs</a>
+      <a href="sales-hires/" class="border border-rfr-border rounded-full px-4.5 py-2.5 text-sm bg-white font-medium hover:border-rfr-red transition-colors" data-editable>Account Executives</a>
+      <a href="sales-hires/" class="border border-rfr-border rounded-full px-4.5 py-2.5 text-sm bg-white font-medium hover:border-rfr-red transition-colors" data-editable>Account Managers</a>
+      <a href="digital-marketing/" class="border border-rfr-border rounded-full px-4.5 py-2.5 text-sm bg-white font-medium hover:border-rfr-red transition-colors" data-editable>Digital Marketing</a>
+      <a href="operational-hires/" class="border border-rfr-border rounded-full px-4.5 py-2.5 text-sm bg-white font-medium hover:border-rfr-red transition-colors" data-editable>Operations</a>
+      <a href="technical-hires/" class="border border-rfr-border rounded-full px-4.5 py-2.5 text-sm bg-white font-medium hover:border-rfr-red transition-colors" data-editable>Engineering &amp; Technical</a>
+      <a href="operational-hires/" class="border border-rfr-border rounded-full px-4.5 py-2.5 text-sm bg-white font-medium hover:border-rfr-red transition-colors" data-editable>Bookkeeping &amp; Finance</a>
+      <a href="contract-staffing/" class="border border-rfr-border rounded-full px-4.5 py-2.5 text-sm bg-white font-medium hover:border-rfr-red transition-colors" data-editable>Contract staffing</a>
+    </div>
+    <div class="flex gap-4 flex-wrap">
+      <div class="border border-rfr-border border-t-[3px] border-t-rfr-red rounded-xl px-6 py-5.5 bg-white flex-1 basis-[260px] min-w-0">
+        <p class="font-mono text-[11px] font-semibold tracking-widest uppercase text-rfr-red mb-2" data-editable>Guarantee</p>
+        <p class="text-sm text-rfr-gray" data-editable>Every placement is covered. If the hire doesn't work out inside the guarantee window, we run the search again at no further fee.</p>
       </div>
-      <div class="bg-white p-7">
-        <h3 class="font-medium text-rfr-black mb-1.5" data-editable>Marketing &amp; Growth</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Content, SEO, paid media, and growth operators who own results</p>
+      <div class="border border-rfr-border border-t-[3px] border-t-rfr-red rounded-xl px-6 py-5.5 bg-white flex-1 basis-[260px] min-w-0">
+        <p class="font-mono text-[11px] font-semibold tracking-widest uppercase text-rfr-red mb-2" data-editable>Flat fee</p>
+        <p class="text-sm text-rfr-gray" data-editable>One price per hire, agreed up front. No percentage of salary, so hiring well doesn't cost you more than hiring cheaply.</p>
       </div>
-      <div class="bg-white p-7">
-        <h3 class="font-medium text-rfr-black mb-1.5" data-editable>Operations &amp; Project Mgmt</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Remote-native ops leads, EAs, and project managers</p>
-      </div>
-      <div class="bg-white p-7">
-        <h3 class="font-medium text-rfr-black mb-1.5" data-editable>Design &amp; Creative</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>UI/UX designers, brand designers, creative directors</p>
-      </div>
-      <div class="bg-white p-7">
-        <h3 class="font-medium text-rfr-black mb-1.5" data-editable>Finance &amp; Analytics</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Controllers, FP&amp;A analysts, and data analysts</p>
-      </div>
-      <div class="bg-white p-7">
-        <h3 class="font-medium text-rfr-black mb-1.5" data-editable>Customer Success</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Support, onboarding, and account management specialists</p>
+      <div class="border border-rfr-border border-t-[3px] border-t-rfr-red rounded-xl px-6 py-5.5 bg-white flex-1 basis-[260px] min-w-0">
+        <p class="font-mono text-[11px] font-semibold tracking-widest uppercase text-rfr-red mb-2" data-editable>One contact</p>
+        <p class="text-sm text-rfr-gray" data-editable>You work with the same person from kickoff to offer. Slack, Teams or email — whichever your team already lives in.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Testimonials -->
-<section id="testimonials" class="py-20 px-6 bg-rfr-gray-light">
+<!-- NOTE: quotes below came from a scrape that truncated to 125 chars; verify word-for-word
+     against the live site before this ships (Greg's plan, Phase 2). Ruben Gamez's company name
+     also needs confirming — scrape said "SignWill", this uses "SignWell". -->
+<section id="testimonials" class="py-20 px-6 bg-white">
   <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-medium tracking-widest uppercase text-rfr-gray-mid mb-4" data-editable>Client results</p>
-    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-12" data-editable>What our clients say</h2>
-    <div class="space-y-8">
-      <!-- Testimonial 1 -->
-      <div class="bg-white border border-rfr-border rounded-xl p-8">
-        <p class="text-rfr-gray-dark leading-relaxed mb-6 text-base" data-editable>
-          "We hired three engineers through Remote First Recruiting in 90 days. Every one was producing autonomously within two weeks. Zero hand-holding required."
-        </p>
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-rfr-gray-light border border-rfr-border flex items-center justify-center text-xs font-medium text-rfr-gray">MK</div>
-          <div>
-            <div class="text-sm font-medium text-rfr-black" data-editable>Michael K.</div>
-            <div class="text-xs text-rfr-gray-mid" data-editable>CTO, SaaS Startup</div>
-          </div>
-        </div>
-      </div>
-      <!-- Testimonial 2 -->
-      <div class="bg-white border border-rfr-border rounded-xl p-8">
-        <p class="text-rfr-gray-dark leading-relaxed mb-6 text-base" data-editable>
-          "After three failed hires with traditional recruiters, Remote First found us a marketing lead who thrived from day one. Their vetting process is genuinely different."
-        </p>
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-rfr-gray-light border border-rfr-border flex items-center justify-center text-xs font-medium text-rfr-gray">SL</div>
-          <div>
-            <div class="text-sm font-medium text-rfr-black" data-editable>Sarah L.</div>
-            <div class="text-xs text-rfr-gray-mid" data-editable>CEO, E-Commerce Brand</div>
-          </div>
-        </div>
-      </div>
-      <!-- Testimonial 3 -->
-      <div class="bg-white border border-rfr-border rounded-xl p-8">
-        <p class="text-rfr-gray-dark leading-relaxed mb-6 text-base" data-editable>
-          "Their 3-week turnaround is real. We had a shortlist of four vetted candidates in 18 days. Hired our ops manager from that list and she's been with us two years."
-        </p>
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-rfr-gray-light border border-rfr-border flex items-center justify-center text-xs font-medium text-rfr-gray">RT</div>
-          <div>
-            <div class="text-sm font-medium text-rfr-black" data-editable>Ryan T.</div>
-            <div class="text-xs text-rfr-gray-mid" data-editable>Founder, Digital Agency</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <p class="text-xs font-mono font-medium tracking-widest uppercase text-rfr-red mb-4" data-editable>What founders say</p>
+    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-5" data-editable>Built inside a founder community, not a recruiting firm.</h2>
+    <p class="text-rfr-gray max-w-[62ch] text-base leading-relaxed mb-11" data-editable>Featured by TinySeed and recommended in Rob Walling's <i>The SaaS Playbook</i>.</p>
 
-<!-- Why Us -->
-<section id="pricing" class="py-20 px-6 bg-white">
-  <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-medium tracking-widest uppercase text-rfr-gray-mid mb-4" data-editable>Why Remote First</p>
-    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-12" data-editable>Different by design</h2>
-    <div class="grid md:grid-cols-2 gap-14">
-      <div class="space-y-9">
-        <div class="border-t border-rfr-border pt-6">
-          <h3 class="font-medium text-rfr-black mb-2" data-editable>Remote-only since 2012</h3>
-          <p class="text-rfr-gray text-sm leading-relaxed" data-editable>We don't recruit remote as an afterthought. Our team has operated distributed for over a decade — we understand the culture because we live it.</p>
-        </div>
-        <div class="border-t border-rfr-border pt-6">
-          <h3 class="font-medium text-rfr-black mb-2" data-editable>Remote-readiness framework</h3>
-          <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Every candidate is assessed on async communication, self-direction, timezone discipline, and documentation habits — not just technical skills.</p>
-        </div>
-        <div class="border-t border-rfr-border pt-6">
-          <h3 class="font-medium text-rfr-black mb-2" data-editable>Curated shortlists only</h3>
-          <p class="text-rfr-gray text-sm leading-relaxed" data-editable>You receive 3–5 pre-vetted, pre-interviewed candidates. Never 30 resumes to sort through yourself.</p>
-        </div>
-        <div class="border-t border-rfr-border pt-6">
-          <h3 class="font-medium text-rfr-black mb-2" data-editable>90-day replacement guarantee</h3>
-          <p class="text-rfr-gray text-sm leading-relaxed" data-editable>If your hire doesn't work out within 90 days, we replace them at no charge. We stand behind our placements.</p>
-        </div>
-      </div>
-      <div class="bg-rfr-gray-light border border-rfr-border rounded-xl p-8">
-        <p class="text-xs font-medium tracking-widest uppercase text-rfr-gray-mid mb-5" data-editable>Pricing</p>
-        <h3 class="text-2xl font-semibold text-rfr-black mb-2" data-editable>Performance-based</h3>
-        <p class="text-rfr-gray text-sm mb-8" data-editable>No retainer, no upfront fees. You only pay when you make a hire.</p>
-        <div class="space-y-4 border-t border-rfr-border pt-6 mb-8">
-          <div class="flex justify-between text-sm">
-            <span class="text-rfr-gray" data-editable>Placement fee</span>
-            <span class="font-medium text-rfr-black" data-editable>12–18% of salary</span>
-          </div>
-          <div class="flex justify-between text-sm">
-            <span class="text-rfr-gray" data-editable>Volume discount</span>
-            <span class="font-medium text-rfr-black" data-editable>Available for 3+ hires</span>
-          </div>
-          <div class="flex justify-between text-sm">
-            <span class="text-rfr-gray" data-editable>Guarantee</span>
-            <span class="font-medium text-rfr-red" data-editable>90-day replacement</span>
-          </div>
-        </div>
-        <a href="#contact"
-          class="w-full bg-rfr-black text-white py-3 rounded-full font-medium text-sm text-center block hover:bg-rfr-gray-dark transition-colors"
-          data-editable>
-          Get a free consultation
-        </a>
-      </div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-px bg-rfr-border border border-rfr-border rounded-xl overflow-hidden mb-3.5">
+      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>Rally</span></div>
+      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>Builder Prime</span></div>
+      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>Manta Sleep</span></div>
+      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>moveBuddha</span></div>
+      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>ZenFounder</span></div>
+    </div>
+    <p class="font-mono text-[11.5px] text-rfr-gray-mid mb-11" data-editable>Placeholder wordmarks — swap each for the client's logo.</p>
+
+    <div class="columns-1 md:columns-2 gap-4">
+      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
+        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"They understand our product, culture, and team make-up. They're great, they hire great people."</p>
+        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Jordan Gal</b> — Co-founder, Rally</figcaption>
+      </figure>
+      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
+        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"Having them as a resource is invaluable because of all the expertise they have in this niche."</p>
+        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Jonathan Weinberg</b> — Founder, Builder Prime</figcaption>
+      </figure>
+      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
+        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"By having RFR filter out most people, it really saved us a ton of time."</p>
+        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Mark Zhang</b> — Founder, Manta Sleep</figcaption>
+      </figure>
+      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
+        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"Could not be happier with recruiting service. We will absolutely be coming back."</p>
+        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Ryan Carrigan</b> — Co-founder, moveBuddha</figcaption>
+      </figure>
+      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
+        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"Working with the Remote First Recruiting team was an incredible time saver."</p>
+        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Dr. Sherry Walling</b> — Founder, ZenFounder</figcaption>
+      </figure>
+      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
+        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"RFR has made finding great team members much less work for us."</p>
+        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Ruben Gamez</b> — Founder, SignWell</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
 <!-- Newsletter -->
-<section class="py-16 px-6 border-y border-rfr-border">
+<section class="py-16 px-6 border-y border-rfr-border bg-rfr-gray-light">
   <div class="max-w-xl mx-auto text-center">
     <h2 class="text-2xl font-semibold text-rfr-black mb-2" data-editable>Remote hiring insights</h2>
     <p class="text-rfr-gray text-sm mb-7" data-editable>Tips and strategies for building high-performing remote teams. No spam.</p>
@@ -393,7 +368,7 @@
       <input
         type="email"
         placeholder="your&#64;email.com"
-        class="flex-1 border border-rfr-border rounded-full px-5 py-2.5 text-sm focus:outline-none focus:border-rfr-gray-dark text-rfr-black"
+        class="flex-1 border border-rfr-border rounded-full px-5 py-2.5 text-sm bg-white focus:outline-none focus:border-rfr-black text-rfr-black"
       />
       <button type="submit" class="bg-rfr-black text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-rfr-gray-dark transition-colors whitespace-nowrap" data-editable>
         Subscribe
@@ -403,35 +378,24 @@
 </section>
 
 <!-- CTA / Contact -->
-<section id="contact" class="py-24 px-6 bg-white">
-  <div class="max-w-4xl mx-auto">
-    <div class="max-w-2xl">
-      <div class="inline-flex items-center gap-2 text-rfr-red text-xs font-medium tracking-widest uppercase mb-8">
-        <span class="w-4 h-px bg-rfr-red inline-block"></span>
-        <span data-editable>Get started</span>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-semibold text-rfr-black leading-tight mb-6" data-editable>
-        Ready to hire remote-ready talent?
-      </h2>
-      <p class="text-rfr-gray mb-10 leading-relaxed" data-editable>
-        Tell us about your role and we'll get back to you within one business day. No commitment required.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;"
-          class="bg-rfr-black text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-rfr-gray-dark transition-colors inline-block"
-          data-editable>
-          Email us directly
-        </a>
-        <a href="#how-it-works"
-          class="border border-rfr-border text-rfr-gray-dark px-6 py-3 rounded-full text-sm font-medium hover:border-rfr-gray-dark transition-colors inline-block"
-          data-editable>
-          See how it works
-        </a>
-      </div>
-      <p class="mt-8 text-rfr-gray-mid text-sm" data-editable>
-        &#104;&#101;&#108;&#108;&#111;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;
-      </p>
+<section id="contact" class="py-24 px-6 bg-rfr-black text-white text-center">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight mb-6" data-editable>
+      Tell us about the seat.
+    </h2>
+    <p class="text-[#BFC3CC] mb-10 leading-relaxed max-w-[50ch] mx-auto" data-editable>
+      A 30-minute call to work out what you need, what it costs, and whether we're the right people to find it. No scripts, no pressure.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;"
+        class="bg-rfr-red text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors inline-block"
+        data-editable>
+        Book a hiring strategy call
+      </a>
     </div>
+    <p class="mt-8 text-[#9BA1AD] text-sm" data-editable>
+      &#104;&#101;&#108;&#108;&#111;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;
+    </p>
   </div>
 </section>
 
@@ -440,9 +404,12 @@
   <div class="max-w-6xl mx-auto">
     <div class="grid md:grid-cols-4 gap-10 mb-10">
       <div class="md:col-span-2">
-        <div class="font-semibold text-rfr-black mb-3">Remote First Recruiting</div>
+        <div class="font-semibold text-rfr-black mb-3 flex items-center gap-2">
+          <span class="w-[10px] h-[10px] rounded-full bg-rfr-red inline-block"></span>
+          Remote First Recruiting
+        </div>
         <p class="text-rfr-gray text-sm leading-relaxed max-w-xs" data-editable>
-          Specialized recruiting for remote-first companies. Fully distributed since 2012.
+          Specialized recruiting for remote-first companies. Remote-first since day one.
         </p>
       </div>
       <div>
@@ -451,7 +418,7 @@
           <li><a href="#how-it-works" class="hover:text-rfr-black transition-colors" data-editable>How It Works</a></li>
           <li><a href="#roles" class="hover:text-rfr-black transition-colors" data-editable>Roles We Fill</a></li>
           <li><a href="#testimonials" class="hover:text-rfr-black transition-colors" data-editable>Results</a></li>
-          <li><a href="#pricing" class="hover:text-rfr-black transition-colors" data-editable>Pricing</a></li>
+          <li><a href="services/" class="hover:text-rfr-black transition-colors" data-editable>Services &amp; Pricing</a></li>
         </ul>
       </div>
       <div>
@@ -467,8 +434,8 @@
       </div>
     </div>
     <div class="border-t border-rfr-border pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-rfr-gray-mid">
-      <span data-editable>&copy; 2025 Remote First Recruiting. All rights reserved.</span>
-      <span data-editable>Built for remote-first companies, by a remote-first team.</span>
+      <span data-editable>&copy; 2026 Remote First Recruiting. All rights reserved.</span>
+      <span data-editable>Remote-first since day one.</span>
     </div>
   </div>
 </footer>
