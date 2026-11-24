@@ -7,7 +7,7 @@
   <meta name="description" content="Hire your next remote team member in 21 days or less. Sourcing, screening and shortlisting for bootstrapped founders." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -22,6 +22,7 @@
               gray: '#5C6068',
               'gray-mid': '#9BA1AD',
               'gray-light': '#F1F1F1',
+              mist: '#F5F6F8',
               border: '#E3E3E6',
               gold: '#F8DA77',
               teal: '#6AD8C6',
@@ -29,7 +30,6 @@
           },
           fontFamily: {
             sans: ['Poppins', 'sans-serif'],
-            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
           }
         }
       }
@@ -41,7 +41,7 @@
     [contenteditable="true"]:focus { box-shadow: 0 0 0 2px #FF4921; border-radius: 2px; }
     #mobile-menu { display: none; }
     @media (max-width: 767px) {
-      #mobile-menu.open { display: block; max-height: calc(100vh - 61px); max-height: calc(100dvh - 61px); overflow-y: auto; }
+      #mobile-menu.open { display: block; max-height: calc(100vh - 104px); max-height: calc(100dvh - 104px); overflow-y: auto; }
     }
   </style>
 </head>
@@ -64,20 +64,19 @@
 </div>
 
 <!-- Nav -->
-<nav class="border-b border-rfr-border bg-white sticky top-0 z-40">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="." class="font-semibold text-base tracking-tight text-rfr-black flex items-center gap-2">
-      <span class="w-[10px] h-[10px] rounded-full bg-rfr-red inline-block"></span>
-      Remote First Recruiting
+<nav class="sticky top-0 z-40 px-4 pt-4">
+  <div class="max-w-7xl mx-auto bg-white rounded-full shadow-sm border border-rfr-border pl-6 pr-6 md:pr-3 h-16 md:h-[72px] flex items-center justify-between">
+    <a href="." class="shrink-0" aria-label="Remote First Recruiting home">
+      <img src="assets/rfr-logo-black.png" alt="Remote First Recruiting" width="480" height="122" class="h-8 md:h-9 w-auto">
     </a>
-    <div class="hidden md:flex items-center gap-6 text-sm text-rfr-gray">
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-rfr-black">
       <!-- About dropdown -->
       <div id="dd-about" class="relative">
-        <button onclick="toggleDD('about')" class="flex items-center gap-1 hover:text-rfr-black transition-colors">
+        <button onclick="toggleDD('about')" class="flex items-center gap-1 hover:text-rfr-red transition-colors">
           About
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div id="dd-about-menu" class="hidden absolute left-0 top-full mt-2 w-48 bg-white border border-rfr-border rounded-lg shadow-lg py-2 z-50">
+        <div id="dd-about-menu" class="hidden absolute left-0 top-full mt-4 w-48 bg-white border border-rfr-border rounded-2xl shadow-lg py-3 z-50 font-normal">
           <a href="about/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Our Story</a>
           <a href="case-studies/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Case Studies</a>
           <a href="services/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Services &amp; Pricing</a>
@@ -85,11 +84,11 @@
       </div>
       <!-- Popular Hires dropdown -->
       <div id="dd-hires" class="relative">
-        <button onclick="toggleDD('hires')" class="flex items-center gap-1 hover:text-rfr-black transition-colors">
+        <button onclick="toggleDD('hires')" class="flex items-center gap-1 hover:text-rfr-red transition-colors">
           Popular Hires
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div id="dd-hires-menu" class="hidden absolute left-0 top-full mt-2 w-56 bg-white border border-rfr-border rounded-lg shadow-lg py-2 z-50">
+        <div id="dd-hires-menu" class="hidden absolute left-0 top-full mt-4 w-56 bg-white border border-rfr-border rounded-2xl shadow-lg py-3 z-50 font-normal">
           <a href="hire-csms/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Hire CSMs</a>
           <a href="hire-sdr-in-latin-america/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Hire SDRs in LATAM</a>
           <a href="hire-in-latin-america/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Hire in Latin America</a>
@@ -104,17 +103,17 @@
       </div>
       <!-- Resources dropdown -->
       <div id="dd-resources" class="relative">
-        <button onclick="toggleDD('resources')" class="flex items-center gap-1 hover:text-rfr-black transition-colors">
+        <button onclick="toggleDD('resources')" class="flex items-center gap-1 hover:text-rfr-red transition-colors">
           Resources
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div id="dd-resources-menu" class="hidden absolute left-0 top-full mt-2 w-52 bg-white border border-rfr-border rounded-lg shadow-lg py-2 z-50">
+        <div id="dd-resources-menu" class="hidden absolute left-0 top-full mt-4 w-52 bg-white border border-rfr-border rounded-2xl shadow-lg py-3 z-50 font-normal">
           <a href="blog/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Blog</a>
           <a href="templates/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">Templates &amp; SOPs</a>
           <a href="6-smart-hires/" class="block px-4 py-2 text-sm hover:bg-rfr-gray-light hover:text-rfr-black transition-colors">6 Smart Hires</a>
         </div>
       </div>
-      <a href="contact/" class="bg-rfr-red text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors">Start hiring</a>
+      <a href="contact/" class="bg-rfr-red text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-rfr-red-dark transition-colors">Start hiring</a>
     </div>
     <button class="md:hidden text-rfr-gray" onclick="toggleMobile()" aria-label="Menu">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +121,7 @@
       </svg>
     </button>
   </div>
-  <div id="mobile-menu" class="border-t border-rfr-border bg-white px-6 pb-5">
+  <div id="mobile-menu" class="absolute left-4 right-4 top-full mt-2 rounded-3xl border border-rfr-border shadow-lg bg-white px-6 pb-5">
     <div class="flex flex-col gap-1 text-sm text-rfr-gray pt-4">
       <p class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mt-3 mb-1">About</p>
       <a href="about/" class="py-1.5 hover:text-rfr-black transition-colors">Our Story</a>
@@ -149,183 +148,201 @@
 </nav>
 
 <!-- Hero -->
-<section id="top" class="py-24 md:py-32 px-6 bg-white">
-  <div class="max-w-4xl mx-auto">
-    <div class="inline-flex items-center gap-2 text-rfr-red text-xs font-mono font-semibold tracking-widest uppercase mb-8 bg-[rgba(255,73,33,0.1)] border border-[rgba(255,73,33,0.34)] px-3.5 py-1.5 rounded-full" data-editable>
-      <b>21-day</b>&nbsp;average time to hire
+<section id="top" class="bg-rfr-black px-4 md:px-8 -mt-[80px] md:-mt-[88px] pt-[104px] md:pt-[120px] pb-8 md:pb-12">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2">
+    <div class="bg-white rounded-t-3xl lg:rounded-tr-none lg:rounded-l-3xl px-6 py-12 md:px-12 md:py-16 flex flex-col justify-center">
+      <div class="self-start bg-rfr-gray-light text-rfr-black text-sm px-4 py-2 rounded-full mb-8" data-editable>
+        <b class="font-semibold">21-day</b>&nbsp;average time to hire
+      </div>
+      <h1 class="text-4xl md:text-5xl xl:text-6xl font-medium leading-tight md:leading-tight xl:leading-tight tracking-tight text-rfr-black mb-6" data-editable>
+        We find the <span class="font-semibold underline decoration-rfr-red decoration-4 underline-offset-8">best remote talent</span> for any budget.
+      </h1>
+      <p class="text-base md:text-lg text-rfr-gray leading-relaxed mb-8" data-editable>
+        Our team uses a combination of job posts, searches, and direct candidate outreach to fill your role. We vigorously vet talent based on our 20+ years experience and your requirements.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#contact" class="bg-rfr-red text-white px-8 py-4 rounded-full text-base font-semibold text-center hover:bg-rfr-red-dark transition-colors" data-editable>
+          Start hiring
+        </a>
+        <a href="#how-it-works" class="border border-rfr-border text-rfr-black px-8 py-4 rounded-full text-base font-medium text-center hover:border-rfr-black transition-colors" data-editable>
+          See how it works
+        </a>
+      </div>
     </div>
-    <h1 class="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-rfr-black mb-7 max-w-[15ch]" data-editable>
-      We find the best remote talent for any budget.
-    </h1>
-    <p class="text-lg text-rfr-gray max-w-2xl leading-relaxed mb-10" data-editable>
-      Our team uses a combination of job posts, searches, and direct candidate outreach to fill your role. We vigorously vet talent based on our 20+ years experience and your requirements.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-3">
-      <a href="#contact"
-        class="bg-rfr-red text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors inline-block"
-        data-editable>
-        Start hiring
-      </a>
-      <a href="#how-it-works"
-        class="border border-rfr-border text-rfr-black px-6 py-3 rounded-full text-sm font-medium hover:border-rfr-black transition-colors inline-block"
-        data-editable>
-        See how it works
-      </a>
-    </div>
-
-    <div class="mt-16 border-t border-b border-rfr-border grid grid-cols-1 md:grid-cols-3">
-      <div class="py-6 pr-5">
-        <div class="text-3xl md:text-4xl font-bold leading-none tracking-tight text-rfr-red" data-editable>1,000+</div>
-        <div class="font-mono text-[10.5px] tracking-widest uppercase text-rfr-gray-mid mt-2.5" data-editable>Placements made</div>
-      </div>
-      <div class="py-6 md:pl-6 border-t md:border-t-0 md:border-l border-rfr-border">
-        <div class="text-3xl md:text-4xl font-bold leading-none tracking-tight text-rfr-red" data-editable>800k+</div>
-        <div class="font-mono text-[10.5px] tracking-widest uppercase text-rfr-gray-mid mt-2.5" data-editable>Candidates in pipeline</div>
-      </div>
-      <div class="py-6 md:pl-6 border-t md:border-t-0 md:border-l border-rfr-border">
-        <div class="text-3xl md:text-4xl font-bold leading-none tracking-tight text-rfr-red" data-editable>20+</div>
-        <div class="font-mono text-[10.5px] tracking-widest uppercase text-rfr-gray-mid mt-2.5" data-editable>Years recruiting</div>
-      </div>
+    <!-- Stand-in stock photos (Unsplash License) — swap for real team/placement photos -->
+    <div class="grid grid-cols-3">
+        <div class="relative min-h-[300px] lg:min-h-[560px] overflow-hidden rounded-bl-3xl lg:rounded-bl-none">
+          <img src="assets/hero-1.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-rfr-black via-rfr-black/40 to-transparent"></div>
+          <div class="absolute left-0 right-0 bottom-0 px-2 pb-6 md:pb-8 text-center text-white">
+            <div class="text-2xl sm:text-3xl xl:text-4xl font-medium leading-none tracking-tight" data-editable>1,000<span class="text-rfr-red">+</span></div>
+            <div class="text-xs mt-2.5 min-h-8 sm:min-h-0" data-editable>Placements made</div>
+          </div>
+        </div>
+        <div class="relative min-h-[300px] lg:min-h-[560px] overflow-hidden ">
+          <img src="assets/hero-2.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-rfr-black via-rfr-black/40 to-transparent"></div>
+          <div class="absolute left-0 right-0 bottom-0 px-2 pb-6 md:pb-8 text-center text-white">
+            <div class="text-2xl sm:text-3xl xl:text-4xl font-medium leading-none tracking-tight" data-editable>800k<span class="text-rfr-red">+</span></div>
+            <div class="text-xs mt-2.5 min-h-8 sm:min-h-0" data-editable>Candidates in pipeline</div>
+          </div>
+        </div>
+        <div class="relative min-h-[300px] lg:min-h-[560px] overflow-hidden rounded-br-3xl lg:rounded-tr-3xl">
+          <img src="assets/hero-3.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-rfr-black via-rfr-black/40 to-transparent"></div>
+          <div class="absolute left-0 right-0 bottom-0 px-2 pb-6 md:pb-8 text-center text-white">
+            <div class="text-2xl sm:text-3xl xl:text-4xl font-medium leading-none tracking-tight" data-editable>20<span class="text-rfr-red">+</span></div>
+            <div class="text-xs mt-2.5 min-h-8 sm:min-h-0" data-editable>Years recruiting</div>
+          </div>
+        </div>
     </div>
   </div>
 </section>
 
 <!-- Funnel -->
-<section class="py-20 px-6 bg-rfr-black text-white">
-  <div class="max-w-4xl mx-auto">
-    <p class="font-mono text-[11px] font-semibold tracking-widest uppercase text-rfr-gold mb-4" data-editable>What a search actually looks like</p>
-    <h2 class="text-3xl md:text-4xl font-semibold max-w-[20ch] leading-tight tracking-tight mb-5" data-editable>We review hundreds of applications from our process but we only deliver you the best ones.</h2>
-    <p class="text-[#BFC3CC] max-w-[62ch] text-base leading-relaxed mb-11" data-editable>This saves 100s of hours for your team. Although we leverage Ai, we still speak human to human before passing anyone onto you.</p>
-
-    <div class="grid gap-3.5">
-      <div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-1.5 md:gap-4 items-center">
-        <div class="font-mono text-[11px] tracking-widest uppercase text-[#BFC3CC] text-left md:text-right">Applications</div>
-        <div class="relative h-[46px] flex items-center">
-          <div class="h-full w-full rounded bg-rfr-gray-dark text-[#DDE0E6] flex items-center pl-3.5 font-mono text-[13px] font-semibold whitespace-nowrap" data-editable>350–500 over 21 days</div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-1.5 md:gap-4 items-center">
-        <div class="font-mono text-[11px] tracking-widest uppercase text-[#BFC3CC] text-left md:text-right">Pass first screen</div>
-        <div class="relative h-[46px] flex items-center">
-          <div class="h-full w-[26%] rounded bg-rfr-teal text-[#19332E] flex items-center pl-3.5 font-mono text-[13px] font-semibold whitespace-nowrap" data-editable>~65</div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-1.5 md:gap-4 items-center">
-        <div class="font-mono text-[11px] tracking-widest uppercase text-[#BFC3CC] text-left md:text-right">Live interviews</div>
-        <div class="relative h-[46px] flex items-center">
-          <div class="h-full w-[9%] rounded bg-rfr-gold text-[#4A3A0D] flex items-center pl-3.5 font-mono text-[13px] font-semibold whitespace-nowrap" data-editable>~10</div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-[150px_1fr] gap-1.5 md:gap-4 items-center">
-        <div class="font-mono text-[11px] tracking-widest uppercase text-[#BFC3CC] text-left md:text-right">You meet</div>
-        <div class="relative h-[46px] flex items-center">
-          <div class="h-full w-[3.2%] min-w-[12px] rounded bg-rfr-red"></div>
-          <span class="font-mono text-[13px] font-semibold text-white ml-3 whitespace-nowrap" data-editable>3–4 finalists</span>
-        </div>
-      </div>
+<section class="py-20 md:py-28 px-6 bg-white">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div>
+      <p class="text-sm text-rfr-gray mb-4" data-editable>What a search actually looks like</p>
+      <h2 class="text-3xl md:text-5xl font-medium leading-tight md:leading-tight tracking-tight mb-6" data-editable>We review hundreds of applications from our process but we only deliver you the best ones.</h2>
+      <p class="text-rfr-gray text-base md:text-lg leading-relaxed" data-editable>This saves 100s of hours for your team. Although we leverage Ai, we still speak human to human before passing anyone onto you.</p>
     </div>
-    <p class="mt-6 font-mono text-xs text-[#9BA1AD] md:pl-[168px]" data-editable>Typical 21-day search. Every finalist has been interviewed by a human (us) before you see them.</p>
+    <div class="bg-rfr-mist rounded-3xl p-6 md:p-12">
+      <div class="grid gap-8">
+        <div>
+          <div class="flex justify-between gap-4 items-baseline mb-3">
+            <span class="text-rfr-gray">Applications</span>
+            <span class="font-semibold text-rfr-black text-lg text-right" data-editable>350–500 over 21 days</span>
+          </div>
+          <div class="h-3 rounded-full bg-rfr-border overflow-hidden"><div class="h-full rounded-full bg-rfr-black w-full"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between gap-4 items-baseline mb-3">
+            <span class="text-rfr-gray">Pass first screen</span>
+            <span class="font-semibold text-rfr-black text-lg text-right" data-editable>~65</span>
+          </div>
+          <div class="h-3 rounded-full bg-rfr-border overflow-hidden"><div class="h-full rounded-full bg-rfr-black w-[26%]"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between gap-4 items-baseline mb-3">
+            <span class="text-rfr-gray">Live interviews</span>
+            <span class="font-semibold text-rfr-black text-lg text-right" data-editable>~10</span>
+          </div>
+          <div class="h-3 rounded-full bg-rfr-border overflow-hidden"><div class="h-full rounded-full bg-rfr-black w-[9%]"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between gap-4 items-baseline mb-3">
+            <span class="text-rfr-gray">You meet</span>
+            <span class="font-semibold text-rfr-black text-lg text-right" data-editable>3–4 finalists</span>
+          </div>
+          <div class="h-3 rounded-full bg-rfr-border overflow-hidden"><div class="h-full rounded-full bg-rfr-red w-[3.2%] min-w-[12px]"></div></div>
+        </div>
+      </div>
+      <p class="mt-8 pt-6 border-t border-rfr-border text-sm text-rfr-gray" data-editable>Typical 21-day search. Every finalist has been interviewed by a human (us) before you see them.</p>
+    </div>
   </div>
 </section>
 
 <!-- How It Works -->
-<section id="how-it-works" class="py-20 px-6 bg-rfr-gray-light">
-  <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-mono font-medium tracking-widest uppercase text-rfr-red mb-4" data-editable>How it works</p>
-    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-14" data-editable>Four steps, one point of contact.</h2>
+<section id="how-it-works" class="scroll-mt-20 py-20 md:py-28 px-6 bg-rfr-mist">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm text-rfr-gray mb-4" data-editable>How it works</p>
+    <h2 class="text-3xl md:text-5xl font-medium leading-tight md:leading-tight tracking-tight mb-12" data-editable>Four steps, one point of contact.</h2>
     <div class="grid gap-4 md:grid-cols-2">
-      <div class="bg-white border border-rfr-border rounded-xl px-6 py-7">
-        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>01 — KICKOFF</span>
-        <h3 class="font-semibold text-rfr-black mb-2" data-editable>We learn the seat</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>We work closely with you to understand the role, your company culture, and what makes someone a great fit for your team. We take the time to learn your priorities, identify the key skills and experience needed, and build a clear picture of your ideal candidate before the search begins. We approach every search with the same mindset we use when hiring for our own team: finding talented, reliable people who have the skills, attitude, and drive to make a real impact.</p>
+      <div class="bg-white border border-rfr-border rounded-3xl p-6 md:p-10">
+        <div class="flex items-center justify-between mb-8 text-rfr-black">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+          <span class="text-xs font-medium tracking-wide text-rfr-gray" data-editable>01 — KICKOFF</span>
+        </div>
+        <h3 class="text-xl md:text-2xl font-medium tracking-tight text-rfr-black mb-3" data-editable>We learn the seat</h3>
+        <p class="text-rfr-gray text-base leading-relaxed" data-editable>We work closely with you to understand the role, your company culture, and what makes someone a great fit for your team. We take the time to learn your priorities, identify the key skills and experience needed, and build a clear picture of your ideal candidate before the search begins. We approach every search with the same mindset we use when hiring for our own team: finding talented, reliable people who have the skills, attitude, and drive to make a real impact.</p>
       </div>
-      <div class="bg-white border border-rfr-border rounded-xl px-6 py-7">
-        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>02 — SOURCE &amp; SCREEN</span>
-        <h3 class="font-semibold text-rfr-black mb-2" data-editable>We do the reading</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>We get the word out, tap into our network, and reach out to people who could be a great fit. We review applications, interview candidates, and take the time to really get to know them beyond their resumes. We look at their experience, communication, personality, and what they're looking for in their next role. Our goal is to find people who not only have the right skills but are the kind of people we'd be excited to hire ourselves.</p>
+      <div class="bg-white border border-rfr-border rounded-3xl p-6 md:p-10">
+        <div class="flex items-center justify-between mb-8 text-rfr-black">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          <span class="text-xs font-medium tracking-wide text-rfr-gray" data-editable>02 — SOURCE &amp; SCREEN</span>
+        </div>
+        <h3 class="text-xl md:text-2xl font-medium tracking-tight text-rfr-black mb-3" data-editable>We do the reading</h3>
+        <p class="text-rfr-gray text-base leading-relaxed" data-editable>We get the word out, tap into our network, and reach out to people who could be a great fit. We review applications, interview candidates, and take the time to really get to know them beyond their resumes. We look at their experience, communication, personality, and what they're looking for in their next role. Our goal is to find people who not only have the right skills but are the kind of people we'd be excited to hire ourselves.</p>
       </div>
-      <div class="bg-white border border-rfr-border rounded-xl px-6 py-7">
-        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>03 — SHORTLIST</span>
-        <h3 class="font-semibold text-rfr-black mb-2" data-editable>You meet finalists</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>We introduce you to candidates we believe would be a great fit for your team. You'll get a helpful summary of each person, giving you a better understanding of their background, experience, and why we think they're worth meeting. You decide who you'd like to interview, and we'll help coordinate everything along the way. We'll also stay involved, gather feedback, and keep things moving until you find someone you're excited to bring on board.</p>
+      <div class="bg-white border border-rfr-border rounded-3xl p-6 md:p-10">
+        <div class="flex items-center justify-between mb-8 text-rfr-black">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.8a3.5 3.5 0 0 1 0 6.4M18 14.2a6.5 6.5 0 0 1 3.5 5.8"/></svg>
+          <span class="text-xs font-medium tracking-wide text-rfr-gray" data-editable>03 — SHORTLIST</span>
+        </div>
+        <h3 class="text-xl md:text-2xl font-medium tracking-tight text-rfr-black mb-3" data-editable>You meet finalists</h3>
+        <p class="text-rfr-gray text-base leading-relaxed" data-editable>We introduce you to candidates we believe would be a great fit for your team. You'll get a helpful summary of each person, giving you a better understanding of their background, experience, and why we think they're worth meeting. You decide who you'd like to interview, and we'll help coordinate everything along the way. We'll also stay involved, gather feedback, and keep things moving until you find someone you're excited to bring on board.</p>
       </div>
-      <div class="bg-white border border-rfr-border rounded-xl px-6 py-7">
-        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>04 — OUR GUARANTEE</span>
-        <h3 class="font-semibold text-rfr-black mb-2" data-editable>We stand behind every hire</h3>
-        <p class="text-rfr-gray text-sm leading-relaxed" data-editable>It's rare that a hire doesn't work out, but we know it can happen. That's why every placement comes with a 90-day replacement guarantee. If things don't work out, we'll find you a replacement at no additional recruiting fee. We want you to feel confident in every person you bring onto your team.</p>
+      <div class="bg-white border border-rfr-border rounded-3xl p-6 md:p-10">
+        <div class="flex items-center justify-between mb-8 text-rfr-black">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.5-3 8-7.5 9.5-4.500-1.5-7.500-5-7.500-9.500V6z"/><path d="M8.800 12l2.300 2.300 4.200-4.600"/></svg>
+          <span class="text-xs font-medium tracking-wide text-rfr-gray" data-editable>04 — OUR GUARANTEE</span>
+        </div>
+        <h3 class="text-xl md:text-2xl font-medium tracking-tight text-rfr-black mb-3" data-editable>We stand behind every hire</h3>
+        <p class="text-rfr-gray text-base leading-relaxed" data-editable>It's rare that a hire doesn't work out, but we know it can happen. That's why every placement comes with a 90-day replacement guarantee. If things don't work out, we'll find you a replacement at no additional recruiting fee. We want you to feel confident in every person you bring onto your team.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Where Founders Hire -->
-<section id="where" class="py-20 px-6 bg-white">
-  <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-mono font-medium tracking-widest uppercase text-rfr-red mb-4" data-editable>Where founders hire</p>
-    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-5" data-editable>Global talent. Built around your team.</h2>
-    <p class="text-rfr-gray max-w-[62ch] text-base leading-relaxed mb-11" data-editable>Every region has its strengths, and knowing where to look for specific roles can make all the difference in hiring the right team.</p>
+<section id="where" class="scroll-mt-20 py-20 md:py-28 px-6 bg-rfr-black text-white">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm text-white/70 mb-4" data-editable>Where founders hire</p>
+    <h2 class="text-3xl md:text-5xl font-medium leading-tight md:leading-tight tracking-tight mb-6" data-editable>Global talent. Built around your team.</h2>
+    <p class="text-white/80 max-w-2xl text-base md:text-lg leading-relaxed mb-12" data-editable>Every region has its strengths, and knowing where to look for specific roles can make all the difference in hiring the right team.</p>
     <div class="grid gap-4 md:grid-cols-3">
-      <a href="hire-in-latin-america/" class="block bg-white border border-rfr-border rounded-xl px-6 py-7 hover:border-rfr-red transition-colors">
-        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>LATIN AMERICA</span>
-        <div class="font-mono text-[12.5px] text-rfr-black font-semibold mb-1" data-editable>UTC−3 to UTC−6</div>
-        <p class="text-rfr-gray text-sm leading-relaxed mb-2" data-editable>Full working-day overlap with US time zones. The default for strong engineering, customer/ sales support, and operations seats that need to be live when your customers are.</p>
-        <div class="font-mono text-[11.5px] text-rfr-gray-mid" data-editable>Salaries from $2,000/month</div>
+      <a href="hire-in-latin-america/" class="flex flex-col rounded-3xl border border-white/20 p-6 md:p-8 hover:border-white transition-colors">
+        <h3 class="text-sm font-medium tracking-wide text-white mb-2" data-editable>LATIN AMERICA</h3>
+        <div class="text-sm text-white/70 mb-6" data-editable>UTC−3 to UTC−6</div>
+        <p class="text-white/80 text-base leading-relaxed mb-8" data-editable>Full working-day overlap with US time zones. The default for strong engineering, customer/ sales support, and operations seats that need to be live when your customers are.</p>
+        <div class="mt-auto bg-rfr-red text-white rounded-2xl px-5 py-4 text-lg font-semibold tracking-tight" data-editable>Salaries from $2,000/month</div>
       </a>
-      <a href="hire-in-europe/" class="block bg-white border border-rfr-border rounded-xl px-6 py-7 hover:border-rfr-red transition-colors">
-        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>EUROPE</span>
-        <div class="font-mono text-[12.5px] text-rfr-black font-semibold mb-1" data-editable>UTC+0 to UTC+3</div>
-        <p class="text-rfr-gray text-sm leading-relaxed mb-2" data-editable>Morning overlap with the US East Coast, full overlap with UK and EU customers. Strong for account management, marketing and engineering.</p>
-        <div class="font-mono text-[11.5px] text-rfr-gray-mid" data-editable>Salaries from $2,500/month</div>
+      <a href="hire-in-europe/" class="flex flex-col rounded-3xl border border-white/20 p-6 md:p-8 hover:border-white transition-colors">
+        <h3 class="text-sm font-medium tracking-wide text-white mb-2" data-editable>EUROPE</h3>
+        <div class="text-sm text-white/70 mb-6" data-editable>UTC+0 to UTC+3</div>
+        <p class="text-white/80 text-base leading-relaxed mb-8" data-editable>Morning overlap with the US East Coast, full overlap with UK and EU customers. Strong for account management, marketing and engineering.</p>
+        <div class="mt-auto bg-rfr-red text-white rounded-2xl px-5 py-4 text-lg font-semibold tracking-tight" data-editable>Salaries from $2,500/month</div>
       </a>
-      <a href="hire-in-north-america/" class="block bg-white border border-rfr-border rounded-xl px-6 py-7 hover:border-rfr-red transition-colors">
-        <span class="block font-mono text-[11px] font-semibold text-rfr-red tracking-widest mb-3.5" data-editable>NORTH AMERICA</span>
-        <div class="font-mono text-[12.5px] text-rfr-black font-semibold mb-1" data-editable>UTC−4 to UTC−8</div>
-        <p class="text-rfr-gray text-sm leading-relaxed mb-2" data-editable>Same-day, same-hours. Where the seat needs deep domain knowledge of the US market or customer-facing seniority.</p>
-        <div class="font-mono text-[11.5px] text-rfr-gray-mid" data-editable>Salaries from $3,500/month</div>
+      <a href="hire-in-north-america/" class="flex flex-col rounded-3xl border border-white/20 p-6 md:p-8 hover:border-white transition-colors">
+        <h3 class="text-sm font-medium tracking-wide text-white mb-2" data-editable>NORTH AMERICA</h3>
+        <div class="text-sm text-white/70 mb-6" data-editable>UTC−4 to UTC−8</div>
+        <p class="text-white/80 text-base leading-relaxed mb-8" data-editable>Same-day, same-hours. Where the seat needs deep domain knowledge of the US market or customer-facing seniority.</p>
+        <div class="mt-auto bg-rfr-red text-white rounded-2xl px-5 py-4 text-lg font-semibold tracking-tight" data-editable>Salaries from $3,500/month</div>
       </a>
     </div>
   </div>
 </section>
 
 <!-- Roles We Fill -->
-<section id="roles" class="py-20 px-6 bg-rfr-gray-light">
-  <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-mono font-medium tracking-widest uppercase text-rfr-red mb-4" data-editable>Roles we fill</p>
-    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-9" data-editable>We've helped companies hire across nearly every function, but these are the roles we know best and recruit for most often.</h2>
-    <div class="grid gap-4 md:grid-cols-2">
-      <div class="bg-white border border-rfr-border rounded-xl px-6 py-6">
-        <div class="flex items-center gap-3 mb-2.5">
-          <svg class="w-5 h-5 text-rfr-red shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
-          <h3 class="font-semibold text-rfr-black" data-editable>Sales &amp; Marketing</h3>
-        </div>
+<section id="roles" class="scroll-mt-20 py-20 md:py-28 px-6 bg-rfr-mist">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm text-rfr-gray mb-4" data-editable>Roles we fill</p>
+    <h2 class="text-2xl md:text-4xl font-medium leading-snug md:leading-snug tracking-tight max-w-4xl mb-12" data-editable>We've helped companies hire across nearly every function, but these are the roles we know best and recruit for most often.</h2>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+      <div class="bg-white border border-rfr-border rounded-3xl p-6 md:p-8 flex flex-col lg:col-span-2">
+        <div class="text-rfr-black mb-12"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div>
+        <h3 class="text-xl font-medium tracking-tight text-rfr-black mb-3" data-editable>Sales &amp; Marketing</h3>
         <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Account Executives, SDRs, Growth Marketers, SEO Specialists, Paid Media Managers, Marketing Directors</p>
       </div>
-      <div class="bg-white border border-rfr-border rounded-xl px-6 py-6">
-        <div class="flex items-center gap-3 mb-2.5">
-          <svg class="w-5 h-5 text-rfr-red shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-          <h3 class="font-semibold text-rfr-black" data-editable>Engineering</h3>
-        </div>
+      <div class="bg-white border border-rfr-border rounded-3xl p-6 md:p-8 flex flex-col lg:col-span-2">
+        <div class="text-rfr-black mb-12"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div>
+        <h3 class="text-xl font-medium tracking-tight text-rfr-black mb-3" data-editable>Engineering</h3>
         <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Frontend, Backend, Full Stack, DevOps, QA, Engineering Leaders</p>
       </div>
-      <div class="bg-white border border-rfr-border rounded-xl px-6 py-6">
-        <div class="flex items-center gap-3 mb-2.5">
-          <svg class="w-5 h-5 text-rfr-red shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg>
-          <h3 class="font-semibold text-rfr-black" data-editable>Customer Success &amp; Support</h3>
-        </div>
+      <div class="bg-white border border-rfr-border rounded-3xl p-6 md:p-8 flex flex-col lg:col-span-2">
+        <div class="text-rfr-black mb-12"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13.500" width="4" height="6" rx="1.500"/><rect x="17" y="13.500" width="4" height="6" rx="1.500"/></svg></div>
+        <h3 class="text-xl font-medium tracking-tight text-rfr-black mb-3" data-editable>Customer Success &amp; Support</h3>
         <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Customer Success Managers, Account Managers, Support Specialists, Customer Experience Leaders</p>
       </div>
-      <div class="bg-white border border-rfr-border rounded-xl px-6 py-6">
-        <div class="flex items-center gap-3 mb-2.5">
-          <svg class="w-5 h-5 text-rfr-red shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="11" x2="8" y2="11.01"></line><line x1="12" y1="11" x2="12" y2="11.01"></line><line x1="16" y1="11" x2="16" y2="11.01"></line><line x1="8" y1="15" x2="8" y2="15.01"></line><line x1="12" y1="15" x2="12" y2="15.01"></line><line x1="16" y1="15" x2="16" y2="18"></line><line x1="8" y1="18" x2="12" y2="18"></line></svg>
-          <h3 class="font-semibold text-rfr-black" data-editable>Finance</h3>
-        </div>
+      <div class="bg-white border border-rfr-border rounded-3xl p-6 md:p-8 flex flex-col lg:col-span-3">
+        <div class="text-rfr-black mb-12"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5zM5 9v8M10 9v8M14 9v8M19 9v8M3 20h18M4 17h16"/></svg></div>
+        <h3 class="text-xl font-medium tracking-tight text-rfr-black mb-3" data-editable>Finance</h3>
         <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Accountants, Bookkeepers, Financial Analysts, Controllers, Finance Managers</p>
       </div>
-      <div class="bg-white border border-rfr-border rounded-xl px-6 py-6 md:col-span-2">
-        <div class="flex items-center gap-3 mb-2.5">
-          <svg class="w-5 h-5 text-rfr-red shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-          <h3 class="font-semibold text-rfr-black" data-editable>Operations</h3>
-        </div>
+      <div class="bg-white border border-rfr-border rounded-3xl p-6 md:p-8 flex flex-col lg:col-span-3 sm:col-span-2">
+        <div class="text-rfr-black mb-12"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></div>
+        <h3 class="text-xl font-medium tracking-tight text-rfr-black mb-3" data-editable>Operations</h3>
         <p class="text-rfr-gray text-sm leading-relaxed" data-editable>Executive Assistants, Operations Managers, Project Managers, People Operations, Chiefs of Staff</p>
       </div>
     </div>
@@ -336,122 +353,104 @@
 <!-- NOTE: quotes below came from a scrape that truncated to 125 chars; verify word-for-word
      against the live site before this ships (Greg's plan, Phase 2). Ruben Gamez's company name
      also needs confirming — scrape said "SignWill", this uses "SignWell". -->
-<section id="testimonials" class="py-20 px-6 bg-white">
-  <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-mono font-medium tracking-widest uppercase text-rfr-red mb-4" data-editable>What founders say</p>
-    <h2 class="text-3xl md:text-4xl font-semibold text-rfr-black mb-5" data-editable>Built within a founder community. Designed for growing businesses.</h2>
-    <p class="text-rfr-gray max-w-[62ch] text-base leading-relaxed mb-4" data-editable>Our roots are in the Dynamite Circle, a global community of entrepreneurs, bootstrapped businesses, and founder-led companies. We understand what it's like to build and scale a business, where every hire matters and founders are often balancing hiring with growing revenue, developing products, and managing their teams.</p>
-    <p class="text-rfr-gray max-w-[62ch] text-base leading-relaxed mb-4" data-editable>Most of the companies we work with don't have an internal recruiting team or the time to spend weeks sourcing, reviewing, and interviewing candidates. That's where we come in. We help founders build exceptional teams without taking their focus away from running and growing their businesses.</p>
-    <p class="text-rfr-gray max-w-[62ch] text-base leading-relaxed mb-11" data-editable>We're proud to be trusted by founders across the Dynamite Circle community, featured by TinySeed, and recommended in Rob Walling's <i>The SaaS Playbook</i>.</p>
-
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-px bg-rfr-border border border-rfr-border rounded-xl overflow-hidden mb-3.5">
-      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>Rally</span></div>
-      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>Builder Prime</span></div>
-      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>Manta Sleep</span></div>
-      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>moveBuddha</span></div>
-      <div class="bg-white flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-[15px] text-rfr-black text-center leading-tight" data-editable>ZenFounder</span></div>
+<section id="testimonials" class="scroll-mt-20 py-20 md:py-28 px-6 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-20 mb-16">
+      <div>
+        <p class="text-sm text-rfr-gray mb-4" data-editable>What founders say</p>
+        <h2 class="text-3xl md:text-5xl font-medium leading-tight md:leading-tight tracking-tight" data-editable>Built within a founder community. Designed for growing businesses.</h2>
+      </div>
+      <div class="grid gap-5">
+        <p class="text-rfr-gray text-base leading-relaxed" data-editable>Our roots are in the Dynamite Circle, a global community of entrepreneurs, bootstrapped businesses, and founder-led companies. We understand what it's like to build and scale a business, where every hire matters and founders are often balancing hiring with growing revenue, developing products, and managing their teams.</p>
+        <p class="text-rfr-gray text-base leading-relaxed" data-editable>Most of the companies we work with don't have an internal recruiting team or the time to spend weeks sourcing, reviewing, and interviewing candidates. That's where we come in. We help founders build exceptional teams without taking their focus away from running and growing their businesses.</p>
+        <p class="text-rfr-gray text-base leading-relaxed" data-editable>We're proud to be trusted by founders across the Dynamite Circle community, featured by TinySeed, and recommended in Rob Walling's <i>The SaaS Playbook</i>.</p>
+      </div>
     </div>
-    <p class="font-mono text-[11.5px] text-rfr-gray-mid mb-11" data-editable>Placeholder wordmarks — swap each for the client's logo.</p>
 
-    <div class="columns-1 md:columns-2 gap-4">
-      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
-        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"They understand our product, culture, and team make-up. They're great, they hire great people."</p>
-        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Jordan Gal</b> — Co-founder, Rally</figcaption>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-x-6 border-y border-rfr-border mb-3.5">
+      <div class="flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-lg text-rfr-gray text-center leading-tight" data-editable>Rally</span></div>
+      <div class="flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-lg text-rfr-gray text-center leading-tight" data-editable>Builder Prime</span></div>
+      <div class="flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-lg text-rfr-gray text-center leading-tight" data-editable>Manta Sleep</span></div>
+      <div class="flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-lg text-rfr-gray text-center leading-tight" data-editable>moveBuddha</span></div>
+      <div class="flex items-center justify-center px-3.5 py-6 min-h-[88px]"><span class="font-semibold text-lg text-rfr-gray text-center leading-tight" data-editable>ZenFounder</span></div>
+    </div>
+    <p class="text-xs text-rfr-gray mb-12" data-editable>Placeholder wordmarks — swap each for the client's logo.</p>
+
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <figure class="flex flex-col bg-rfr-mist rounded-3xl p-6 md:p-8">
+        <p class="text-lg leading-relaxed" data-editable>"They understand our product, culture, and team make-up. They're great, they hire great people."</p>
+        <figcaption class="mt-auto pt-8 text-sm text-rfr-gray"><b class="text-rfr-black font-semibold" data-editable>Jordan Gal</b> — Co-founder, Rally</figcaption>
       </figure>
-      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
-        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"Having them as a resource is invaluable because of all the expertise they have in this niche."</p>
-        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Jonathan Weinberg</b> — Founder, Builder Prime</figcaption>
+      <figure class="flex flex-col bg-rfr-mist rounded-3xl p-6 md:p-8">
+        <p class="text-lg leading-relaxed" data-editable>"Having them as a resource is invaluable because of all the expertise they have in this niche."</p>
+        <figcaption class="mt-auto pt-8 text-sm text-rfr-gray"><b class="text-rfr-black font-semibold" data-editable>Jonathan Weinberg</b> — Founder, Builder Prime</figcaption>
       </figure>
-      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
-        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"By having RFR filter out most people, it really saved us a ton of time."</p>
-        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Mark Zhang</b> — Founder, Manta Sleep</figcaption>
+      <figure class="flex flex-col bg-rfr-mist rounded-3xl p-6 md:p-8">
+        <p class="text-lg leading-relaxed" data-editable>"By having RFR filter out most people, it really saved us a ton of time."</p>
+        <figcaption class="mt-auto pt-8 text-sm text-rfr-gray"><b class="text-rfr-black font-semibold" data-editable>Mark Zhang</b> — Founder, Manta Sleep</figcaption>
       </figure>
-      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
-        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"Could not be happier with recruiting service. We will absolutely be coming back."</p>
-        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Ryan Carrigan</b> — Co-founder, moveBuddha</figcaption>
+      <figure class="flex flex-col bg-rfr-mist rounded-3xl p-6 md:p-8">
+        <p class="text-lg leading-relaxed" data-editable>"Could not be happier with recruiting service. We will absolutely be coming back."</p>
+        <figcaption class="mt-auto pt-8 text-sm text-rfr-gray"><b class="text-rfr-black font-semibold" data-editable>Ryan Carrigan</b> — Co-founder, moveBuddha</figcaption>
       </figure>
-      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
-        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"Working with the Remote First Recruiting team was an incredible time saver."</p>
-        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Dr. Sherry Walling</b> — Founder, ZenFounder</figcaption>
+      <figure class="flex flex-col bg-rfr-mist rounded-3xl p-6 md:p-8">
+        <p class="text-lg leading-relaxed" data-editable>"Working with the Remote First Recruiting team was an incredible time saver."</p>
+        <figcaption class="mt-auto pt-8 text-sm text-rfr-gray"><b class="text-rfr-black font-semibold" data-editable>Dr. Sherry Walling</b> — Founder, ZenFounder</figcaption>
       </figure>
-      <figure class="break-inside-avoid bg-white border border-rfr-border rounded-xl p-6 mb-4">
-        <p class="text-[17px] leading-relaxed font-medium tracking-tight" data-editable>"RFR has made finding great team members much less work for us."</p>
-        <figcaption class="mt-4 text-[13.5px] text-rfr-gray-mid"><b class="text-rfr-black font-semibold" data-editable>Ruben Gamez</b> — Founder, SignWell</figcaption>
+      <figure class="flex flex-col bg-rfr-mist rounded-3xl p-6 md:p-8">
+        <p class="text-lg leading-relaxed" data-editable>"RFR has made finding great team members much less work for us."</p>
+        <figcaption class="mt-auto pt-8 text-sm text-rfr-gray"><b class="text-rfr-black font-semibold" data-editable>Ruben Gamez</b> — Founder, SignWell</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
 <!-- Industries Served -->
-<section id="industries" class="py-20 px-6 bg-rfr-black text-white">
-  <div class="max-w-4xl mx-auto">
-    <p class="text-xs font-mono font-medium tracking-widest uppercase text-rfr-gold mb-4" data-editable>Industries served</p>
-    <h2 class="text-3xl md:text-4xl font-semibold leading-tight mb-11" data-editable>We hire for businesses like yours.</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8">
-      <div>
-        <div class="bg-rfr-teal rounded-xl overflow-hidden mb-4">
-          <svg class="w-full h-auto" viewBox="0 0 200 200" fill="none" stroke="#30333D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="34" y="48" width="132" height="104" rx="12" fill="#FFFFFF"/>
-            <path d="M34 76h132"/>
-            <path d="M50 62h.01M64 62h.01M78 62h.01" stroke-width="8"/>
-            <rect x="54" y="114" width="16" height="22" rx="2" fill="#F8DA77"/>
-            <rect x="92" y="102" width="16" height="34" rx="2" fill="#F8DA77"/>
-            <rect x="130" y="90" width="16" height="46" rx="2" fill="#FF4921"/>
-          </svg>
-        </div>
-        <h3 class="font-semibold text-lg leading-tight text-center" data-editable>SaaS</h3>
+<!-- Stand-in stock photos (Unsplash License) -->
+<section id="industries" class="scroll-mt-20 py-20 md:py-28 px-6 bg-rfr-mist">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm text-rfr-gray mb-4" data-editable>Industries served</p>
+    <h2 class="text-3xl md:text-5xl font-medium leading-tight md:leading-tight tracking-tight mb-12" data-editable>We hire for businesses like yours.</h2>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="relative rounded-3xl overflow-hidden aspect-[4/5]">
+        <img src="assets/industry-saas.jpg" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-rfr-black via-rfr-black/30 to-transparent"></div>
+        <h3 class="absolute left-0 right-0 bottom-0 p-4 md:p-6 text-lg md:text-2xl font-medium leading-tight tracking-tight text-white" data-editable>SaaS</h3>
       </div>
-      <div>
-        <div class="bg-rfr-gold rounded-xl overflow-hidden mb-4">
-          <svg class="w-full h-auto" viewBox="0 0 200 200" fill="none" stroke="#30333D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M55 76h90l10 72a10 10 0 0 1-10 11H55a10 10 0 0 1-10-11z" fill="#FFFFFF"/>
-            <path d="M76 96V68a24 24 0 0 1 48 0v28"/>
-            <path d="M80 122a20 20 0 0 0 40 0" stroke="#FF4921"/>
-          </svg>
-        </div>
-        <h3 class="font-semibold text-lg leading-tight text-center" data-editable>Ecommerce</h3>
+      <div class="relative rounded-3xl overflow-hidden aspect-[4/5]">
+        <img src="assets/industry-ecommerce.jpg" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-rfr-black via-rfr-black/30 to-transparent"></div>
+        <h3 class="absolute left-0 right-0 bottom-0 p-4 md:p-6 text-lg md:text-2xl font-medium leading-tight tracking-tight text-white" data-editable>Ecommerce</h3>
       </div>
-      <div>
-        <div class="bg-rfr-red rounded-xl overflow-hidden mb-4">
-          <svg class="w-full h-auto" viewBox="0 0 200 200" fill="none" stroke="#30333D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="56" cy="84" r="17" fill="#F8DA77"/>
-            <path d="M28 150v-12a28 28 0 0 1 56 0v12z" fill="#F8DA77"/>
-            <circle cx="144" cy="84" r="17" fill="#6AD8C6"/>
-            <path d="M116 150v-12a28 28 0 0 1 56 0v12z" fill="#6AD8C6"/>
-            <circle cx="100" cy="72" r="22" fill="#FFFFFF"/>
-            <path d="M64 158v-16a36 36 0 0 1 72 0v16z" fill="#FFFFFF"/>
-          </svg>
-        </div>
-        <h3 class="font-semibold text-lg leading-tight text-center" data-editable>Agencies</h3>
+      <div class="relative rounded-3xl overflow-hidden aspect-[4/5]">
+        <img src="assets/industry-agencies.jpg" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-rfr-black via-rfr-black/30 to-transparent"></div>
+        <h3 class="absolute left-0 right-0 bottom-0 p-4 md:p-6 text-lg md:text-2xl font-medium leading-tight tracking-tight text-white" data-editable>Agencies</h3>
       </div>
-      <div>
-        <div class="bg-rfr-gray-light rounded-xl overflow-hidden mb-4">
-          <svg class="w-full h-auto" viewBox="0 0 200 200" fill="none" stroke="#30333D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M100 40l56 30v62l-56 30-56-30V70z" fill="#FFFFFF"/>
-            <path d="M44 70l56 30 56-30-56-30z" fill="#F8DA77"/>
-            <path d="M100 100v62M72 55l56 30"/>
-            <circle cx="146" cy="142" r="25" fill="#FF4921"/>
-            <path d="M135 143l8 8 14-16" stroke="#FFFFFF" stroke-width="6"/>
-          </svg>
-        </div>
-        <h3 class="font-semibold text-lg leading-tight text-center" data-editable>Productized Services</h3>
+      <div class="relative rounded-3xl overflow-hidden aspect-[4/5]">
+        <img src="assets/industry-productized.jpg" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-rfr-black via-rfr-black/30 to-transparent"></div>
+        <h3 class="absolute left-0 right-0 bottom-0 p-4 md:p-6 text-lg md:text-2xl font-medium leading-tight tracking-tight text-white" data-editable>Productized Services</h3>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Newsletter -->
-<section class="py-16 px-6 border-y border-rfr-border bg-rfr-gray-light">
-  <div class="max-w-xl mx-auto text-center">
-    <h2 class="text-2xl font-semibold text-rfr-black mb-2" data-editable>Remote hiring insights</h2>
-    <p class="text-rfr-gray text-sm mb-7" data-editable>Tips and strategies for building high-performing remote teams. No spam.</p>
-    <form class="flex flex-col sm:flex-row gap-2.5" onsubmit="return false;">
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-center">
+    <div>
+      <h2 class="text-2xl md:text-4xl font-medium tracking-tight text-rfr-black mb-3" data-editable>Remote hiring insights</h2>
+      <p class="text-rfr-gray text-base" data-editable>Tips and strategies for building high-performing remote teams. No spam.</p>
+    </div>
+    <form class="flex flex-col sm:flex-row gap-3" onsubmit="return false;">
       <input
         type="email"
+        aria-label="Email address"
         placeholder="your&#64;email.com"
-        class="flex-1 border border-rfr-border rounded-full px-5 py-2.5 text-sm bg-white focus:outline-none focus:border-rfr-black text-rfr-black"
+        class="flex-1 border border-rfr-border rounded-full px-6 py-4 text-base bg-white focus:outline-none focus:border-rfr-black text-rfr-black"
       />
-      <button type="submit" class="bg-rfr-black text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-rfr-gray-dark transition-colors whitespace-nowrap" data-editable>
+      <button type="submit" class="bg-rfr-black text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-rfr-gray-dark transition-colors whitespace-nowrap" data-editable>
         Subscribe
       </button>
     </form>
@@ -459,42 +458,39 @@
 </section>
 
 <!-- CTA / Contact -->
-<section id="contact" class="py-24 px-6 bg-rfr-black text-white text-center">
-  <div class="max-w-2xl mx-auto">
-    <h2 class="text-4xl md:text-5xl font-semibold leading-tight tracking-tight mb-6" data-editable>
+<section id="contact" class="scroll-mt-20 px-4 md:px-8 pb-8 md:pb-12 bg-white">
+  <div class="max-w-7xl mx-auto bg-rfr-black text-white text-center rounded-3xl px-6 py-20 md:py-28">
+    <h2 class="text-4xl md:text-6xl font-medium leading-tight tracking-tight mb-6" data-editable>
       Tell us about the role.
     </h2>
-    <p class="text-[#BFC3CC] mb-10 leading-relaxed max-w-[50ch] mx-auto" data-editable>
+    <p class="text-white/80 mb-10 text-base md:text-lg leading-relaxed max-w-2xl mx-auto" data-editable>
       A 30-minute call to work out what you need, what it costs, and whether we're the right people to find it. No scripts, no pressure.
     </p>
     <div class="flex flex-col sm:flex-row gap-3 justify-center">
       <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;"
-        class="bg-rfr-red text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-rfr-red-dark transition-colors inline-block"
+        class="bg-rfr-red text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-rfr-red-dark transition-colors inline-block"
         data-editable>
         Book a hiring strategy call
       </a>
     </div>
-    <p class="mt-8 text-[#9BA1AD] text-sm" data-editable>
+    <p class="mt-8 text-white/70 text-sm" data-editable>
       &#104;&#101;&#108;&#108;&#111;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;
     </p>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="border-t border-rfr-border bg-rfr-gray-light py-12 px-6">
-  <div class="max-w-6xl mx-auto">
+<footer class="bg-rfr-mist pt-16 pb-24 px-6">
+  <div class="max-w-7xl mx-auto">
     <div class="grid md:grid-cols-4 gap-10 mb-10">
       <div class="md:col-span-2">
-        <div class="font-semibold text-rfr-black mb-3 flex items-center gap-2">
-          <span class="w-[10px] h-[10px] rounded-full bg-rfr-red inline-block"></span>
-          Remote First Recruiting
-        </div>
+        <img src="assets/rfr-logo-black.png" alt="Remote First Recruiting" width="480" height="122" class="h-10 w-auto mb-5">
         <p class="text-rfr-gray text-sm leading-relaxed max-w-xs" data-editable>
           Specialized recruiting for remote-first companies. Remote-first since day one.
         </p>
       </div>
       <div>
-        <h4 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4" data-editable>Company</h4>
+        <h4 class="text-sm font-semibold text-rfr-black mb-4" data-editable>Company</h4>
         <ul class="space-y-2.5 text-sm text-rfr-gray">
           <li><a href="#how-it-works" class="hover:text-rfr-black transition-colors" data-editable>How It Works</a></li>
           <li><a href="#roles" class="hover:text-rfr-black transition-colors" data-editable>Roles We Fill</a></li>
@@ -503,7 +499,7 @@
         </ul>
       </div>
       <div>
-        <h4 class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mb-4" data-editable>Contact</h4>
+        <h4 class="text-sm font-semibold text-rfr-black mb-4" data-editable>Contact</h4>
         <ul class="space-y-2.5 text-sm text-rfr-gray">
           <li>
             <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#114;&#101;&#109;&#111;&#116;&#101;&#102;&#105;&#114;&#115;&#116;&#114;&#101;&#99;&#114;&#117;&#105;&#116;&#105;&#110;&#103;&#46;&#99;&#111;&#109;" class="hover:text-rfr-black transition-colors">
@@ -514,7 +510,7 @@
         </ul>
       </div>
     </div>
-    <div class="border-t border-rfr-border pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-rfr-gray-mid">
+    <div class="border-t border-rfr-border pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-rfr-gray">
       <span data-editable>&copy; 2026 Remote First Recruiting. All rights reserved.</span>
       <span data-editable>Remote-first since day one.</span>
     </div>
