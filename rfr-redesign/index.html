@@ -40,13 +40,15 @@
     [contenteditable] { outline: none; }
     [contenteditable="true"]:focus { box-shadow: 0 0 0 2px #FF4921; border-radius: 2px; }
     #mobile-menu { display: none; }
-    #mobile-menu.open { display: block; }
+    @media (max-width: 767px) {
+      #mobile-menu.open { display: block; max-height: calc(100vh - 61px); max-height: calc(100dvh - 61px); overflow-y: auto; }
+    }
   </style>
 </head>
 <body class="font-sans bg-white text-rfr-black antialiased" style="font-weight:400;">
 
 <!-- Edit Toolbar -->
-<div class="fixed top-4 right-4 z-50 flex gap-2">
+<div class="fixed bottom-4 right-4 z-50 flex gap-2">
   <button id="btn-edit"
     class="bg-rfr-black text-white text-xs font-medium px-3.5 py-1.5 rounded-full shadow-sm hover:bg-rfr-gray-dark transition-colors"
     onclick="enableEditing()"
@@ -120,7 +122,7 @@
       </svg>
     </button>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden border-t border-rfr-border bg-white px-6 pb-5">
+  <div id="mobile-menu" class="border-t border-rfr-border bg-white px-6 pb-5">
     <div class="flex flex-col gap-1 text-sm text-rfr-gray pt-4">
       <p class="text-xs font-medium uppercase tracking-widest text-rfr-gray-mid mt-3 mb-1">About</p>
       <a href="about/" class="py-1.5 hover:text-rfr-black transition-colors">Our Story</a>
@@ -511,7 +513,7 @@
   }
 
   function toggleMobile() {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
+    document.getElementById('mobile-menu').classList.toggle('open');
   }
 
   var activeDD = null;
@@ -539,7 +541,7 @@
   });
 
   function closeMobile() {
-    document.getElementById('mobile-menu').classList.add('hidden');
+    document.getElementById('mobile-menu').classList.remove('open');
   }
 </script>
 </body>
