@@ -158,7 +158,7 @@
         We find the <span class="font-semibold underline decoration-rfr-red decoration-4 underline-offset-8">best remote talent</span> for any budget.
       </h1>
       <p class="text-base md:text-lg text-rfr-gray leading-relaxed mb-8" data-editable>
-        Our team uses a combination of job posts, searches, and direct candidate outreach to fill your role. We vigorously vet talent based on our 20+ years experience and your requirements.
+        Our team leverages targeted job postings, our talent network, and direct candidate outreach to find exceptional talent. With over 20 years of recruiting experience, we look beyond the resume to understand each candidate's skills, personality, motivation, and what makes them a great fit for your business.
       </p>
       <div class="flex flex-col sm:flex-row gap-3">
         <a href="#contact" class="bg-rfr-red text-white px-8 py-4 rounded-full text-base font-semibold text-center hover:bg-rfr-red-dark transition-colors" data-editable>
@@ -465,10 +465,10 @@
 <section id="contact" class="scroll-mt-20 px-4 md:px-6 pb-8 md:pb-12 bg-white">
   <div class="max-w-7xl mx-auto bg-rfr-black text-white text-center rounded-3xl px-6 py-20 md:py-28">
     <h2 class="text-4xl md:text-6xl font-medium leading-tight tracking-tight mb-6" data-editable>
-      Tell us about the role.
+      Great hires start with the right strategy.
     </h2>
     <p class="text-white/80 mb-10 text-base md:text-lg leading-relaxed max-w-2xl mx-auto" data-editable>
-      A 30-minute call to work out what you need, what it costs, and whether we're the right people to find it. No scripts, no pressure.
+      Let's get to know your business, team culture, and hiring goals. We'll share our expertise on talent markets, competitive salaries, and recruiting strategies to help you determine the best approach to finding and hiring the right people for your team.
     </p>
     <div class="flex flex-col sm:flex-row gap-3 justify-center">
       <a href="https://calendly.com/greg-remotefirstrecruiting/15min"
@@ -570,6 +570,14 @@
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
+
+  // Paste as plain text so copied fonts, sizes and colors never come along.
+  document.addEventListener('paste', function(e) {
+    if (!editing || !e.target.closest || !e.target.closest('[data-editable]')) return;
+    e.preventDefault();
+    var text = (e.clipboardData.getData('text/plain') || '').replace(/\r/g, '').trim();
+    document.execCommand('insertText', false, text);
+  });
 
   function toggleMobile() {
     document.getElementById('mobile-menu').classList.toggle('open');
